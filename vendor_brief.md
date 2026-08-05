@@ -12,7 +12,7 @@
 
 ## Overview
 
-A commissioning brief to extend the improved eval from P2 — **Benchmark A (FinanceQA)**, re-armed with the published two-stage grader — to **200 fresh items** built by vendor SMEs. Composition: 120 assumption items (the discriminative core), 50 basic, 30 traps (construction is *not* defensible; refusal is correct). Every design requirement traces to a P2 finding: machine-parsable bare-quantity golds (fixes A-4.1/4.3), `accepted_alternatives` multi-reference golds + `assumption_named` (fixes A-2.2, the 55% defensible-alternative finding), last-12-month filings across ≥20 issuers (fixes A-5.5 contamination and A-5.1 single-issuer coverage), and trap items (the P4 overcorrection guard's data source). QA: independent gold recompute (≥90% within-tolerance per batch), gold-item seeding, κ ≥ 0.75 on type tags, no-LLM-for-golds rule.
+Extend **Benchmark A (FinanceQA)** — re-armed with P2's published two-stage grader — to 200 fresh items (120 assumption / 50 basic / 30 trap) across ≥20 issuers. Every design requirement below traces to a P2 finding, and the trap-item grading borrows **Benchmark B (PRBench)**'s one transferable design idea: explicit negative checks that penalize harmful behavior (here, confidently constructing a number the data cannot support).
 
 ## What you are building
 

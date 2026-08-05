@@ -13,6 +13,7 @@ Four modes. The first is the important one: it is the largest, the only one that
 - [Mode 2 — Silent convention substitution](#mode-2--silent-convention-substitution)
 - [Mode 3 — Structural slips in multi-step deal math](#mode-3--structural-slips-in-multi-step-deal-math)
 - [Mode 4 — Statement-mechanics pattern-matching](#mode-4--statement-mechanics-pattern-matching)
+- [Corroboration from Benchmark B (PRBench-Finance)](#corroboration-from-benchmark-b-prbench-finance)
 - [What the taxonomy says as a whole](#what-the-taxonomy-says-as-a-whole)
 
 ## Overview
@@ -78,6 +79,10 @@ A four-mode taxonomy of how Claude fails at finance-practitioner work, distilled
 - **Row 137** (Haiku, conceptual): $100 write-down at 20% tax. Gold: net income −80, **cash +20** (add-back exceeds NI hit). Output concludes "net cash impact **−$80**" — sign-flips the cash consequence its own line items imply.
 
 ---
+
+## Corroboration from Benchmark B (PRBench-Finance)
+
+The taxonomy was built on Benchmark A's short-answer items; the Benchmark B probe baseline offers a small out-of-format check. Judging 15 single-turn PRBench items (Sonnet 4.6 responses, 226 expert criteria, replica protocol) and counting unsatisfied *positive* criteria by category: **Process Transparency & Auditability goes unmet 69%** of the time (9/13) and **Handling Uncertainty 45%** (5/11) — against 49% for Financial Accuracy. The pattern rhymes with Modes 1–2: in open-ended advice, the model's weakest criteria are exactly the show-your-assumptions and name-your-convention behaviors, not the calculations. (It also matches PRBench's own paper, which reports process transparency as models' worst category.) Caveats stated plainly: n = 15 items and one mid-tier model, judged by our replica of the protocol rather than Scale's judge — a rhyme, not a replication.
 
 ## What the taxonomy says as a whole
 
