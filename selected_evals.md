@@ -17,6 +17,8 @@ An eval is a measurement instrument, and instrument quality is relative to a que
 | C5 | Public | Are the items, golds, and harness public enough to rerun and re-grade? | Private items; harness-only releases | FinanceBench (150 of 10,231); Rivet TaxBench (nothing) |
 | C6 | Freshness | How exposed is the answer key, and does the item set get refreshed? | Answers on HF for years; eval set = public set; dead repo | FinQA (answers public since 2021); FinanceQA (answers + CoT public since 2025-01); positive case: TaxCalcBench's annual tax-year refresh |
 
+**C1 rating anchors** (used in the landscape table): `high` — a practitioner would recognize the item as *their job*: the item is itself a work product or professional task (hand-spreading, a full tax return, client advice, workflow modeling). `med` — a real sub-step of professional work but a proxy, not a deliverable (numeric QA over real filings, single-number retrieval, atomic formula edits): practitioners do the *action*, but no role consists of it. `low` — not practitioner work at all (exam recall, crowdsourced questions, synthetic reasoning chains, generic rule-following). This is an author-judgment rating with no second rater; the operational upgrade is the P5 qualification screen — ask a qualified practitioner "is this your job?" and replace the three levels with an answer rate.
+
 No public finance eval passes all six; the landscape table carries these criteria as columns C1–C6 so the trade-offs are visible per row. For *selection* (which eval rewards deep study), a candidate needed high marks on C1 and C5 and *fixable* failures in between — a flaw you can measure and repair is an asset for P2, not a defect.
 
 ### Beyond criteria
