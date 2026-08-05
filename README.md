@@ -2,6 +2,13 @@
 
 A survey, critique, runnable improvement, and failure analysis of public finance benchmarks, centered on **FinanceQA** (AfterQuery, 2025) with **PRBench-Finance** (Scale AI, 2025) as the contrast case.
 
+## Contents
+
+- [What's in each file](#whats-in-each-file)
+- [Run the P2 improvement in one command](#run-the-p2-improvement-in-one-command)
+- [`benchmarks/` — the surveyed evals, verbatim](#benchmarks--the-surveyed-evals-verbatim)
+- [One thing we chose not to do, and why](#one-thing-we-chose-not-to-do-and-why)
+
 ## What's in each file
 
 | file | part | contents |
