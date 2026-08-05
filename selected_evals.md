@@ -4,9 +4,27 @@
 
 **How to read this file.** The bulk of it is a map: what public finance evals exist, organized by the practitioner work they simulate. At the end we pick **two** — FinanceQA and PRBench-Finance — to take forward into P2–P4. That choice is a *sampling* decision (which instruments are most productive to study and improve inside a 24-hour budget), not a ranking; most evals here are good measurements of *something*, and the per-eval notes try to say what.
 
-## What "a good eval" means here
+## Benchmark selection criteria
 
-An eval is a measurement instrument, and instrument quality is relative to a question. Ours is the practitioner question: *does this benchmark measure work a finance professional actually does, in a way we can trust and reproduce?* That decomposes into five properties: (1) **task validity** — items resemble practitioner work, not a proxy like exam recall; (2) **grader trustworthiness** — the score means what it claims, with known error against human judgment; (3) **headroom** — frontier models don't saturate it; (4) **reproducibility** — public data plus a runnable harness; (5) **contamination status** — we know how long the answer key has been public. No public finance eval has all five; the notes below flag which each one trades away.
+An eval is a measurement instrument, and instrument quality is relative to a question. Ours is the practitioner question: *does this benchmark measure work a finance professional actually does, in a way we can trust and reproduce?* We screened every candidate against seven criteria:
+
+| # | Criterion | The question it asks | Failure looks like | Example from this survey |
+|---|---|---|---|---|
+| 1 | Task validity | Do items resemble work a practitioner actually does? | Exam recall, crowdsourced lookup | CFA mocks (saturated credential recall); TAT-QA (crowdsourced) |
+| 2 | Construct isolation | Does the score measure the model — or the scaffold around it? | Tool-stack / retrieval confound | FinanceBench's 81%-wrong headline (RAG system + model jointly); Vals FA tool stack |
+| 3 | Gold-label quality | Are golds unambiguous, noise-checked, and convention-complete? | Single gold where professionals legitimately disagree | FinQA (Aiera could verify only 91 items); FinanceQA (our P2: 55% of "wrong" answers used a defensible alternative convention) |
+| 4 | Grader trustworthiness | Is the grading mechanism published, and how far is it from human judgment? | Unpublished manual process; judge agreement unknown | FinanceQA (no grader code ever shipped); PRBench (judge κ = 0.603) |
+| 5 | Headroom & discrimination | Does it still separate frontier tiers? | Ceiling effects; flat tier ladders | CFA at 97.6%; our naive-EM baseline scoring every tier 0 = 0 = 0 |
+| 6 | Coverage & representativeness | How much of the scenario space does the item sample span? | Single issuer / single document / single filing style | FinanceQA (all 84 tactical items from one Costco 10-K) |
+| 7 | Reproducibility & contamination | Public data + runnable harness? How long has the answer key been public? Is the eval set the public set? | Private items; dead repos; answers on HF for a year | FinanceBench (150 of 10,231 public); FinanceQA (answers + CoT public since 2025-01, public set = eval set) |
+
+No public finance eval passes all seven; the landscape table flags what each one trades away. For *selection* (which eval rewards deep study), a candidate needed high marks on 1 and 7 and *fixable* failures on the middle rows — a flaw you can measure and repair is an asset for P2, not a defect.
+
+### Are these criteria good enough? A self-review
+
+Honest answer: the list started as five, and reviewing our own rejection one-liners exposed two criteria we were *using* but hadn't named — **construct isolation** (it did the work of rejecting FinanceBench and Vals FA) and **coverage** (it is FinanceQA's biggest liability and appears in our own P2 caveats). Both are now rows 2 and 6; the lesson stands that stated criteria should be audited against revealed choices.
+
+Four things are still knowingly absent. (a) **Statistical power**: item counts bound what a score can mean — FinanceQA's assumption subset is n=46, so single-model scores carry roughly ±10pp of binomial noise at 95%; none of our criteria screens for n. (b) **Run-to-run consistency**: a model's score on one pass is not its score (Rivet's pass@1→pass^5 collapse; τ³'s pass^k); no criterion demands it. (c) **Maintenance cadence**: whether anyone refreshes items or the repo is dead — predicts contamination trajectory, not just current state. (d) **Cost-to-run**. We accept these gaps because this is a *selection* rubric, not a certification rubric: (a) and (b) are properties our P2/P5 work is designed to fix in the selected eval, and screening on them would have emptied the candidate pool — no public analyst-workflow eval today passes either.
 
 ## Axes of comparison
 
@@ -89,7 +107,7 @@ FinanceQA's measurement risk is *format confounds and grading noise* on verifiab
 
 ### Considered and rejected, one line each
 
-Fuller context for every entry is in the cluster tables above; this is the explicit cut list. "Rejected" means *not taken forward for deep study* — a fit judgment against the five properties and the 24-hour budget, not a quality verdict.
+Fuller context for every entry is in the cluster tables above; this is the explicit cut list. "Rejected" means *not taken forward for deep study* — a fit judgment against the selection criteria and the 24-hour budget, not a quality verdict.
 
 | Eval | One-line reason not taken forward |
 |---|---|
