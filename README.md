@@ -17,9 +17,9 @@ Files carry `P1.`–`P5.` ordering prefixes; they are the assignment's `selected
 |---|---|---|
 | `P1.selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, four deep dives, and the P2 target selection |
 | `P2.claude_run_eval_improvement.md` | P2 | Two benchmarks, each critique → runnable improvement → validity measurement: FinanceQA (the missing grader, rebuilt and validated) and PRBench-Finance (judge hack-resistance probe + hardened protocol) |
-| `P3.failure_modes.md` | P3 | Named taxonomy of how Claude fails on finance-practitioner tasks, with item-level evidence from the P2 runs |
-| `P4.leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude: intervention, pipeline stage, cost, and the measurement that confirms it worked |
-| `P5.vendor_brief.md` | P5 | One-page commissioning brief to extend the improved eval to ~200 items via a vendor |
+| `P3.failure_modes.md` | P3 | Named failure-mode taxonomy, split per benchmark: four modes from Benchmark A's graded runs, and Benchmark B's rubric-scale failure profile reproducing their signature |
+| `P4.leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude — Benchmark A carries the finding, intervention, and primary measurement; Benchmark B carries the transfer measurement |
+| `P5.vendor_brief.md` | P5 | One-page commissioning brief extending Benchmark A to ~200 items via a vendor, with the design rules imported from Benchmark B stated separately |
 | `p2/` | P2 code | `financeqa/` (runner, graders, probes, human labels, results) and `prbench/` (padding attack, judge protocols, results) — each with its own `run_all.sh` |
 
 ## Run the P2 improvements in one command
