@@ -21,33 +21,34 @@ An eval is a measurement instrument, and instrument quality is relative to a que
 
 Rows are every eval surveyed; columns are the comparison axes. Two columns use controlled vocabularies so the table sorts cleanly — **Authorship**: `experts` (practitioner/SME-written), `crowdsourced`, `derived` (built from another dataset), `forum-scraped`, `researchers`, `synthetic` (template-generated), `vendor-internal`, `exam-vendor`; **Grader**: `deterministic` (exact/program/field/cell match), `rubric+judge` (expert rubric scored by an LLM), `human` (manual, unpublished process), `judge-vs-gold` (LLM judge against a gold answer), `mixed`. Full per-eval facts and the raw data are in [`benchmarks/`](benchmarks/README.md); reasons for each cut are in the rejected list below.
 
-| Eval | Year | Task type | Scenario coverage | Size | Authorship | Grader | Best frontier score | Fully public? | Taken forward |
-|---|---|---|---|---|---|---|---|---|---|
-| FinQA | 2021 | Disclosure numeric QA | S&P 500 earnings reports, FY1999–2019 | 8,281 | experts | deterministic | saturating; labels noisy | yes (+ answers since 2021) | no |
-| TAT-QA | 2021 | Hybrid table+text QA | 2,757 report snippets, mixed issuers | 16,552 q | crowdsourced | deterministic | — | yes | no |
-| ConvFinQA | 2022 | Disclosure QA, multi-turn | Same corpus, simulated dialogues | 14,115 q | derived | deterministic | — | yes | no |
-| CFA mock suites | 2023–25 | Credential exams | CFA Levels I–III mock questions | 980 q (latest) | exam-vendor | deterministic (MCQ) | **97.6% — saturated** | mixed | no |
-| FinanceBench | 2023 | Open-book filing QA | US public filings (10-K/10-Q/8-K), 40 companies | 10,231 (150 public) | experts | human | 81% wrong-or-refused (GPT-4T+RAG) | no | no |
-| DocFinQA | 2024 | Long-context numeric QA | Full filings (~123k words/item) | 7,437 | derived | deterministic | — | yes | no |
-| SpreadsheetBench v1 | 2024 | Excel formula edits | Atomic single-cell/formula tasks | 912 q | forum-scraped | deterministic | — | yes | no |
-| **FinanceQA** | **2025** | Analyst hand-spreading | **1 issuer** (Costco FY2024 10-K) + context-free concept qs | 148 | experts | human (**no grader code**) | o3 54.1% | yes (answers incl.) | **yes — P2 target** |
-| FinanceReasoning / FinChain / Fino1 | 2025 | Academic reasoning chains | Numeric finance problems / 58 synthetic topics | 2,238 / synthetic / suite | researchers, synthetic | deterministic | 89.1% | yes | no |
-| FinSearchComp | 2025 | Agentic financial search | Time-sensitive + historical search, global + Greater China | 635 q | experts | mixed | — | yes | no |
-| **PRBench-Finance** | **2025** | Open-ended professional advice | 13 practitioner topics: corp fin, cross-border tax, risk, markets, wealth | 600 (+300 hard) | experts | rubric+judge (κ=0.603) | ≈0.55 | yes | **yes** |
-| PRBench-Legal | 2025 | Professional advice | Legal practice (contrast domain) | 500 | experts | rubric+judge | 0.37 (hard) | yes | no (wrong domain) |
-| RuleArena | 2025 | Rule-following | Tax as 1 of 3 generic rule scenarios | 816 problems | researchers | deterministic | — | yes | no |
-| TaxCalcBench v1/v2 | 2025/26 | Tax-return preparation | US individual returns, TY24 federal + TY25 states, PDF inputs | 51 + 50 returns | vendor-internal | deterministic (line-by-line) | <⅓ strict correct | yes | near-miss |
-| Vals Finance Agent | 2025 | Agentic filing research | Recent SEC filings, 9 task categories, tool stack | 537 q | experts | judge-vs-gold | 58.6% (v2) | partially | no |
-| BigFinanceBench | 2026 | Open-ended research tasks | Financial-research questions across issuers | 928 (50 public) | experts | rubric+judge | 58.8% | no | no |
-| BlueFin | 2026 | Financial spreadsheet agent | Build/modify/comprehend financial workbooks | 131 tasks | researchers | rubric+judge (α=0.826) | <50% | yes | no |
-| FinRetrieval | 2026 | Agentic data retrieval | Single-number lookups, 6 statement categories, global issuers | 500 q | vendor-internal | deterministic | 90.8% w/ vendor MCP | yes | no |
-| Rivet TaxBench | 2026 | Professional tax work | 250+ real client scenarios, CPA-validated | 500+ prompts | vendor-internal | deterministic (pass@1 & pass^5) | <50% pass^5 everywhere | **no** | no |
-| SpreadsheetBench 2 | 2026 | Workflow-level modeling | Real filings → multi-sheet models (avg 11.8 sheets) | 321 tasks | experts | deterministic (via agent scaffold) | — | yes | near-miss |
+| # | Eval | Year | Task type | Scenario coverage | Size | Authorship | Grader | Best frontier score | Fully public? | Taken forward |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | FinQA | 2021 | Disclosure numeric QA | S&P 500 earnings reports, FY1999–2019 | 8,281 | experts | deterministic | saturating; labels noisy | yes (+ answers since 2021) | no |
+| 2 | TAT-QA | 2021 | Hybrid table+text QA | 2,757 report snippets, mixed issuers | 16,552 q | crowdsourced | deterministic | — | yes | no |
+| 3 | ConvFinQA | 2022 | Disclosure QA, multi-turn | Same corpus, simulated dialogues | 14,115 q | derived | deterministic | — | yes | no |
+| 4 | CFA mock suites | 2023–25 | Credential exams | CFA Levels I–III mock questions | 980 q (latest) | exam-vendor | deterministic (MCQ) | **97.6% — saturated** | mixed | no |
+| 5 | FinanceBench | 2023 | Open-book filing QA | US public filings (10-K/10-Q/8-K), 40 companies | 10,231 (150 public) | experts | human | 81% wrong-or-refused (GPT-4T+RAG) | no | no |
+| 6 | DocFinQA | 2024 | Long-context numeric QA | Full filings (~123k words/item) | 7,437 | derived | deterministic | — | yes | no |
+| 7 | SpreadsheetBench v1 | 2024 | Excel formula edits | Atomic single-cell/formula tasks | 912 q | forum-scraped | deterministic | — | yes | no |
+| 8 | **FinanceQA** | **2025** | Analyst hand-spreading | **1 issuer** (Costco FY2024 10-K) + context-free concept qs | 148 | experts | human (**no grader code**) | o3 54.1% | yes (answers incl.) | **yes — P2 target** |
+| 9 | FinanceReasoning / FinChain / Fino1 | 2025 | Academic reasoning chains | Numeric finance problems / 58 synthetic topics | 2,238 / synthetic / suite | researchers, synthetic | deterministic | 89.1% | yes | no |
+| 10 | FinSearchComp | 2025 | Agentic financial search | Time-sensitive + historical search, global + Greater China | 635 q | experts | mixed | — | yes | no |
+| 11 | **PRBench-Finance** | **2025** | Open-ended professional advice | 13 practitioner topics: corp fin, cross-border tax, risk, markets, wealth | 600 (+300 hard) | experts | rubric+judge (κ=0.603) | ≈0.55 | yes | **yes** |
+| 12 | PRBench-Legal | 2025 | Professional advice | Legal practice (contrast domain) | 500 | experts | rubric+judge | 0.37 (hard) | yes | no (wrong domain) |
+| 13 | RuleArena | 2025 | Rule-following | Tax as 1 of 3 generic rule scenarios | 816 problems | researchers | deterministic | — | yes | no |
+| 14 | TaxCalcBench v1/v2 | 2025/26 | Tax-return preparation | US individual returns, TY24 federal + TY25 states, PDF inputs | 51 + 50 returns | vendor-internal | deterministic (line-by-line) | <⅓ strict correct | yes | near-miss |
+| 15 | Vals Finance Agent v1/v2 | 2025/26 | Agentic filing research | Recent SEC filings, 9 task categories, tool stack; v2 is a 927-q rebuild, dataset non-public | 537 (v1) / 927 (v2) | experts | judge-vs-gold (v2: jury) | 58.6% (Opus 5, v2 board 2026-08) | partially (harness MIT; v2 items private) | no |
+| 16 | BigFinanceBench | 2026 | Open-ended research tasks | Financial-research questions across issuers | 928 (50 public) | experts | rubric+judge | 58.8% | no | no |
+| 17 | BlueFin | 2026 | Financial spreadsheet agent | Build/modify/comprehend financial workbooks | 131 tasks | researchers | rubric+judge (α=0.826) | <50% | yes | no |
+| 18 | FinRetrieval | 2026 | Agentic data retrieval | Single-number lookups, 6 statement categories, global issuers | 500 q | vendor-internal | deterministic | 90.8% w/ vendor MCP | yes | no |
+| 19 | Rivet TaxBench | 2026 | Professional tax work | 250+ real client scenarios, CPA-validated | 500+ prompts | vendor-internal | deterministic (pass@1 & pass^5) | <50% pass^5 everywhere | **no** | no |
+| 20 | SpreadsheetBench 2 | 2026 | Workflow-level modeling | Real filings → multi-sheet models (avg 11.8 sheets) | 321 tasks | experts | deterministic (via agent scaffold) | — | yes | near-miss |
+| 21 | τ³-Banking (τ-Knowledge) | 2026 | Agentic banking customer service | Retail-banking support over a 698-doc knowledge base; tools discovered from prose (dispute → freeze card → provisional credit chains) | 97 tasks | researchers | deterministic (DB-state; pass^k) | 25.5% pass¹ (paper, Mar 2026) | yes (CC-BY-4.0, tau2-bench dev/tau3 branch) | no |
 
 ### Cross-cutting instruments that don't fit a cluster
 
 - **[FailSafeQA](https://arxiv.org/abs/2502.06329)** (2025) — perturbation-robustness probe (misspelled/incomplete/OCR-degraded finance queries): measures *reliability under messy input*, a dimension every cluster above ignores.
-- **Consistency measurement** — only Rivet's private TaxBench reports pass^k; no public finance eval measures whether a model gives the same answer five times. Given TaxCalcBench's documented run-to-run inconsistency, this is a real hole in public methodology.
+- **Consistency measurement** — pass^k is reported by Rivet's private TaxBench (pass^5) and, publicly, by the τ-bench family including τ³-Banking (pass^k, k≤4). No *analyst-workflow* eval measures whether a model gives the same answer five times, despite TaxCalcBench's documented run-to-run inconsistency — still a hole for the clusters this survey centers on.
 
 ## Use cases with no public benchmark coverage
 
@@ -104,7 +105,8 @@ Fuller context for every entry is in the cluster tables above; this is the expli
 | BlueFin | Young, small, agent-scaffold-dependent, no clear owning institution. |
 | CFA mock suites | Saturated (97.6% on L1); exams measure credential recall, not work product. |
 | FinanceReasoning / FinChain / Fino1 | Academic reasoning-chain benchmarks; FinChain is synthetic; low task validity. |
-| Vals Finance Agent | Practitioner-authored but confounds model with a web-search/EDGAR tool stack at ~$3.79/query. |
+| Vals Finance Agent v1/v2 | Practitioner-authored but confounds model with a web-search/EDGAR tool stack; v2's 927 items are not publicly downloadable. |
+| τ³-Banking (τ-Knowledge) | Excellent instrument design (deterministic DB-state grading, pass^k, open CC-BY-4.0) — but it measures banking *customer service* conversations, not analyst work; the design ideas feed our P5 brief, the task domain doesn't fit. |
 | BigFinanceBench | Strongest rejected candidate — rubric-grades the derivation — but only 50 of 928 items are public, so its grader can't be studied from outside. |
 | FinSearchComp | Measures search execution more than financial reasoning. |
 | PRBench-Legal | Same instrument as our pick, wrong profession. |
