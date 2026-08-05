@@ -15,6 +15,21 @@ MODELS = ["claude-haiku-4-5", "claude-sonnet-4-6", "claude-opus-4-6"]
 MAX_TOKENS = 1500
 
 
+def create_with_retry(client, **kwargs):
+    """Retry transient API failures (529 overloaded, 429, 5xx) with backoff."""
+    for attempt in range(6):
+        try:
+            return client.messages.create(**kwargs)
+        except (anthropic.APIStatusError, anthropic.APIConnectionError) as e:
+            status = getattr(e, "status_code", None)
+            if status is not None and status < 429:
+                raise
+            wait = min(2 ** attempt * 5, 120)
+            print(f"[retry] {type(e).__name__} (status {status}), sleeping {wait}s")
+            time.sleep(wait)
+    raise RuntimeError("API still failing after 6 retries")
+
+
 def main():
     items = [json.loads(l) for l in open(ITEMS)]
     done = set()
@@ -27,8 +42,8 @@ def main():
             for item in items:
                 if (item["task"], model) in done:
                     continue
-                resp = client.messages.create(
-                    model=model, max_tokens=MAX_TOKENS,
+                resp = create_with_retry(
+                    client, model=model, max_tokens=MAX_TOKENS,
                     messages=[{"role": "user", "content": item["prompt"]}],
                 )
                 text = "".join(b.text for b in resp.content if b.type == "text")

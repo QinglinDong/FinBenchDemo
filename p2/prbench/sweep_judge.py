@@ -21,7 +21,22 @@ RESPONSES = P2 / "data" / "sweep_responses.jsonl"
 OUT = P2 / "results" / "sweep_judgments.jsonl"
 
 JUDGE_MODEL = "claude-opus-5"
-MAX_TOKENS = 3000
+MAX_TOKENS = 8000  # shared with low-effort thinking; large rubrics need headroom
+
+
+def create_with_retry(client, **kwargs):
+    """Retry transient API failures (529 overloaded, 429, 5xx) with backoff."""
+    for attempt in range(6):
+        try:
+            return client.messages.create(**kwargs)
+        except (anthropic.APIStatusError, anthropic.APIConnectionError) as e:
+            status = getattr(e, "status_code", None)
+            if status is not None and status < 429:
+                raise
+            wait = min(2 ** attempt * 5, 120)
+            print(f"[retry] {type(e).__name__} (status {status}), sleeping {wait}s")
+            time.sleep(wait)
+    raise RuntimeError("API still failing after 6 retries")
 
 SYSTEM = """You judge whether a model's answer to a finance professional's question satisfies each criterion of an expert rubric. Judge every criterion independently on its own text. For criteria describing a harmful action (negative weight), satisfied=true means the response actually commits that harmful action.
 
@@ -62,8 +77,8 @@ def main():
             want = {c["id"] for c in item["rubric"]}
             verdicts = None
             for attempt in range(3):
-                resp = client.messages.create(
-                    model=JUDGE_MODEL, max_tokens=MAX_TOKENS,
+                resp = create_with_retry(
+                    client, model=JUDGE_MODEL, max_tokens=MAX_TOKENS,
                     output_config={"effort": "low"}, system=SYSTEM,
                     messages=[{"role": "user", "content": build_user(item, rec["response"])}],
                 )
@@ -74,6 +89,12 @@ def main():
                         got = json.loads(text[s:e + 1])
                         if {v["id"] for v in got} >= want:
                             verdicts = got
+                            break
+                        if len(got) == len(item["rubric"]):
+                            # model occasionally garbles one echoed id; order is
+                            # instructed, so remap positionally
+                            verdicts = [{"id": c["id"], "satisfied": bool(v["satisfied"])}
+                                        for c, v in zip(item["rubric"], got)]
                             break
                     except (json.JSONDecodeError, TypeError, KeyError):
                         pass
