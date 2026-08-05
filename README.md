@@ -6,7 +6,7 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 
 | file | part | contents |
 |---|---|---|
-| `selected_evals.md` | P1 | The finance-benchmark landscape (6 clusters + coverage gaps), comparison axes, and the two evals taken forward for deep study |
+| `selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, five deep dives, and the two-eval down-select for P2 |
 | `claude_run_eval_improvement.md` | P2 | Critique of FinanceQA (unpublished grader, format confound, ambiguous gold labels, contamination, single-document base), the improvement — a published two-stage grader — and the validity measurements (format-invariance probe, grader-vs-human agreement, tier separation) |
 | `failure_modes.md` | P3 | Named taxonomy of how Claude fails on finance-practitioner tasks, with item-level evidence from the P2 runs |
 | `leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude: intervention, pipeline stage, cost, and the measurement that confirms it worked |
