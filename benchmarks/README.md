@@ -1,6 +1,6 @@
 # benchmarks/ — the deep-dived evals (and one demotion exhibit), verbatim
 
-Raw, unmodified official data for the four evals deep-dived in `../selected_evals.md`, downloaded 2026-08-04/05 so every P1 claim can be checked against the primary artifact. Item counts were verified by loading each file.
+Raw, unmodified official data for the four evals deep-dived in `../P1.selected_evals.md`, downloaded 2026-08-04/05 so every P1 claim can be checked against the primary artifact. Item counts were verified by loading each file.
 
 | dir | eval (deep dive) | contents | items | license | source |
 |---|---|---|---|---|---|
