@@ -36,4 +36,15 @@ Raw official data for the four deep-dived evals plus the BlueFin public sample k
 
 ## What we chose not to do, and why
 
-One deliberate omission, chosen because it is the deepest methodological caveat in the repo — every LLM verdict here is Claude judging Claude: see `not_done.md`. Smaller scope choices are documented inline where they arose (P1 Limits, P2 scope notes and TBD cells).
+**No cross-family judge — every LLM verdict here is Claude judging Claude.** Both places an LLM produces verdicts — Benchmark A's adjudicator (claude-opus-5 grading Haiku/Sonnet/Opus 4.6 responses) and Benchmark B's probe + sweep judges (claude-opus-5 scoring all 600 sweep responses) — use a judge from the same model family as the graded models. Same-family judges can prefer their relatives' phrasing and conventions (self-preference bias), inflating absolute scores and potentially tilting tier gaps.
+
+The constraint: the provided key is Anthropic-only. What we did inside it:
+
+- The judge is at least a *different model* from every graded model — no exact self-grading.
+- For Benchmark A, the 63-pair blind human adjudication is the family-agnostic check: κ = 0.840 bounds how much family bias can distort that instrument. Benchmark B's probe has no human pass; its conclusions are stated as judge-conditional.
+- What survives with no judge at all (computed, P2 §Judge-independence): 160/444 verdicts are purely deterministic, and the assumption-subset ladder — the repo's headline numbers — is **100% judge-free** (6.5/13.0/17.4%).
+- The judge performs reference-anchored *verification* (against gold + gold CoT), not open preference judging, and the probe's Δ is a same-judge contrast in which family bias differences out.
+
+The fix is one afternoon with a second vendor's key: rerun `p2/financeqa/grade.py` and `p2/prbench/run_probe.py` with a non-Claude judge (~$15), report per-judge κ against the same human labels, and read the judge-disagreement items.
+
+Smaller scope choices are documented where they arose: run-to-run consistency (P2 check 4.5 TBD), the deferred Stage-1 grader fix (P2 §A3), the untested content-aware padding attack (P2 §B3), the per-domain economic weighting (P1 Limits).
