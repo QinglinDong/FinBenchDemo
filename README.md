@@ -13,7 +13,7 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 
 | file | part | contents |
 |---|---|---|
-| `P1.selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, five deep dives, and the P2 target selection |
+| `P1.selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, four deep dives, and the P2 target selection |
 | `P2.claude_run_eval_improvement.md` | P2 | Critique of FinanceQA (unpublished grader, format confound, ambiguous gold labels, contamination, single-document base), the improvement — a published two-stage grader — and the validity measurements (format-invariance probe, grader-vs-human agreement, tier separation) |
 | `P3.failure_modes.md` | P3 | Named taxonomy of how Claude fails on finance-practitioner tasks, with item-level evidence from the P2 runs |
 | `P4.leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude: intervention, pipeline stage, cost, and the measurement that confirms it worked |
@@ -30,7 +30,7 @@ Details, per-step breakdown, and expected outputs: bottom section of `P2.claude_
 
 ## `benchmarks/` — the surveyed evals, verbatim
 
-Raw official data for the five deep-dived evals (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin public sample), downloaded unmodified so every P1 claim traces to a primary artifact. Catalog with counts and licenses: `benchmarks/README.md`.
+Raw official data for the four deep-dived evals plus the BlueFin public sample kept as demotion evidence (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin), downloaded unmodified so every P1 claim traces to a primary artifact. Catalog with counts and licenses: `benchmarks/README.md`.
 
 ## One thing we chose not to do, and why
 

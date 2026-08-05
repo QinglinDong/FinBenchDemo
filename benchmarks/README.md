@@ -1,6 +1,6 @@
-# benchmarks/ — the five deep-dived evals, verbatim
+# benchmarks/ — the deep-dived evals (and one demotion exhibit), verbatim
 
-Raw, unmodified official data for the five evals deep-dived in `../P1.selected_evals.md`, downloaded 2026-08-04/05 so every P1 claim can be checked against the primary artifact. Item counts were verified by loading each file.
+Raw, unmodified official data for the four evals deep-dived in `../P1.selected_evals.md`, downloaded 2026-08-04/05 so every P1 claim can be checked against the primary artifact. Item counts were verified by loading each file.
 
 | dir | eval (deep dive) | contents | items | license | source |
 |---|---|---|---|---|---|
@@ -8,7 +8,7 @@ Raw, unmodified official data for the five evals deep-dived in `../P1.selected_e
 | `prbench/` | PRBench-Finance (DD2) | `finance.parquet`, `finance_hard.parquet` — full expert rubrics, 48 cols (the legal split is not mirrored: out of survey scope) | 600 / 300 | CC-BY-4.0 | [HF: ScaleAI/PRBench](https://huggingface.co/datasets/ScaleAI/PRBench) |
 | `taxcalcbench/` | TaxCalcBench v1+v2 (DD3) | `repo/` — full source incl. all test cases and the deterministic line-by-line grader. Upstream's own model-run `results/` dirs (~240 MB of their eval outputs, not benchmark data) and `.git` removed. | 51 (ty24) + 50 (ty25) returns | MIT | [GitHub: column-tax/tax-calc-bench](https://github.com/column-tax/tax-calc-bench) |
 | `spreadsheetbench2/` | SpreadsheetBench 2 (DD4) | `repo/` — evaluation code + agent scaffold; `data_example_05_11.zip` — official example tasks. The full task set (`spreadsheetbench-v2.zip`, 128 MB) exceeds GitHub's 100 MB file limit — restore with `curl -L https://huggingface.co/datasets/KAKA22/SpreadsheetBench-v2/resolve/main/spreadsheetbench-v2.zip -o spreadsheetbench2/spreadsheetbench-v2.zip` | 321 tasks (full set) | MIT | [GitHub: RUCKBReasoning/SpreadsheetBench-2](https://github.com/RUCKBReasoning/SpreadsheetBench-2) · [HF: KAKA22/SpreadsheetBench-v2](https://huggingface.co/datasets/KAKA22/SpreadsheetBench-v2) |
-| `bluefin/` | BlueFin (DD5) | `interrogation.parquet`, `manipulation.parquet`, `synthesis.parquet` + upstream README. **The release is explicitly a "Public Set": 11 of the paper's 131 tasks** (3 interrogation questions / 7 manipulation / 1 synthesis) — the finding that demoted BlueFin's C5 to *partial* in P1. | 11 public of 131 | CC-BY-NC-4.0 | [HF: Longitude-Labs/bluefin-release](https://huggingface.co/datasets/Longitude-Labs/bluefin-release) · [GitHub: Longitude-Labs/bluefin](https://github.com/Longitude-Labs/bluefin) |
+| `bluefin/` | BlueFin (demoted candidate — this download is the evidence) | `interrogation.parquet`, `manipulation.parquet`, `synthesis.parquet` + upstream README. **The release is explicitly a "Public Set": 11 of the paper's 131 tasks** (3 interrogation questions / 7 manipulation / 1 synthesis) — the finding that demoted BlueFin's C5 to *partial* in P1. | 11 public of 131 | CC-BY-NC-4.0 | [HF: Longitude-Labs/bluefin-release](https://huggingface.co/datasets/Longitude-Labs/bluefin-release) · [GitHub: Longitude-Labs/bluefin](https://github.com/Longitude-Labs/bluefin) |
 
 **License note:** BlueFin's public set is CC-BY-**NC**-4.0 (non-commercial) — inspection and research use only; do not fold it into commercial pipelines or training data.
 
