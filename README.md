@@ -36,4 +36,4 @@ Raw official data for the four deep-dived evals plus the BlueFin public sample k
 
 ## What we chose not to do, and why
 
-Six deliberate omissions with reasons — cross-family judge validation first: see `not_done.md`.
+Five deliberate omissions with reasons — cross-family judge validation first: see `not_done.md`.
