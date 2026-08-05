@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent / "data"
-SOURCE_CSV = Path(__file__).parent.parent / "benchmarks" / "financeqa" / "test.csv"
+SOURCE_CSV = Path(__file__).parent.parent.parent / "benchmarks" / "financeqa" / "test.csv"
 
 
 def main():
