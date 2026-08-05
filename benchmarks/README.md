@@ -12,7 +12,7 @@ Raw, unmodified official data for the four evals deep-dived in `../P1.selected_e
 
 **License note:** BlueFin's public set is CC-BY-**NC**-4.0 (non-commercial) — inspection and research use only; do not fold it into commercial pipelines or training data.
 
-## Previously mirrored, removed when the survey down-scoped to the five deep dives
+## Previously mirrored, removed when the survey down-scoped to the deep-dive set
 
 Each is one `curl`/`git clone` away if needed again: FinQA ([GitHub: czyssrs/FinQA](https://github.com/czyssrs/FinQA), MIT), Aiera finqa-verified ([HF](https://huggingface.co/datasets/Aiera/finqa-verified)), FinanceBench open sample ([GitHub: patronus-ai/financebench](https://github.com/patronus-ai/financebench), CC-BY-NC-4.0), FinRetrieval ([HF: daloopa/finretrieval](https://huggingface.co/datasets/daloopa/finretrieval), MIT), BigFinanceBench public subset ([HF: RogoAI/big-finance-benchmark](https://huggingface.co/datasets/RogoAI/big-finance-benchmark), CC-BY-4.0, carries `do_not_train` + canary flags).
 
