@@ -18,11 +18,18 @@ An eval is a measurement instrument, and instrument quality is relative to a que
 
 No public finance eval passes all five; the landscape table carries these criteria as columns so the trade-offs are visible per row. For *selection* (which eval rewards deep study), a candidate needed high marks on 1 and 5 and *fixable* failures on the middle rows — a flaw you can measure and repair is an asset for P2, not a defect.
 
-### Are these criteria good enough? A self-review
+### Beyond criteria
 
-Two candidate criteria were considered and deliberately excluded. **Construct isolation** (does the score measure the model or the scaffold?) was dropped because agentic harnesses are increasingly part of the capability being measured — practitioner work *is* tool-assisted, and penalizing the scaffold would down-rank exactly the evals that probe the agentic frontier (Vals FA, FinSearchComp, τ³). The residual requirement folds into criterion 5: the harness must be published so the scaffold is held fixed across models. **Coverage / representativeness** (how much of the scenario space the items span) was excluded because this is a *quality* screen — coverage is a scale property, and buying more of it is precisely what the P5 extension is for; it survives as a descriptive `Scenario` column, not a gate.
+Six more properties are legitimate quality criteria for finance evals. **None of them were used to screen candidates in this demo** — the first two were deliberately excluded (agentic scaffolds are part of the capability being measured, and coverage is a scale property that the P5 extension buys rather than a quality gate), the other four are certification-grade concerns out of scope for a selection rubric; screening on 8–9 would have emptied today's candidate pool entirely.
 
-Four things are still knowingly absent. (a) **Statistical power**: item counts bound what a score can mean — FinanceQA's assumption subset is n=46, so single-model scores carry roughly ±10pp of binomial noise at 95%; no criterion screens for n. (b) **Run-to-run consistency**: a model's score on one pass is not its score (Rivet's pass@1→pass^5 collapse; τ³'s pass^k); no criterion demands it. (c) **Maintenance cadence**: whether anyone refreshes items — predicts contamination trajectory, not just current state. (d) **Cost-to-run**. We accept these gaps because this is a selection rubric, not a certification rubric: (a) and (b) are properties our P2/P5 work is designed to fix in the selected eval, and screening on them would have emptied the candidate pool.
+| # | Criterion (not used here) | The question it asks | Failure looks like | Example from this survey |
+|---|---|---|---|---|
+| 6 | Construct isolation | Does the score measure the model — or the scaffold around it? | Results that don't transfer across harnesses | FinanceBench's 81% is tied to one RAG configuration; Vals FA scores are harness-specific |
+| 7 | Coverage / representativeness | How much of the scenario space does the item sample span? | One issuer generalized to "finance" | FinanceQA: all 84 tactical items from a single Costco 10-K |
+| 8 | Statistical power | Is n large enough for the score to mean anything? | ±10pp confidence intervals read as model differences | FinanceQA's assumption subset is n=46 → roughly ±10pp binomial noise at 95% |
+| 9 | Run-to-run consistency | Is the score stable across repeated runs? | pass@1 ≫ pass^k collapse | Rivet TaxBench drops 40–50pp from pass@1 to pass^5; only the τ-bench family reports pass^k publicly |
+| 10 | Maintenance cadence | Is anyone refreshing items and fixing labels? | Dead repo; contamination status rots | FinanceQA's GitHub untouched since 2025-02 |
+| 11 | Cost-to-run | What does one full evaluation cost? | Too expensive to iterate on | Vals FA v1 at ≈$3.79/query |
 
 ## Axes of comparison
 
