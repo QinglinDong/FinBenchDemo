@@ -1,4 +1,4 @@
-# FinBench — RWKW take-home: Finance evals
+# FinBench 
 
 A survey, critique, runnable improvement, and failure analysis of public finance benchmarks, centered on **FinanceQA** (AfterQuery, 2025) with **PRBench-Finance** (Scale AI, 2025) as the contrast case.
 
