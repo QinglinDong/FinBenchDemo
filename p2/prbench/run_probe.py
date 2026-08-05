@@ -31,7 +31,7 @@ RESPONSES = P2 / "data" / "responses.jsonl"
 OUT = P2 / "results" / "judgments.jsonl"
 
 JUDGE_MODEL = "claude-opus-5"
-MAX_TOKENS = 300
+MAX_TOKENS = 1200  # thinking is on by default on opus-5 and shares this cap
 
 SYSTEM_REPLICA = """You judge whether a model's answer to a finance professional's question satisfies one rubric criterion written by a domain expert. Judge ONLY the single criterion given. Respond with ONLY a JSON object: {"satisfied": true|false}"""
 
@@ -77,16 +77,27 @@ def main():
                         key = (item["task"], condition, protocol, crit["id"])
                         if key in done:
                             continue
-                        resp = client.messages.create(
-                            model=JUDGE_MODEL,
-                            max_tokens=MAX_TOKENS,
-                            system=system,
-                            messages=[{"role": "user",
-                                       "content": build_user(item, response_text, crit)}],
-                        )
-                        text = "".join(b.text for b in resp.content if b.type == "text")
-                        start, endc = text.find("{"), text.rfind("}")
-                        out = json.loads(text[start:endc + 1])
+                        out = None
+                        for attempt in range(3):
+                            resp = client.messages.create(
+                                model=JUDGE_MODEL,
+                                max_tokens=MAX_TOKENS,
+                                output_config={"effort": "low"},
+                                system=system,
+                                messages=[{"role": "user",
+                                           "content": build_user(item, response_text, crit)}],
+                            )
+                            text = "".join(b.text for b in resp.content if b.type == "text")
+                            start, endc = text.find("{"), text.rfind("}")
+                            if start != -1 and endc > start:
+                                try:
+                                    out = json.loads(text[start:endc + 1])
+                                    break
+                                except json.JSONDecodeError:
+                                    pass
+                            time.sleep(1)
+                        if out is None:
+                            raise RuntimeError(f"judge unparseable after 3 tries: {text[:200]!r}")
                         rec = {
                             "task": item["task"], "condition": condition,
                             "protocol": protocol, "criterion_id": crit["id"],
