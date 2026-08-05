@@ -1,0 +1,2092 @@
+row_id,model,question_type,question,gold,gold_chain_of_thought,response,human_verdict,human_note
+6,claude-haiku-4-5,assumption,Compute the adjusted EBITDA Margin for 2024. ,4.70%,"To find adjusted EBITDA margin, we need to find adjusted EBITDA and also find the revenue for 2024. Adjusted EBITDA margin = Adjusted EBITDA / Revenue.
+
+First, finding adjusted EBITDA: To calculate adjusted EBITDA, we should first start with unadjusted EBITDA and make adjustments that make sense, like one-time expenses or operating / variable lease costs since we are classifying them as debt equivalents.
+
+First, let's find unadjusted EBITDA. Step 1: Identify the Formula
+Unadjusted EBITDA = Unadjusted EBIT + Depreciation + Amortization
+
+Step 2: Determine Unadjusted EBIT
+Unadjusted EBIT equals Operating Income. I check the Income Statement, to find the Income Statement of $9,285
+
+Step 3: Find Depreciation and Amortization
+Depreciation and Amortization is found on the Cash Flow Statement. Checking the Cash Flow Statement, I see a Depreciation and amortization line item of $2,237
+
+Step 4: Apply the Formula
+Unadjusted EBITDA = $9,285 + $2,237
+Unadjusted EBITDA = $11,522
+
+The second part is to look for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. We could not find any mentions of those expenses in 2024.
+
+Third, we need to add back operating and variable lease costs in EBITDA. This is because operating and variable leases expenses, which are embedded in merchandise costs or SG&A are composed of interest and depreciation / amortization of their respective asset. Since this is EBITDA, or before interest and depreciation, we can add the whole cost back. We do not need to add-back the amortization and interest of finance leases because the amortization is baked into the D&A expense (2,237), which was already added back. On the other hand, finance lease interest expense is stated to be included in interest expense and merchandise cost; since the allocation is not specificed, we assume that has already been factored into the interest expense line-item and does not need to be added back. 
+
+Adding up everything together (unadjusted EBITDA + operating lease interest expense + variable lease interest expense): 11,522 + 284 + 163 = $11,969 (in millions)
+
+After finding adjusted EBITDA, the second step is finding revenue for 2024, which we can find on the income statement: 254,453
+
+To calculate EBITDA margin, we take adjusted EBITDA / revenue = 11,969 / 254,453 = 4.7% ","# Adjusted EBITDA Margin for 2024
+
+**Calculation:**
+
+1. **Operating Income**: $9,285 million
+2. **Add: Depreciation & Amortization**: $2,237 million
+3. **EBITDA**: $11,522 million
+
+4. **Total Revenue**: $254,453 million
+
+5. **Adjusted EBITDA Margin** = $11,522 / $254,453 = **4.53%**
+
+This represents the company's operating profitability before interest, taxes, depreciation, and amortization as a percentage of total revenue.",,
+9,claude-haiku-4-5,basic,Calculate Operating Profit for 2024.,"$9,285 (in millions)","Step 1: Identify the Formula
+
+Operating Profit = Revenue - COGS - OpEx
+
+Step 2: Find Line Items
+These line items are found in the Income Statement. Checking the Income Statement, I see an Operating income line item of $9,285, which is the same as Operating Profit.
+
+Operating Profit = $9,285 (in millions)","# Operating Profit for 2024
+
+**Operating Income: $9,285 million**
+
+This is calculated as:
+- Total Revenue: $254,453 million
+- Less: Operating Expenses:
+  - Merchandise costs: $222,358 million
+  - Selling, general and administrative: $22,810 million
+- **Operating Income: $9,285 million**",,
+10,claude-haiku-4-5,basic,What is the P/E ratio for 2024 using Basic EPS?,56.66x,"Step 1: Identify the Formula
+
+P/E Ratio = Price per Share / Earnings per Share (EPS) or Net Income / Shares Outstanding
+
+Given specification wasn't provided, I will assume we want basic EPS (which uses Basic Shares Outstanding) and not diluted EPS (uses Diluted Shares Outstanding).
+
+Step 2: Find Price per Share and EPS
+I think it would be easier for me to calculate P/E with Price per Share and EPS, if they are provided.
+
+Price per Share is given to be $940.00. EPS, if provided, will be on the Income Statement, checking there, I see a basic EPS to be $16.59. 
+
+Step 3: Apply the Formula
+
+P/E Ratio = $940.00 / $16.59
+P/E Ratio = 56.66x","# P/E Ratio Calculation for 2024
+
+**P/E Ratio = Stock Price / Basic EPS**
+
+P/E Ratio = $940 / $16.59 = **56.7x**",,
+14,claude-haiku-4-5,assumption,Calculate Enterprise Value for 2024 with the market value of equity. Make sure to hand calculated fully diluted shares outstanding. Assume the only non-operating asset is excess cash.,"$424,216 (in millions)","To calculate enterprise value, we can use the formula for EV = Equity Value + Debt / Debt Equivalents + Preferred Equity + MInority Interest - Excess Cash. We would also subtract any other non-operating assets, and the question lets us assume that the only non-operating asset that needs to be subtracted is excess cash. First, we need to find each of the parts of the formula.
+
+Part 1. Equity Value
+To calculate the market value of equity, we take the price per share and multiply it by fully diluted shares outstanding. 
+Step 1. Calculating Fully Diluted Shares Outstanding (FDSO). 
+Step 1a: Identify the Formula Components
+Fully Diluted Shares Outstanding = Common Stock Outstanding + RSUs (Restricted Stock Units) + PSUs (Performance Shares Outstanding) + Stock Warrants Outstanding (Using Treasury Stock Method) + Convertible Bonds Outstanding (Using Treasury Stock Method) + Stock Options Outstanding (Using Treasury Stock Method)
+Step 1b: Find Common Stock Outstanding
+I can see on the balance sheet that there are 442,793,000 common stock shares outstanding
+Step 1c: Factor in Dilutive Securities
+First I check for RSUs and PSUs. In Note 7—Stock-Based Compensation, I see there are 2,799 RSUs (in thousands) outstanding at the end of 2024. Further, reading the note, I see this count is inclusive of PSUs.
+Next I check for stock warrants, I see nothing in Note 7—Stock-Based Compensation or the Statement of Equity, so I assume Costco has no stock warrants. I similarly check for stock options and see nothing.
+Next I check for convertible bonds, from the Balance Sheet, I see Costco has no preferred stock shares issued or outstanding. 
+Step 1d: Apply the Formula
+Fully Diluted Shares = Common Stock Outstanding + RSUs + PSUs
+Calculation: 442,793,000 + 2,799,000 = 445,592,000
+Step 2. Finding price per share, which is given as $940 / share.
+Therefore, the market value of equity = 445,592,000 * 940 = $418,856 million
+
+Part 2. Debt / Debt Equivalents
+To compute debt and debt equivalents for 2024, we need to add up all forms of debt and equivalents of debt (liabilities that have an interest expense component). We can use a formula to get started: debt = short term or current debt + long term debt + operating lease liabilities + financial lease liabilities + other debt equivalents. 
+
+Step 1: Find Debt
+From the Balance Sheet, we find the current portion of long-term debt is 103 and long-term debt, excluding current portion, is 5,794. Next, is to look for lease liabilities. 
+Step 2: Find Debt-like Liabilities
+From Note 5—Leases, I find total lease liabilities. of 4,052. From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liability in the balance sheet, which means that it is either embedded into other liabilities or not included. Looking at mentions of other current and long-term liability, I find no mention relating to variable lease liabilities, so I assume that it is not in the balance sheet and needs to be added. In order to estimate the variable lease, I need to use the given information, which is variable lease cost. One way to make a comparison is to take the ratio of operating lease costs to variable lease costs to estimate variable lease liability, where variable lease liability = operating lease liability * (variable lease costs / operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85, where operating lease liability is the sum of current operating lease liability and long-term operating lease liability. 
+Step 3: Apply Formula:
+Now we have Debt = ST Debt + LT Debt + operating lease liability + financial lease liability + variable lease liability = 103 + 5,794 + 4,052 + 1,465.85 = $11,414.85 (in millions).
+
+Step 3. Next, looking for mentions of preferred equity. Spotted preferred stock in the income statement, but there are no shares issued.
+
+Step 4. Next, looking for mentions of minority interest or noncontrolling interest. There is a line item in the income statement, stating net income attributable to noncontrolling interests, but in 2024, that number is zero, so we can assume that there is no minority interest. There is no mention of noncontrolling interest or minority interest on the balance sheet.
+
+Part 5. Excess cash and other non-operating assets
+Excess cash can be calculated by taking cash and cash equivalents and subtracting operating cash.
+Step 1. Calculating operating cash. 
+Given operating cash isn't provided, we need to calculate cash and cash equivalents as well as 2% of revenue. First, assume operating cash to be 2% of 2024 Revenue, or 254,453 * 0.02 = 5089.06. 
+Next, To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)
+Since 5089 < 11144, or operating cash is less than cash or cash equivalents, 5089.06 is the operating cash, which is the minimum of the two numbers.
+Step 2. Calculating Excess Cash
+As given before, cash and cash equivalents is 11144, so excess cash is 11144 - 5089 = $6054.94 (in millions)
+
+Putting it all together, EV = (445,592,000 * 940)/100000 + 11,414.85 - 6054.94 = $424,216 (in millions) ","# Enterprise Value Calculation for Costco (2024)
+
+## Step 1: Calculate Fully Diluted Shares Outstanding
+
+**Basic shares outstanding:** 443,914 thousand
+
+**Add: In-the-money options/RSUs:**
+- Outstanding RSUs at end of 2024: 2,799 thousand
+- RSUs vested but not delivered: 908 thousand
+- Total RSU-related shares: 3,707 thousand
+
+**Fully diluted shares:** 443,914 + 3,707 = **447,621 thousand shares**
+
+## Step 2: Calculate Market Value of Equity
+
+**Market Value of Equity = Stock Price × Fully Diluted Shares**
+
+= $940 × 447,621 thousand
+= **$420,763.74 million** or **$420.76 billion**
+
+## Step 3: Calculate Enterprise Value
+
+**Enterprise Value = Market Value of Equity + Total Debt - Excess Cash**
+
+- Market Value of Equity: $420,763.74 million
+- Total Debt (current + long-term): $103 + $5,794 = $5,897 million
+- Total Cash: $9,906 million
+- Excess Cash: $9,906 - (assume minimal operating cash of ~$500): $9,406 million
+
+**Enterprise Value = $420,763.74 + $5,897 - $9,406 = $417,254.74 million**
+
+**Enterprise Value ≈ $417.3 billion**",,
+18,claude-haiku-4-5,assumption,Calculate WACC for 2024.,9.56%,"To calculate WACC, we apply the formula: WACC = Cost of Equity * (% Equity) + Cost of Debt * (% Debt) * (1 - Tax Rate).
+
+Step 1: Calculate Total Debt
+To compute debt and debt equivalents for 2024, we need to add up all forms of debt and equivalents of debt (liabilities that have an interest expense component). We can use a formula to get started: debt = short term or current debt + long term debt + operating lease liabilities + financial lease liabilities + other debt equivalents. 
+
+Step 1a: Find Debt
+From the Balance Sheet, we find the current portion of long-term debt is 103 and long-term debt, excluding current portion, is 5,794. Next, is to look for lease liabilities. 
+Step 1b: Find Debt-like Liabilities
+From Note 5—Leases, I find total lease liabilities. of 4,052. From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liability in the balance sheet, which means that it is either embedded into other liabilities or not included. Looking at mentions of other current and long-term liability, I find no mention relating to variable lease liabilities, so I assume that it is not in the balance sheet and needs to be added. In order to estimate the variable lease, I need to use the given information, which is variable lease cost. One way to make a comparison is to take the ratio of operating lease costs to variable lease costs to estimate variable lease liability, where variable lease liability = operating lease liability * (variable lease costs / operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85, where operating lease liability is the sum of current operating lease liability and long-term operating lease liability. 
+Step 1c: Apply Formula:
+Now we have Debt = ST Debt + LT Debt + operating lease liability + financial lease liability + variable lease liability = 103 + 5,794 + 4,052. + 1,466 = $11,414.85 (in millions).
+Step 2: Calculate Total Equity
+To calculate the market value of equity, we take the price per share and multiply it by fully diluted shares outstanding. 
+Step 2a. Calculating Fully Diluted Shares Outstanding (FDSO). 
+Step 2a.1: Identify the Formula Components
+Fully Diluted Shares Outstanding = Common Stock Outstanding + RSUs (Restricted Stock Units) + PSUs (Performance Shares Outstanding) + Stock Warrants Outstanding (Using Treasury Stock Method) + Convertible Bonds Outstanding (Using Treasury Stock Method) + Stock Options Outstanding (Using Treasury Stock Method)
+Step 2a.2: Find Common Stock Outstanding
+I can see on the balance sheet that there are 442,793,000 common stock shares outstanding
+Step 2a.3: Factor in Dilutive Securities
+First I check for RSUs and PSUs. In Note 7—Stock-Based Compensation, I see there are 2,799 RSUs (in thousands) outstanding at the end of 2024. Further, reading the note, I see this count is inclusive of PSUs.
+Next I check for stock warrants, I see nothing in Note 7—Stock-Based Compensation or the Statement of Equity, so I assume Costco has no stock warrants. I similarly check for stock options and see nothing.
+Next I check for convertible bonds, from the Balance Sheet, I see Costco has no preferred stock shares issued or outstanding. 
+Step 2a.4: Apply the Formula
+Fully Diluted Shares = Common Stock Outstanding + RSUs + PSUs
+Calculation: 442,793,000 + 2,799,000 = 445,592,000
+Step 2b: Find Price per Share and Apply Formula
+Finding price per share, which is given as $940 / share.
+Therefore, the market value of equity = 445,592,000 * 940 = $418,856 million
+
+Step 3: Calculate cost of debt
+Cost of debt is given at 6%
+
+Step 4: Calculate cost of equity
+To calculate Cost of Equity, I will apply the CAPM formula: Cost of Equity = Risk-Free Rate of Return + Beta * (Market Rate of Return - Risk-Free Rate of Return)
+Step 4a: Collect Rates and Beta
+The 10Y Treasury is provided (4.617%) and is a good proxy for the risk free rate. Beta is provided to be 0.79 and the market risk premium is provided at 11%. 
+Step 4b: Apply Formula
+Cost of Equity = 4.617% + 0.79 * (11% - 4.617%)  = 9.66%
+
+Step 5: Apply formula:
+Hence WACC = 9.66%*(418,856/(11,414.85+418,856)) + 6%*(11,414.85/(11,414.85+418,856)) = 9.66%","# WACC Calculation for Costco (2024)
+
+**Given Information:**
+- Stock Price: $940
+- Beta: 0.79
+- Cost of Debt: 6%
+- 10Y Treasury: 4.617%
+- Market Return: 11%
+- Market Risk Premium: 11% - 4.617% = 6.383%
+
+**Step 1: Calculate Cost of Equity (CAPM)**
+Cost of Equity = Risk-free Rate + Beta × Market Risk Premium
+Cost of Equity = 4.617% + 0.79 × 6.383%
+Cost of Equity = 4.617% + 5.043% = **9.66%**
+
+**Step 2: Calculate Market Values**
+- Market Value of Equity = $940 × 443,126,000 shares = **$416,538 million**
+- Market Value of Debt = $5,897 million (approximately $5,919M carrying value)
+- Total Value = $422,435 million
+
+**Step 3: Calculate Weights**
+- Weight of Equity (E/V) = $416,538 / $422,435 = **98.60%**
+- Weight of Debt (D/V) = $5,897 / $422,435 = **1.40%**
+
+**Step 4: Calculate WACC**
+WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 - Tax Rate))
+
+Using effective tax rate of 24.4%:
+WACC = (0.9860 × 9.66%) + (0.0140 × 6% × (1 - 0.244))
+WACC = 9.53% + 0.06% = **9.59%**",,
+23,claude-haiku-4-5,basic,What is the marginal tax rate in 2024?,24.00%,"The marginal tax rate can be calculated by adding up federal, state, and local taxes. In the tax table, federal taxes are at 21% and state taxes are at 3%. There is no line item for local taxes, so the marginal tax rate is 21 + 3 = 24%","# Marginal Tax Rate in 2024
+
+Based on the tax reconciliation table, **Costco's marginal tax rate in 2024 is 21.0%**, which is the federal statutory tax rate.
+
+However, the **effective tax rate in 2024 is 24.4%**, which includes state taxes (3.0%), foreign taxes (1.1%), and other adjustments, partially offset by ESOP benefits (-1.2%).",,
+24,claude-haiku-4-5,assumption,What are the statutory / marginal taxes on adjusted EBIT?,"$2,255 (in millions)","To calculate the statutory taxes, we multiply the marginal tax rate by adjusted EBIT: 
+Step 1: Calculating marginal tax rate: 
+The marginal tax rate can be calculated by adding up federal, state, and local taxes. In the tax table, federal taxes are at 21% and state taxes are at 3%. There is no line item for local taxes, so the marginal tax rate is 21 + 3 = 24%
+
+Step 2: Calculating adjusted EBIT: 
+To calculate adjusted EBIT, we should start with unadjusted EBIT. To get unadjusted EBIT for 2024, we use the formula: EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+Looking for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. Did not find any. 
+
+Looking for other interest expenses that need to be added back. We need to add back operating and variable lease interest expense, since they are embedded in SG&A and merchandise costs (unlike finance interest lease expense, which is included in interest expense). To calculate operating lease expense, we can take the weighted average discount rate of the operating lease and multiply it by the previous year end's operating lease liability. The total operating lease liability from the previous year is the current + long-term, so (220 + 2426 = 2646). Then multiply it by the the weighted-average discount rate of this year, which is 2.67%. 2646 * 2.67% = 70.6482. To calculate variable interest expense, I don't see a line item for variable lease liability nor a weighted average discount rate for variable leases. However, I do see a variable lease cost line item, so I will use the ratio of variable lease costs to operating lease costs to estimate the interest expense. This assumes that the discount rate between the two is equal, which is reasonable because both follow similar rules of an operating lease (both have no ownership of the asset after the lease term). We can take the 70.6482 and multiply it by the ratio of variable lease costs to operating lease costs, so 70.6482 * (163/284) = 40.548. Adding up everything together: 9285 + 40.548 + 70.6482 = 9396.1963
+
+Step 3: Multiplying the two
+24% * 9396.196 = $2255.087 (in millions)","# Statutory/Marginal Tax Rate on Adjusted EBIT
+
+Based on Costco's financial statements:
+
+**Statutory Tax Rate: 21%** (Federal)
+
+**Effective Tax Rate: 24.4%** (2024)
+
+The effective tax rate of 24.4% includes:
+- Federal statutory rate: 21.0%
+- State taxes, net: 3.0%
+- Foreign taxes, net: 1.1%
+- Partially offset by ESOP benefit: (1.2%)
+- Other adjustments: 0.5%
+
+For valuation purposes (WACC calculations), you would typically use the **statutory/marginal federal rate of 21%**, though the combined federal + state marginal rate would be slightly higher (~24-25% based on the company's effective rate).",,
+33,claude-haiku-4-5,basic,How much cash and cash equivalents did Costco have at year end 2024?,"$11,144 (in millions)","To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)","# Costco Cash and Cash Equivalents at Year End 2024
+
+According to the Consolidated Balance Sheet, Costco had **$9,906 million** in cash and cash equivalents at September 1, 2024.",,
+43,claude-haiku-4-5,assumption,"I see that there is a long-term assets line item. What is the portion of other long-term assets that's not accounted for, that we don't know what line item is is for, in 2024?",$961 (in millions),"We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,433) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 548, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 1502 - 994 - 548 = -541. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 994 - 548 = $961 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+","# Other Long-Term Assets - Unaccounted Portion (2024)
+
+Based on the consolidated balance sheet and related notes, the total ""Other long-term assets"" for 2024 is **$3,936 million**.
+
+The identified components are:
+- Deferred tax assets: $548 million
+- Goodwill: $994 million
+- Definite-lived intangible assets: immaterial
+
+**Unaccounted portion: approximately $2,394 million**
+
+This represents the portion of other long-term assets that is not specifically detailed in the provided financial statements and notes.",,
+51,claude-haiku-4-5,assumption,Calculate NOPAT for 2024. Make sure to make adjustments for one-time changes.,"$7,113 (in millions)","To compute NOPAT for 2024, we use the formula: NOPAT = EBIT * (1- Operating Cash Tax Rate) or EBIT - Operating Cash Taxes.
+
+Task 1: Calculating Adjusted EBIT
+To calculate adjusted EBIT, we should first start with unadjusted EBIT and then make adjustments that make sense. 
+
+The first step is to get unadjusted EBIT for 2024, we know that EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+The second step is to look for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. We could not find any mentions of those expenses in 2024.
+
+Third, we need to look for other interest expenses or tax expenses that need to be added back if they were included in EBIT.  One common embedded interest expense is operating lease expense from the newer accounting rules. Looking at Note 5 - Leases, we also see variable leases, so we need to add back operating and variable lease interest expense, since they are embedded in SG&A and merchandise costs (unlike finance interest lease expense, which is included in interest expense). 
+
+To calculate operating lease expense, we can take the weighted average discount rate of the operating lease and multiply it by the previous year end's operating lease liability. The total operating lease liability from the previous year is the current + long-term, so (220 + 2426 = 2646). Then multiply it by the the weighted-average discount rate of this year, which is 2.67%. 2646 * 2.67% = 70.6482. To calculate variable interest expense, We don't see a line item for variable lease liability nor a weighted average discount rate for variable leases. However, we do see a variable lease cost line item, so we will use the ratio of variable lease costs to operating lease costs to estimate the interest expense. This assumes that the discount rate between the two is equal, which is reasonable because both follow similar rules of an operating lease (both have no ownership of the asset after the lease term). However, this is still an assumption being made. Consequently, we take the 70.6482 and multiply it by the ratio of variable lease costs to operating lease costs, so 70.6482 * (163/284) = 40.548. 
+
+Adding up everything together (unadjusted EBIT + operating lease interest expense + variable lease interest expense): 9285 + 40.548 + 70.6482 = $9396.1963 (in millions)
+
+Task 2: Calculating Operating Cash Taxes
+To calculate operating cash taxes, we need to consider non-cash tax payments that might be included in the operating cash tax, so taking operating cash tax and adding deferred tax expense.
+
+Part 1. Calculate operating taxes: 
+To calculate operating taxes, we need to find the statutory taxes on EBIT and then add / subtract additional operating taxes. 
+
+The first step to do is calculate the statutory taxes on EBIT: 
+To calculate the statutory taxes, we multiply the marginal tax rate by adjusted EBIT. 
+Step 1: Calculating marginal tax rate: 
+The marginal tax rate can be calculated by adding up federal, state, and local taxes. In the tax table, federal taxes are at 21% and state taxes are at 3%. There is no line item for local taxes, so the marginal tax rate is 21 + 3 = 24%
+
+Step 2: Calculating adjusted EBIT: 
+To calculate adjusted EBIT, we should start with unadjusted EBIT. To get unadjusted EBIT for 2024, we use the formula: EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+Looking for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. Did not find any. 
+
+Looking for other interest expenses that need to be added back. We need to add back operating and variable lease interest expense, since they are embedded in SG&A and merchandise costs (unlike finance interest lease expense, which is included in interest expense). To calculate operating lease expense, we can take the weighted average discount rate of the operating lease and multiply it by the previous year end's operating lease liability. The total operating lease liability from the previous year is the current + long-term, so (220 + 2426 = 2646). Then multiply it by the the weighted-average discount rate of this year, which is 2.67%. 2646 * 2.67% = 70.6482. To calculate variable interest expense, I don't see a line item for variable lease liability nor a weighted average discount rate for variable leases. However, I do see a variable lease cost line item, so I will use the ratio of variable lease costs to operating lease costs to estimate the interest expense. This assumes that the discount rate between the two is equal, which is reasonable because both follow similar rules of an operating lease (both have no ownership of the asset after the lease term). We can take the 70.6482 and multiply it by the ratio of variable lease costs to operating lease costs, so 70.6482 * (163/284) = 40.548. Adding up everything together: 9285 + 40.548 + 70.6482 = 9396.1963
+
+Step 3: Multiplying the two
+24% * 9396.196 = $2255.087 (in millions)
+
+The next step is to add / subtract operating taxes:  Looking at the tax reconciliation table, we can see that there are federal taxes, state taxes, foreign taxes, ESOP taxes, and other taxes. Thinking through each tax and whether or not it impacts the operating business. Federal and state impact the domestic operating business, foreign taxes impact the foreign operating business, and an employee stock ownership plan also impacts the operations of the business (paying off employees). Other is not detailed, so we will assume it is not related to the operating business as it could be any changes. We already factored in the statutory taxes (federal and state) to see their impact on the operating business, so what is remaining are the foreign operating business taxes and ESOP taxes which are 109 and -120, respectively. 
+
+Since the table provides the numerical quantities of taxes (in addition to the percentages), we can add them up with the number we got earlier (for statutory taxes on EBIT) to get operating taxes: 2255.087 + 109 - 120 = 2244.087
+
+Part 2.
+Calculate deferred tax expense: We do this by calculating the change in operating deferred tax assets, net of deferred tax liabilities. 
+
+Step 1. Calculating operating DTA, net of DTL in 2024: 
+To calculate operating net DTA/DTL in 2024, we need to figure out which line-items in the deferred tax table should be considered operating vs non-operating and add the operating deferred tax assets and subtract the operating deferred tax liabilities.
+
+Looking through the list of items, foreign tax credit carryforwards are not considering operating assets because they arise from jurisdictional tax rules (cross-border taxation) rather than operational performance or temporary accounting differences. Additionally, the other line item will be classified as non-operating as well because they aren't directly linked to an operational aspect of the company and do not demonstrate any sort of scaling with line items like revenue (which would help prove that it is an operating DTA/DTL)
+
+Net DTA/DTL = Operating DTA - Operating DTL: 96 + 313  +678 + 873 - 494 - 948 - 296 - 652 - 105 = -535
+
+Step 2. Calculating operating DTA, net of DTL in 2023: 
+To calculate operating net DTA/DTL in 2023, we need to figure out which line-items in the deferred tax table should be considered operating vs non-operating and add the operating deferred tax assets and subtract the operating deferred tax liabilities.
+
+Looking through the list of items, foreign tax credit carryforwards are not considering operating assets because they arise from jurisdictional tax rules (cross-border taxation) rather than operational performance or temporary accounting differences. Additionally, the other line item will be classified as non-operating as well because they aren't directly linked to an operational aspect of the company and do not demonstrate any sort of scaling with line items like revenue (which would help prove that it is an operating DTA/DTL). Foreign Branch deferreds are also considered operating because they are tied to the core operations in foreign countries and arise from accounting differences. 
+
+Net DTA/DTL = Operating DTA - Operating DTL: 89 + 309  +678 + 761 - 422 - 867 - 380 - 655 - 87 = -574
+
+Calculating the change from 2023 to 2024, which is the deferred tax expense: -535 - (-574) = +39
+
+Finally, to calculate operating cash tax in 2024, you add the deferred tax expense to the operating tax, so 2244.0871 + 39 = 2283.0871
+
+Task 3: Calculating NOPAT, NOPAT = EBIT - Operating Cash Tax
+NOPAT = 9396.1963 - 2283.0871 = $7,113.11 (in millions).","# NOPAT Calculation for 2024
+
+**Starting with Operating Income:**
+- Operating Income: $9,285 million
+
+**Adjustments for One-Time Items:**
+- Impairment of assets and other non-cash operating activities: $9 million (add back)
+- Special dividend tax benefit (discrete): $94 million (add back to NOPAT calculation)
+
+**Adjusted Operating Income:**
+$9,285 + $9 + $94 = $9,388 million
+
+**Tax Rate:**
+- Effective tax rate: 24.4%
+- Normalized tax rate (excluding discrete items): ~24.0%
+
+Using 24.0% tax rate (more normalized):
+
+**NOPAT = $9,388 × (1 - 0.240) = $7,135 million**
+
+Alternatively, using the actual 24.4% effective rate:
+
+**NOPAT = $9,388 × (1 - 0.244) = $7,110 million**
+
+**Answer: NOPAT for 2024 is approximately $7,110 - $7,135 million** (using normalized operating income adjusted for one-time items)",,
+57,claude-haiku-4-5,basic,"What is excess cash in 2024, given that operating cash is calculated as the minimum between taking 2% of revenue and cash.","$6,055 (in millions)","Excess cash can be calculated by taking cash and cash equivalents and subtracting operating cash.
+Step 1. Calculating operating cash. 
+Given operating cash isn't provided, we need to calculate cash and cash equivalents as well as 2% of revenue. First, assume operating cash to be 2% of 2024 Revenue, or 254,453 * 0.02 = 5089.06. 
+Next, To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)
+Since 5089 < 11144, or operating cash is less than cash or cash equivalents, 5089.06 is the operating cash, which is the minimum of the two numbers.
+Step 2. Calculating Excess Cash
+As given before, cash and cash equivalents is 11144, so excess cash is 11144 - 5089 = $6054.94 (in millions)","# Excess Cash Calculation for 2024
+
+**Operating Cash Flow:** $11,339 million (from Cash Flow Statement)
+
+**Required Operating Cash (2% of revenue):**
+- Total revenue 2024: $254,453 million
+- 2% of revenue: $254,453 × 0.02 = $5,089 million
+
+**Minimum Operating Cash Required:** $5,089 million
+
+**Excess Cash:**
+- Cash and cash equivalents (end of 2024): $9,906 million
+- Less: Required operating cash: $5,089 million
+- **Excess Cash = $4,817 million**",,
+58,claude-haiku-4-5,assumption,"What is operating current assets in 2024, assuming that 2% of revenue is operating cash?","$28,191 (in millions)","To compute Operating Current Assets, we need to either subtract out the non-operating current assets from current assets: Operating Current Assets = Current Assets - Non-Operating Current Assets. Or we need to add all operating current assets. 
+
+From the Balance Sheet, we find Total Current Assets to be 34,246, which is made up of Cash and cash equivalents, Short-term investments, Receivables, net, Merchandise inventories, and Other current assets. We remove Short-term investments, which is non-operating, and non-operating cash. Given operating cash isn't provided, we need to calculate cash and cash equivalents as well as 2% of revenue. 
+
+To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)
+Since 5089 < 11144, or operating cash is less than cash or cash equivalents, 5089.06 is the operating cash, which is the minimum of the two numbers.
+
+No description of Other current assets is provided so we assume they are operating. 
+
+We use the new formula of Operating Current Assets = Operating Cash + Net Receivables + Inventory + Other Current Assets = 5089 + 2721 + 18647 + 1734 = $28,191 (in millions)","# Operating Current Assets Calculation
+
+**Given Information:**
+- Total current assets (2024): $34,246 million
+- Total revenue (2024): $254,453 million
+- Assumption: Operating cash = 2% of revenue
+
+**Calculation:**
+
+Operating cash = 2% × $254,453 = $5,089 million
+
+Operating current assets = Total current assets - Cash and cash equivalents + Operating cash
+= $34,246 - $9,906 + $5,089 = **$29,429 million**
+
+Alternatively, if the question simply asks for current assets excluding excess cash:
+Operating current assets = $34,246 - ($9,906 - $5,089) = **$29,429 million**",,
+67,claude-haiku-4-5,basic,Calculate ARPU (Average Revenue Per User) for 2024.,"$3,457.24","To calculate ARPU, I can take the Revenue of 2024 and then divide it by the average number of paid customers from 2023 and 2024.
+
+Total revenue is 254453. Average number of paid customers is (76200 + 71000) / 2 = 73600.
+
+ARPU = 254453 (in millions) / 73600 (in thousands) = $3,457 / paid member","# ARPU Calculation for 2024
+
+**Total Revenue:** $254,453 million
+**Total Cardholders:** 136,800 thousand (136.8 million)
+
+**ARPU = $254,453M ÷ 136.8M = $1,859.49 per cardholder**
+
+Alternatively, using paid members only (76.2M):
+**ARPU = $254,453M ÷ 76.2M = $3,337.54 per paid member**
+
+The first metric ($1,859.49) is more conservative as it includes household cards with no additional fee, while the second ($3,337.54) reflects revenue per paying membership unit.",,
+69,claude-haiku-4-5,basic,What was Costco Sames Store Sales growth?,5%,"To calculate Same Store Sales Growth, I first check if Costco reports Same Store Sales.
+
+In the Overview section of Item 7—Management's Discussion and Analysis of Financial Conditions and Results of Operations, I see that they report ""comparable sales"", which is defined as net sales from warehouses open for more than one year, including remodels, relocations and expansions, and sales related to e-commerce sites operating for more than one year. This is equivalent to Same Stores Sales.
+
+In the RESULTS OF OPERATIONS section I see 2024 change in comparable sales for Total Company was 5%.","# Costco Same Store Sales Growth (2024)
+
+**Comparable sales increased 5% during 2024.**
+
+**By segment:**
+- **U.S.:** 4%
+- **Canada:** 7%
+- **Other International:** 8%
+
+**E-commerce comparable sales grew 16%**
+
+The growth was driven by increased shopping frequency, though partially offset by a slight decrease in average ticket.",,
+87,claude-haiku-4-5,conceptual,"You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which company would you invest in and why?",Company X,"Given the same IRR, I would opt for less leverage which corresponds to less risk exposure (less debt burden). Hence, I would invest in Company X","# Investment Decision: Company X
+
+**I would choose Company X** (4 turns of leverage).
+
+## Key Reasons:
+
+1. **Lower Financial Risk**: Fewer leverage turns means less debt, reducing bankruptcy risk and financial distress costs that can erode returns.
+
+2. **Same IRR, Different Risk**: While both show 25% levered IRR, Company X achieves this with significantly less leverage. This suggests Company X has stronger underlying fundamentals (higher unlevered returns).
+
+3. **Greater Safety Margin**: Company X has more buffer to absorb operational underperformance or market downturns before violating debt covenants.
+
+4. **Hidden Quality Signal**: If both achieve 25% IRR with different leverage levels, Company X's business model is inherently stronger—it doesn't need as much financial engineering to hit the target return.
+
+5. **Downside Protection**: In a downturn scenario, Company Y's higher leverage makes it more vulnerable to covenant breaches and forced asset sales at unfavorable valuations.
+
+**Bottom line**: Same return, lower risk = Company X is the superior risk-adjusted investment.",,
+88,claude-haiku-4-5,conceptual,"You have two potential investments, Company X and Company Y. Both companies are available at the same purchase price and both project a levered IRR of 25%. However, investing in Company X requires 4 turns of leverage while investing in Company Y requires 7 turns. Which investment has a higher unlevered IRR?",Company X,"Levered IRR is based on Levered Cash Flow = Unlevered Cash Flow - Debt Service, while unlevered IRR is based on Unlevered Cash Flow. If both deals have the same levered IRR, investment in company X would yield a higher Unlevered Cash Flow and unlevered IRR since there is less debt to service. ","# Company X has a higher unlevered IRR
+
+**Explanation:**
+
+The unlevered IRR represents the return on assets before the impact of leverage. When two investments have the same levered IRR but different leverage multiples, the one using **less leverage must have a higher unlevered return**.
+
+This is because:
+- Company X achieves 25% levered IRR with 4x leverage
+- Company Y achieves 25% levered IRR with 7x leverage
+
+Since Company Y needs significantly more leverage to reach the same 25% levered return, its underlying asset returns (unlevered IRR) must be lower. Company X's assets must be generating stronger returns to require less leverage to achieve the same levered outcome.
+
+**In general:** Lower leverage + Same levered return = Higher unlevered return",,
+89,claude-haiku-4-5,conceptual,"Suppose Company X trades at $10 per share, with a P/E ratio of 2x, and it has 300 shares outstanding. Company Y trades at $8 per share, with a P/E ratio of 2x, and has 120 shares outstanding. Company X plans to buy Company Y for $9 per share, funding half of the purchase with cash (raised through debt at a 6% cost of debt that matures over four years) and half with newly issued stock. The deal also incurs $15 in financing costs and $20 in transaction fees. Is this acquisition accretive or dilutive to Company X?",Accretive,"Company X's net income = EPS (which is price per share / P/E) * total shares = ($10 / 2) * 300 = $1,500. 
+Company Y's net income is ($8 / 2x) * 120 = 480.
+Total purchase price of Company Y is $9 * 120 = $1,080. Half ($540) is cash and half is new stock.
+$540 in cash is funded by 6% cost of debt, creating annual interest of $540 * 0.06 = $32.4
+The stock half requires issuing $540 / $10 = 54 new shares, increasing Company X's share count to 354.
+Pro-forma net income is $1,500 + $480 - $32.4 = $1,947.6 and pro-forma EPS is $1,947.6 / 354 = $5.50, which is higher than the original $10 / 2 = $5, so the deal is accretive.","# Accretion/Dilution Analysis
+
+**Step 1: Calculate Deal Economics**
+- Purchase price: $9/share × 120 shares = $1,080
+- Financing method: $540 debt + $540 stock
+- Total costs: $1,080 + $15 + $20 = $1,115
+
+**Step 2: Calculate New Shares Issued**
+- New shares = $540 ÷ $10 = 54 shares
+- Post-deal shares: 300 + 54 = 354 shares
+
+**Step 3: Calculate Combined Earnings**
+- Company X earnings: ($10 × 300) ÷ 2 = $1,500
+- Company Y earnings: ($8 × 120) ÷ 2 = $480
+- Combined earnings: $1,980
+- Less debt interest: $540 × 6% = $32.40
+- Less one-time costs: $35
+- **Net earnings: $1,912.60**
+
+**Step 4: Calculate EPS Impact**
+- Pre-deal EPS (X): $1,500 ÷ 300 = $5.00
+- Post-deal EPS: $1,912.60 ÷ 354 = **$5.40**
+
+**Answer: ACCRETIVE**
+
+The acquisition increases EPS from $5.00 to $5.40, making it accretive to Company X shareholders despite dilution from new share issuance. The combined entity's stronger earnings and the 1:1 debt-to-equity financing structure offset the share dilution.",,
+99,claude-haiku-4-5,conceptual,"A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its enterprise value affected?",60M increase,"Enterprise value increases by 60 million. Since the acquisition is funded by 30 million in debt and 30 million (assumably in cash), debt goes up by 30 and cash goes down by 30, meaning that EV goes up by 60.","# Enterprise Value Impact
+
+**Enterprise Value is unchanged.**
+
+Here's why:
+
+**Enterprise Value = Market Value of Equity + Net Debt**
+
+Or equivalently: **EV = Market Value of Equity + Debt - Cash**
+
+**Changes in the transaction:**
+- Debt increases by $30 million (new term loan)
+- Cash decreases by $60 million (acquisition payment)
+- Net Debt increases by $30 million ($30M more debt - $60M less cash = -$30M, but net debt is debt minus cash)
+
+Actually, let me recalculate:
+- Net Debt change: +$30M (debt) - $60M (cash used) = **-$30M net debt reduction**
+
+Wait - the key insight is that **the acquisition itself** (an asset purchase) doesn't change EV if it's fairly priced. The financing method doesn't affect EV in a frictionless market.
+
+**Simple answer:** Enterprise Value is **unaffected** because:
+1. The $60M acquisition replaces $60M in cash (assets remain the same in value)
+2. The $30M debt financing simply replaces that cash
+3. No value is created or destroyed by the financing structure",,
+111,claude-haiku-4-5,conceptual,"Suppose a company begins with revenue of 70 and EBITDA of 14. Over five years, it consistently maintains the same EBITDA margin while revenue rises by 10 each year. The business is bought at a 350 enterprise value, 60% funded through debt, and sold at a 450 enterprise value. Every year, depreciation and amortization is 3, capital expenditure is 3, the tax rate is 50 percent, there is no interest expense, and net working capital does not change. What are the MOIC and IRR?","2x MOIC, 15% IRR","Equity at entry is 40% * 350 = 140 and debt is 210. Annual EBITDA increase is 10 * (14/70) = 2, so EBITDA over the 5 year hold is 16, 18, 20, 22, and 24. Subtracting 3 of D&A to get EBIT, applying a 50% tax rate, adding back 3 of D&A, and subtracting 3 of D&A gives annual FCF of 6.5, 7.5, 8.5, 9.5, and 10.5. These flows reduce debt by their sum of 42.5 to 210-42.5 = 167.5. At exit, equity value = EV - debt + cash = 450 - 167.5 + 0 = 282.5. MOIC is 282.5 / 140 quick is approximately 2x, leading to a 15% IRR over 5 years","# LBO Analysis
+
+## Setup
+- Initial Revenue: 70, EBITDA: 14 (20% margin)
+- Revenue grows by 10/year for 5 years
+- Purchase EV: 350 (60% debt = 210, 40% equity = 140)
+- Sale EV: 450
+- Annual D&A: 3, CapEx: 3, Tax rate: 50%
+
+## Year 5 Financials
+- Revenue: 70 + (10 × 5) = 120
+- EBITDA: 120 × 20% = 24
+- EBIT: 24 - 3 = 21
+- Tax: 21 × 50% = 10.5
+- NOPAT: 10.5
+- Free Cash Flow: 10.5 + 3 - 3 = 10.5
+
+## Exit (Year 5)
+- Sale EV: 450
+- Less: Debt repaid: 210
+- Equity proceeds: **240**
+
+## Returns
+- Initial equity invested: 140
+- Equity proceeds: 240
+- **MOIC: 240/140 = 1.71x**
+- **IRR: 11.6%**",,
+119,claude-haiku-4-5,conceptual,"A private equity group acquires a gadget-maker via LBO. The company sells 12 gadgets in its first year. How many gadgets must it sell in year 5 to reach a 25% IRR? The company starts with EBITDA of 60, is bought at a 9x multiple, and is exited at a 10x multiple after 5 years. The deal uses 25% debt financing. Annual non-gadget revenue is 120, the initial EBITDA margin is 25%, gadget prices rise by $4 in year 5, the final EBITDA margin is 25%, and the firm finishes the period with 350 in cash. Assume a 3x MOIC corresponds to a 25% IRR.",20,"Purchase price = 60 * 9 = 540. With 25% debt, 540*0.25 =135 debt is used and 405 equity is used.  
+Next, I derive the initial gadget price: (non-gadget revenue + gadget revenue) * EBITDA margin = EBITDA, so (120 + gadget revenue) * 0.25 = 60, making gadget revenue = 60/0.25-120 = 120. Hence gadget price = 120/12 = $10.
+To reach a 25% IRR over 5 years, MOIC must be 3x. Meaning equity on exit must be 405*3=1,215. 
+Exit net debt is 135 - 350 = -215 so exit EV is 1,215 - 215 = 1,000. Hence, exit EBITDA is 1,000 / 10x = 100.
+At 25% margin, year 5 revenue is 100 / 0.25 = 400. 
+We know the gadgets are sold for $10+$4 = $14 in year 5 and non-gadget revenue is 120, so (400-120)/14=20 gadgets are sold in year 5. ","# Solution
+
+**Step 1: Calculate Entry and Exit Enterprise Values**
+- Entry EV = 60 EBITDA × 9x = 540
+- Exit EV = EBITDA₅ × 10x
+
+**Step 2: Determine Required Exit EV for 3x MOIC**
+- Entry Equity = 540 × (1 - 0.25 debt) = 405
+- Required Exit Equity = 405 × 3x MOIC = 1,215
+- Exit Debt = 540 × 0.25 = 135 (assume constant)
+- Required Exit EV = 1,215 + 135 - 350 cash = 1,000
+
+**Step 3: Back into Required Year 5 EBITDA**
+- EBITDA₅ = 1,000 / 10x = 100
+
+**Step 4: Calculate Required Year 5 Gadget Revenue**
+- Non-gadget revenue = 120 (constant)
+- Total revenue needed = 100 / 0.25 margin = 400
+- Gadget revenue needed = 400 - 120 = 280
+- Gadgets needed = 280 / (price per gadget + $4)
+
+**Step 5: Solve for Gadget Price**
+- Initial gadget price = (60 EBITDA - 120 non-gadget revenue × margin) / 12 gadgets
+- Initial gadget price = (60 - 30) / 12 = $2.50/gadget
+- Year 5 gadget price = $2.50 + $4 = $6.50/gadget
+
+**Answer: 280 / 6.50 = 43 gadgets**",,
+137,claude-haiku-4-5,conceptual,How does a 100-dollar asset write-down at a 20% tax rate affect each financial statement?,"On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.","On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.","# Asset Write-Down: $100 at 20% Tax Rate
+
+## Effects on Each Financial Statement:
+
+**Income Statement:**
+- Loss on write-down: **-$100**
+- Tax benefit: **+$20** (tax shield)
+- Net impact: **-$80**
+
+**Balance Sheet:**
+- Asset value: **-$100**
+- Tax payable/deferred tax asset: **-$20** (reduced tax owed)
+- Retained earnings: **-$80** (net loss flows through)
+
+**Cash Flow Statement:**
+- Operating activities: **-$80** (net loss)
+- Tax payment reduction: **+$20** (tax cash benefit, if realized)
+- Net cash impact: **-$80** (timing dependent on when tax benefit is received)
+
+## Summary:
+The write-down reduces the company's asset base by $100, but the 20% tax deduction creates a $20 tax shield, resulting in a net $80 reduction to equity and net income.",,
+5,claude-opus-4-6,basic,Compute the unadjusted EBITDA Margin for 2024. ,4.53%,"To calculate unadjusted EBITDA margin, we need to think about the parts of EBITDA margin, which are the unadjusted EBITDA Margin and the revenue for 2024. We can then find the margin by taking unadjusted EBITDA margin and dividing it by revenue.
+
+Step 1: Find Revenue
+We find revenue on the Income Statement to be 254453.
+
+Step 2: Calculate unadj. EBITDA
+To calculate unadjusted EBITDA, we think about how to get to EBITDA, unadj. EBITDA = unadj. EBIT + Depreciation + Amortization.
+
+To get unadjusted EBIT for 2024, we know that EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+On the Cash Flow statement, we find Depreciation + Amortization to be 2,237.
+
+Hence,  EBITDA = 9,285 + 2,237 = 11522
+
+Finally, unadj. EBITDA Margin = unadj. EBITDA / Revenue = 11522 / 254453 = 4.53% ","## EBITDA Margin Calculation for 2024
+
+**EBITDA = Operating Income + Depreciation & Amortization**
+
+- Operating Income: $9,285M
+- Depreciation & Amortization: $2,237M
+- **EBITDA = $9,285 + $2,237 = $11,522M**
+
+**EBITDA Margin = EBITDA / Net Sales**
+
+$$\text{EBITDA Margin} = \frac{\$11,522}{\$249,625} = \textbf{4.62\%}$$",,
+6,claude-opus-4-6,assumption,Compute the adjusted EBITDA Margin for 2024. ,4.70%,"To find adjusted EBITDA margin, we need to find adjusted EBITDA and also find the revenue for 2024. Adjusted EBITDA margin = Adjusted EBITDA / Revenue.
+
+First, finding adjusted EBITDA: To calculate adjusted EBITDA, we should first start with unadjusted EBITDA and make adjustments that make sense, like one-time expenses or operating / variable lease costs since we are classifying them as debt equivalents.
+
+First, let's find unadjusted EBITDA. Step 1: Identify the Formula
+Unadjusted EBITDA = Unadjusted EBIT + Depreciation + Amortization
+
+Step 2: Determine Unadjusted EBIT
+Unadjusted EBIT equals Operating Income. I check the Income Statement, to find the Income Statement of $9,285
+
+Step 3: Find Depreciation and Amortization
+Depreciation and Amortization is found on the Cash Flow Statement. Checking the Cash Flow Statement, I see a Depreciation and amortization line item of $2,237
+
+Step 4: Apply the Formula
+Unadjusted EBITDA = $9,285 + $2,237
+Unadjusted EBITDA = $11,522
+
+The second part is to look for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. We could not find any mentions of those expenses in 2024.
+
+Third, we need to add back operating and variable lease costs in EBITDA. This is because operating and variable leases expenses, which are embedded in merchandise costs or SG&A are composed of interest and depreciation / amortization of their respective asset. Since this is EBITDA, or before interest and depreciation, we can add the whole cost back. We do not need to add-back the amortization and interest of finance leases because the amortization is baked into the D&A expense (2,237), which was already added back. On the other hand, finance lease interest expense is stated to be included in interest expense and merchandise cost; since the allocation is not specificed, we assume that has already been factored into the interest expense line-item and does not need to be added back. 
+
+Adding up everything together (unadjusted EBITDA + operating lease interest expense + variable lease interest expense): 11,522 + 284 + 163 = $11,969 (in millions)
+
+After finding adjusted EBITDA, the second step is finding revenue for 2024, which we can find on the income statement: 254,453
+
+To calculate EBITDA margin, we take adjusted EBITDA / revenue = 11,969 / 254,453 = 4.7% ","# Adjusted EBITDA Margin for 2024
+
+To compute EBITDA, I start with Operating Income and add back Depreciation & Amortization, and Stock-Based Compensation (as a common adjustment for ""adjusted"" EBITDA):
+
+| Component | Amount ($ millions) |
+|---|---|
+| Operating Income | $9,285 |
+| Depreciation & Amortization | $2,237 |
+| Stock-Based Compensation | $818 |
+| **Adjusted EBITDA** | **$12,340** |
+
+**Adjusted EBITDA Margin = Adjusted EBITDA / Net Sales**
+
+$$\frac{\$12,340}{\$249,625} = \textbf{4.94\%}$$
+
+**The Adjusted EBITDA Margin for 2024 is approximately 4.94%.**",,
+10,claude-opus-4-6,basic,What is the P/E ratio for 2024 using Basic EPS?,56.66x,"Step 1: Identify the Formula
+
+P/E Ratio = Price per Share / Earnings per Share (EPS) or Net Income / Shares Outstanding
+
+Given specification wasn't provided, I will assume we want basic EPS (which uses Basic Shares Outstanding) and not diluted EPS (uses Diluted Shares Outstanding).
+
+Step 2: Find Price per Share and EPS
+I think it would be easier for me to calculate P/E with Price per Share and EPS, if they are provided.
+
+Price per Share is given to be $940.00. EPS, if provided, will be on the Income Statement, checking there, I see a basic EPS to be $16.59. 
+
+Step 3: Apply the Formula
+
+P/E Ratio = $940.00 / $16.59
+P/E Ratio = 56.66x","# P/E Ratio Calculation (2024, Basic EPS)
+
+**P/E Ratio = Stock Price / Basic EPS**
+
+P/E = $940 / $16.59 = **56.66x**",,
+20,claude-opus-4-6,assumption,What is the Debt to Value in 2024?,2.65%,"To calculate the market Debt to Value (D/V), we apply the formula: D/V = Debt / (Debt + Market Value of Equity + Pref Equity).
+
+From the Balance Sheet, I notice there is no preferred equity, so the denominator becomes Debt + Equity.
+
+Step 1: Calculate Total Debt
+To compute debt and debt equivalents for 2024, we need to add up all forms of debt and equivalents of debt (liabilities that have an interest expense component). We can use a formula to get started: debt = short term or current debt + long term debt + operating lease liabilities + financial lease liabilities + other debt equivalents. 
+
+Step 1a: Find Debt
+From the Balance Sheet, we find the current portion of long-term debt is 103 and long-term debt, excluding current portion, is 5,794. Next, is to look for lease liabilities. 
+
+Step 1b: Find Debt-like Liabilities
+From Note 5—Leases, I find total lease liabilities. of 4,052. From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liability in the balance sheet, which means that it is either embedded into other liabilities or not included. Looking at mentions of other current and long-term liability, I find no mention relating to variable lease liabilities, so I assume that it is not in the balance sheet and needs to be added. In order to estimate the variable lease, I need to use the given information, which is variable lease cost. One way to make a comparison is to take the ratio of operating lease costs to variable lease costs to estimate variable lease liability, where variable lease liability = operating lease liability * (variable lease costs / operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85, where operating lease liability is the sum of current operating lease liability and long-term operating lease liability. 
+
+Step 1c: Apply Formula:
+Now we have Debt = ST Debt + LT Debt + operating lease liability + financial lease liability + variable lease liability = 103 + 5,794 + 4,052 + 1,466 = $11,414.85 (in millions).
+
+Step 2: Calculate Total Equity 
+To calculate the market value of equity, we take the price per share and multiply it by fully diluted shares outstanding. 
+Step 2a. Calculating Fully Diluted Shares Outstanding (FDSO). 
+Step 2a.1: Identify the Formula Components
+Fully Diluted Shares Outstanding = Common Stock Outstanding + RSUs (Restricted Stock Units) + PSUs (Performance Shares Outstanding) + Stock Warrants Outstanding (Using Treasury Stock Method) + Convertible Bonds Outstanding (Using Treasury Stock Method) + Stock Options Outstanding (Using Treasury Stock Method)
+Step 2a.2: Find Common Stock Outstanding
+I can see on the balance sheet that there are 442,793,000 common stock shares outstanding
+Step 2a.c: Factor in Dilutive Securities
+First I check for RSUs and PSUs. In Note 7—Stock-Based Compensation, I see there are 2,799 RSUs (in thousands) outstanding at the end of 2024. Further, reading the note, I see this count is inclusive of PSUs.
+Next I check for stock warrants, I see nothing in Note 7—Stock-Based Compensation or the Statement of Equity, so I assume Costco has no stock warrants. I similarly check for stock options and see nothing.
+Next I check for convertible bonds, from the Balance Sheet, I see Costco has no preferred stock shares issued or outstanding. 
+Step 2a.4: Apply the Formula
+Fully Diluted Shares = Common Stock Outstanding + RSUs + PSUs
+Calculation: 442,793,000 + 2,799,000 = 445,592,000
+Step 2b. Find the Price per Share and Apply Formula
+Finding price per share, which is given as $940 / share.
+Therefore, the market value of equity = 445,592,000 * 940 = $418,856 million
+
+Step 3: Apply formula
+Debt to Value = 11,414.85 / (11,414.85+418,856) = 2.65%","# Debt to Value Calculation for 2024
+
+**Debt to Value = Total Debt / (Total Debt + Market Value of Equity)**
+
+## Components:
+
+**Total Debt (2024):**
+- Long-term debt (including current portion): $5,919M (gross, before unamortized discounts)
+- Using carrying values from balance sheet: $103M (current) + $5,794M (long-term) = **$5,897M**
+- Short-term borrowings: immaterial (essentially $0)
+
+**Market Value of Equity:**
+- Shares outstanding: 443,126 thousand = 443.126 million
+- Stock price: $940
+- Market Value of Equity = 443.126 × $940 = **$416,538M**
+
+## Calculation:
+
+$$D/V = \frac{5,897}{5,897 + 416,538} = \frac{5,897}{422,435} = \textbf{1.40\%}$$
+
+**The Debt to Value ratio for Costco in 2024 is approximately 1.40%.**",,
+21,claude-opus-4-6,assumption,What is the Equity to Value in 2024?,97.35%,"To calculate the market Equity to Value (E/V), we apply the formula: E/V = Equity / (Debt + Market Value of Equity + Pref Equity).
+
+From the Balance Sheet, I notice there is no preferred equity, so the denominator becomes Debt + Equity.
+
+Step 1: Calculate Total Debt
+To compute debt and debt equivalents for 2024, we need to add up all forms of debt and equivalents of debt (liabilities that have an interest expense component). We can use a formula to get started: debt = short term or current debt + long term debt + operating lease liabilities + financial lease liabilities + other debt equivalents. 
+
+Step 1a: Find Debt
+From the Balance Sheet, we find the current portion of long-term debt is 103 and long-term debt, excluding current portion, is 5,794. Next, is to look for lease liabilities. 
+
+Step 1b: Find Debt-like Liabilities
+From Note 5—Leases, I find total lease liabilities. of 4,052. From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liability in the balance sheet, which means that it is either embedded into other liabilities or not included. Looking at mentions of other current and long-term liability, I find no mention relating to variable lease liabilities, so I assume that it is not in the balance sheet and needs to be added. In order to estimate the variable lease, I need to use the given information, which is variable lease cost. One way to make a comparison is to take the ratio of operating lease costs to variable lease costs to estimate variable lease liability, where variable lease liability = operating lease liability * (variable lease costs / operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85, where operating lease liability is the sum of current operating lease liability and long-term operating lease liability. 
+
+Step 1c: Apply Formula:
+Now we have Debt = ST Debt + LT Debt + operating lease liability + financial lease liability + variable lease liability = 103 + 5,794 + 4,052 + 1,466 = $11,414.85 (in millions).
+
+Step 2: Calculate Total Equity 
+To calculate the market value of equity, we take the price per share and multiply it by fully diluted shares outstanding. 
+Step 2a. Calculating Fully Diluted Shares Outstanding (FDSO). 
+Step 2a.1: Identify the Formula Components
+Fully Diluted Shares Outstanding = Common Stock Outstanding + RSUs (Restricted Stock Units) + PSUs (Performance Shares Outstanding) + Stock Warrants Outstanding (Using Treasury Stock Method) + Convertible Bonds Outstanding (Using Treasury Stock Method) + Stock Options Outstanding (Using Treasury Stock Method)
+Step 2a.2: Find Common Stock Outstanding
+I can see on the balance sheet that there are 442,793,000 common stock shares outstanding
+Step 2a.c: Factor in Dilutive Securities
+First I check for RSUs and PSUs. In Note 7—Stock-Based Compensation, I see there are 2,799 RSUs (in thousands) outstanding at the end of 2024. Further, reading the note, I see this count is inclusive of PSUs.
+Next I check for stock warrants, I see nothing in Note 7—Stock-Based Compensation or the Statement of Equity, so I assume Costco has no stock warrants. I similarly check for stock options and see nothing.
+Next I check for convertible bonds, from the Balance Sheet, I see Costco has no preferred stock shares issued or outstanding. 
+Step 2a.4: Apply the Formula
+Fully Diluted Shares = Common Stock Outstanding + RSUs + PSUs
+Calculation: 442,793,000 + 2,799,000 = 445,592,000
+Step 2b. Find the Price per Share and Apply Formula
+Finding price per share, which is given as $940 / share.
+Therefore, the market value of equity = 445,592,000 * 940 = $418,856 million
+
+Step 3: Apply formula
+Equity to Value = 418,856 / (11,414.85+418,856) = 97.35%","# Equity to Value Calculation for Costco (2024)
+
+## Market Value of Equity
+- Shares outstanding: 443,126 thousand = 443.126 million
+- Stock price: $940
+- **Market Value of Equity** = 443.126 × $940 = **$416,538 million**
+
+## Market Value of Debt
+- Total long-term debt (including current portion): $5,919 million
+- Short-term borrowings: immaterial (≈ $0)
+- **Total Debt** ≈ **$5,919 million**
+
+## Enterprise Value (Equity + Debt)
+- **Enterprise Value** = $416,538 + $5,919 = **$422,457 million**
+
+## Equity to Value
+
+$$\frac{Equity}{Value} = \frac{416,538}{422,457} = \boxed{98.60\%}$$",,
+27,claude-opus-4-6,basic,"Calculate Operating Deferred Tax Asset, net of deferred tax liabilities in 2024",-$535 (in millions),"To calculate operating net DTA/DTL in 2024, we need to figure out which line-items in the deferred tax table should be considered operating vs non-operating and add the operating deferred tax assets and subtract the operating deferred tax liabilities.
+
+Looking through the list of items, foreign tax credit carryforwards are not considering operating assets because they arise from jurisdictional tax rules (cross-border taxation) rather than operational performance or temporary accounting differences. Additionally, the other line item will be classified as non-operating as well because they aren't directly linked to an operational aspect of the company and do not demonstrate any sort of scaling with line items like revenue (which would help prove that it is an operating DTA/DTL)
+
+Net DTA/DTL = Operating DTA - Operating DTL: 96 + 313  +678 + 873 - 494 - 948 - 296 - 652 - 105 = -$535 (in millions)
+","## Operating Deferred Tax Asset, Net of Deferred Tax Liabilities (2024)
+
+From the deferred tax components provided:
+
+| Component | Amount |
+|-----------|--------|
+| **Total Deferred Tax Assets** | $2,275 |
+| Less: Valuation Allowance | ($494) |
+| **Total Net Deferred Tax Assets** | $1,781 |
+| **Total Deferred Tax Liabilities** | ($2,002) |
+
+**Net Deferred Tax Liabilities = $1,781 - $2,002 = ($221)**
+
+The net deferred tax position in 2024 is a **net deferred tax liability of $221 million**.
+
+This is split on the balance sheet as:
+- Deferred tax assets of $548 (in other long-term assets)
+- Deferred tax liabilities of $769 (in other long-term liabilities)
+- Net: $548 - $769 = **($221) million**",,
+37,claude-opus-4-6,assumption,"Determine Invested Capital including Goodwill for 2024, using 2% of revenue as max potential operating cash.","$29,239 (in millions)","To compute invested capital with goodwill, we need to add all operating assets and subtract all operating liabilities of the company. We can think about this in terms of operating working capital (current) and long-term operating assets minus long-term operating liabilities.
+Task 1: calculate operating working capital for 2024
+To compute Operating Working Capital for 2024, we use the formula: Operating Working Capital = Operating Current Assets - Operating Current Liabilities. 
+
+Step 1: Calculate Operating Current Asset
+To compute Operating Current Assets, we need to either subtract out the non-operating current assets from current assets: Operating Current Assets = Current Assets - Non-Operating Current Assets. Or we need to add all operating current assets. 
+
+From the Balance Sheet, we find Total Current Assets to be 34,246, which is made up of Cash and cash equivalents, Short-term investments, Receivables, net, Merchandise inventories, and Other current assets. We remove Short-term investments, which is non-operating, and non-operating cash. Given operating cash isn't provided, we need to calculate cash and cash equivalents as well as 2% of revenue. 
+
+To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)
+Since 5089 < 11144, or operating cash is less than cash or cash equivalents, 5089.06 is the operating cash, which is the minimum of the two numbers.
+
+No description of Other current assets is provided so we assume they are operating. 
+
+We use the new formula of Operating Current Assets = Operating Cash + Net Receivables + Inventory + Other Current Assets = 5089 + 2721 + 18647 + 1734 = $28,191 (in millions)
+
+Step 2: Calculate Operating Current Liabilities
+To compute Operating Current Liabilities, we need to either subtract out the non-operating current liabilities from current liabilities:Operating Current Liabilities = Current Liabilities - Non-Operating Current Liabilities. Or we need to add all current operating liabilities together.
+
+From the Balance Sheet we find Current Liabilities to be made up of Accounts payable, Accrued salaries and benefits, Accrued member rewards, Deferred membership fees, Current portion of long-term debt, and Other current liabilities. All of these liabilities are operating other than the current portion of long-term debt. So we apply the formula: Operating Current Liabilities = Total Current Liabilities - Current portion of long-term debt = 35,464 - 103 = 35361. Alternatively, we could have used: Operating Current Liabilities = Accounts payable + Accrued salaries and benefits + Accrued member rewards + Deferred membership fees + Other current liabilities = 19,421 +  4,794 +  2,435 +  2,501 + 6,210 = 35361. 
+
+However, we also need to realize that other current liabilities could be composed of non operating liabilities. Taking a closer look, other current liabilities also includes operating and finance leases, which in Note 5 are 179 for operating lease liabilities and 147 for finance lease liabilities. Operating and finance lease liabilities are not operating liabilities because they are essentially debt equivalents, so in reality, the operating current liability is 19,421 +  4,794 +  2,435 +  2,501 + (6,210 - 179 - 147) = $35,035 (in millions)
+
+Step 3: Apply Formula
+Operating Working Capital = Operating Current Assets - Operating Current Liabilities
+Operating Working Capital = 28,191 - 35,035 = -$6,844 (in millions)
+
+Task 2: Calculating Long-term operating assets, net of long-term operating liabilities
+To calculate operating portion of long-term assets, net long-term liabilities, we need to take operating long-term assets and subtract operating long-term liabilities. 
+
+Part 1: Calculating Long-Term Operating Assets
+Let's calculate long-term Operating Assets for 2024.
+
+Step 1: Check to the Balance Sheet to find the long-term Operating Assets
+On the Balance Sheet, under Other Assets we see Property and equipment, net, Operating lease right-of-use assets, and Other long-term assets. We know that PP&E, and Operating lease ROU assets are operating. However, Other long-term assets is not granular enough as we do not know what goes into this.
+
+Step 2: Disaggregate Other long-term assets to find unaccounted for other assets
+We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,433) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 548, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 1502 - 994 - 548 = -541. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 994 - 548 = 961 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 4: Add all long-term operating assets together
+Net PP&E + Operating Lease ROU Assets +  Variable Lease Assets + Finance Lease Assets  + Goodwill + Other Long Term Operating Current Assets
+29,032 + 2,617 + 1502 + 1,433 + 994 + 961 = $36,539 (in millions) 
+
+Part 2: Calculating Long-Term Operating Liabilities
+Let's calculate long-term Operating Liabilities for 2024. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,351, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 769, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,576 - 1,351 - 1,465.85 - 769 = -1009.85. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,576 - 1,351 - 769 = -$456 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Part 3: Subtracting the Two
+Net Operating Capital = 36,539 -  456 = $36,083 (in millions)
+
+Task 3: Adding operating short-term and long-term assets, net of liabilities to get to invested capital
+Invested Capital = -6,844 + 36083 = $29,239 (in millions) 
+
+ 
+","# Invested Capital Including Goodwill for 2024
+
+## Step 1: Determine Excess Cash
+
+**Total Revenue (2024):** $254,453M
+
+**Max Operating Cash (2% of revenue):** $254,453 × 0.02 = **$5,089M**
+
+**Cash & Cash Equivalents:** $9,906M
+
+**Excess Cash:** $9,906 - $5,089 = **$4,817M**
+
+## Step 2: Calculate Invested Capital
+
+| Component | Amount ($M) |
+|---|---|
+| **Total Assets** | $69,831 |
+| Less: Excess Cash | ($4,817) |
+| Less: Short-term investments (non-operating) | ($1,238) |
+| Less: Accounts Payable (non-debt liability) | ($19,421) |
+| Less: Accrued Salaries & Benefits | ($4,794) |
+| Less: Accrued Member Rewards | ($2,435) |
+| Less: Deferred Membership Fees | ($2,501) |
+| Less: Other Current Liabilities | ($6,210) |
+| Less: Long-term Operating Lease Liabilities | ($2,375) |
+| Less: Other Long-term Liabilities | ($2,576) |
+| **Invested Capital (including Goodwill)** | **$23,464M** |
+
+## Verification (Build-Up Approach)
+
+| Component | Amount ($M) |
+|---|---|
+| Total Equity | $23,622 |
+| Total Debt (current + long-term) | $5,897 ($103 + $5,794) |
+| Operating Lease Liabilities (already excluded above) | — |
+| Less: Operating Cash retained | ($5,089) |
+| Less: Short-term investments | ($1,238) |
+| Less: excess adjustments reconcile | — |
+| **Invested Capital** | **~$23,464M** |
+
+**Invested Capital including Goodwill ($994M already in total assets) = $23,464M**",,
+45,claude-opus-4-6,assumption,What is the operating portion of long-term liabilities in 2023?,$452 (in millions),"Let's calculate long-tern Operating Liabilities for 2023. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,303, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 795, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (220 + 2,426) * (160 / 309) = 1,370.097 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,550 - 1,303 - 1,370.097 - 795 = -918.097. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,550 - 1,303  - 795 = -$452 (in millions) of unaccounted for other long-term assets that we assume to be operating. ","## Operating Portion of Long-Term Liabilities in 2023
+
+Based on the balance sheet and lease notes, the **operating portion of long-term liabilities in 2023** refers to the **long-term operating lease liabilities**, which were **$2,426 million**.
+
+This is reported separately on the consolidated balance sheet under ""Other Liabilities"" as ""Long-term operating lease liabilities.""",,
+53,claude-opus-4-6,assumption,Estimate Variable Lease Assets in 2024,"$1,502 (in millions)","Let's estimate Variable Lease Assets in 2024.
+
+In Note 5—Leases, we see there is Variable Lease Costs, which doesn't have a reported corresponding Variable Lease Assets, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = $1,502 (in millions).","# Estimating Variable Lease Assets in 2024
+
+Variable leases, by their nature, **do not have associated right-of-use assets** on the balance sheet under ASC 842. Variable lease payments are expensed as incurred and are not included in the measurement of lease liabilities or right-of-use assets.
+
+Therefore, **variable lease assets in 2024 are $0**.
+
+Variable lease costs of **$163 million** were recognized as expense in 2024, but these do not create a corresponding asset on the balance sheet, as variable payments are not included in the present value calculation of lease obligations under the lease accounting standard.",,
+54,claude-opus-4-6,assumption,Estimate the change in variable lease assets from 2023 to 2024,$97 (in millions),"Let's estimate the change in variable lease assets from 2023 to 2024.
+
+Step 1: Calculate 2023 Variable Lease Assets
+For 2023,  In Note 5—Leases, we see there is Variable Lease Costs, which doesn't have a reported corresponding Variable Lease Assets, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2713) * (160 / 309) = 1,405.
+
+Step 2: Calculate 2024 Variable Lease Assets
+For 2024,  In Note 5—Leases, we see there is Variable Lease Costs, which doesn't have a reported corresponding Variable Lease Assets, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502.
+
+Step 3: Find Change Variable Lease Assets
+Change Variable Lease Assets = 1502 - 1405 = 97 (in millions).","## Variable Lease Assets Change from 2023 to 2024
+
+The financial statements don't explicitly break out ""variable lease assets"" as a separate line item. However, I can analyze the lease-related information provided:
+
+**Total Lease Assets:**
+| | 2024 | 2023 | Change |
+|---|---|---|---|
+| Operating lease right-of-use assets | $2,617M | $2,713M | **-$96M** |
+| Finance lease assets | $1,433M | $1,325M | **+$108M** |
+| **Total lease assets** | **$4,050M** | **$4,038M** | **+$12M** |
+
+Variable lease costs are mentioned separately ($163M in 2024 vs. $160M in 2023, an increase of **$3M**), but variable leases generally **do not create right-of-use assets or lease liabilities** under ASC 842. Variable lease payments are expensed as incurred and are excluded from the measurement of lease assets and liabilities.
+
+Therefore, the **change in variable lease assets from 2023 to 2024 is $0**, as variable leases do not generate recognized lease assets on the balance sheet under current accounting standards. The $3M increase in variable lease costs reflects higher period expenses, not a change in capitalized assets.",,
+69,claude-opus-4-6,basic,What was Costco Sames Store Sales growth?,5%,"To calculate Same Store Sales Growth, I first check if Costco reports Same Store Sales.
+
+In the Overview section of Item 7—Management's Discussion and Analysis of Financial Conditions and Results of Operations, I see that they report ""comparable sales"", which is defined as net sales from warehouses open for more than one year, including remodels, relocations and expansions, and sales related to e-commerce sites operating for more than one year. This is equivalent to Same Stores Sales.
+
+In the RESULTS OF OPERATIONS section I see 2024 change in comparable sales for Total Company was 5%.","Based on the financial data provided, Costco's **comparable (same-store) sales growth was 5% in fiscal 2024**.
+
+Excluding the impact of changes in foreign currency and gasoline prices, comparable sales growth was **6%** in fiscal 2024.",,
+80,claude-opus-4-6,basic,Calculate Asset Turnover for 2024.,3.67x,"To calculate Asset Turnover, I will apply the formula: Asset Turnover = Sales / Average Total Assets.
+
+Sales on the Income Statement is 254,453.
+
+From the balance sheet, total assets was 69,831 in 2024 and 68,994 in 2023.
+
+Hence Asset Turnover  = 254,453 / ((69,831 + 68,994)/2) = 3.67x","## Asset Turnover for 2024
+
+**Asset Turnover = Net Sales / Total Assets**
+
+$$\text{Asset Turnover} = \frac{\$249,625}{\$69,831} = 3.57$$
+
+**Costco's asset turnover ratio for 2024 is 3.57x**, meaning the company generated $3.57 in net sales for every $1 of total assets.",,
+81,claude-opus-4-6,basic,What was Sales per store in 2024?,$285.90,"To calculate Sales per Store I will use the equation Sales per Store = Total Sales / Total # of stores.
+
+From the Income Statement, I see total sales was 254,453 in 2024.
+
+From Item 2—Properties, I see Costco operates 890 stores.
+
+Hence Sales per Square Feet = $254,453 / 890 stores = $285.90 / store","## Sales Per Store in 2024
+
+**Net Sales:** $249,625 million
+**Number of Warehouses:** 890
+
+$$\text{Sales per store} = \frac{\$249,625}{890} = \$280.5 \text{ million per store}$$
+
+**Costco generated approximately $280.5 million in net sales per warehouse in fiscal 2024.**",,
+82,claude-opus-4-6,basic,What was Sales per sq ft in 2024?,"$1,943.87","To calculate Sales per Square Feet I will use the equation Sales per Square Feet = Total Sales / Average Total Square Feet.
+
+From the Income Statement, I see total sales was 254,453 in 2024.
+
+From Item 2—Properties, I see that costco had 130.9 million square feet of operating floor space in 2024. Ideally I'd take the average square feet over the year, however 2023 square was not provided. 
+
+Hence Sales per Square Feet = $254,453 (in millions) / 130.9 sq ft (in millions) = $1,943.87/sq ft.","## Sales per Square Foot in 2024
+
+**Net Sales:** $249,625 million
+
+**Total Operating Floor Space:** 130.9 million square feet
+
+$$\text{Sales per sq ft} = \frac{\$249,625 \text{ million}}{130.9 \text{ million sq ft}} = \$1,907 \text{ per sq ft}$$
+
+Costco's sales per square foot in 2024 was approximately **$1,907**.",,
+95,claude-opus-4-6,conceptual,"Suppose you buy a $75 Starbucks gift card, then spend the entire balance on drinks. What happens to Starbucks's cash flow at the moment you use that $75 (cash inflow, cash outflow, or no change)?",No change,"Starbucks initially records an unearned revenue liability when the gift card was purchased. This corresponds to a cash inflow. However, when the gift card is spent there is no new cash received by Starbucks (the unearned revenue turns to revenue) so cash is unchanged.","**No change in cash flow at the moment you use (redeem) the $75.**
+
+Here's why:
+
+- **When you buy the gift card:** Starbucks receives $75 in cash. This is a **cash inflow**. On the balance sheet, it's recorded as **deferred revenue** (a liability), since Starbucks hasn't yet delivered the goods.
+
+- **When you redeem the gift card:** No additional cash changes hands. Starbucks simply provides you drinks and reduces the deferred revenue liability, recognizing it as **revenue** on the income statement. But from a **cash flow** perspective, there is **no change** — the cash was already collected at purchase.",,
+99,claude-opus-4-6,conceptual,"A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its enterprise value affected?",60M increase,"Enterprise value increases by 60 million. Since the acquisition is funded by 30 million in debt and 30 million (assumably in cash), debt goes up by 30 and cash goes down by 30, meaning that EV goes up by 60.","# Enterprise Value Impact of the Acquisition
+
+**Enterprise Value = Equity Value + Debt - Cash**
+
+## Before the Transaction:
+- Equity: $200M
+- Debt: $100M
+- Cash: $70M
+- **EV = $200M + $100M - $70M = $230M**
+
+## The Transaction:
+- Raises $30M in new debt (term loan)
+- Uses $60M for an acquisition → funded by the $30M new debt + $30M existing cash
+
+## After the Transaction:
+- Equity: $200M (unchanged)
+- Debt: $100M + $30M = $130M
+- Cash: $70M + $30M (loan proceeds) - $60M (acquisition cost) = $40M
+- **EV = $200M + $130M - $40M = $290M**
+
+## Net Impact: **Enterprise Value increases by $60M**
+
+This makes intuitive sense: **enterprise value increases by the value of the acquired asset ($60M)**. The financing method (debt vs. cash) is irrelevant to EV — debt goes up by $30M and cash goes down by $30M, which both increase EV by $30M each, netting to the $60M acquisition price. Enterprise value reflects the total value of the firm's operating assets, and a new $60M asset was added.",,
+103,claude-opus-4-6,conceptual,"A private equity group acquires a company with 200M of EBITDA at a 4x multiple, financing 50% with debt. In the fifth year, EBITDA has grown to 300M, and the firm exits at a 5x multiple. Across this period, 400M of debt was paid down, with no remaining surplus cash. What are the MOIC and the IRR of this investment?","3x MOIC, 25% IRR","The initial purchase price is 200M * 4x = 800M.
+Equity funding is 50% * 800M = 400M, and same with debt funding.
+At exit, EV is 300M * 5x = 1,500M. Equity value is 1,500M - 400M + 100M = 1,200M.
+MOIC is then 1,200 / 400M = 3x and IRR is 25%.","# PE Return Calculation
+
+## Entry
+- **EBITDA at entry:** $200M
+- **Purchase price:** 200M × 4x = **$800M**
+- **Debt:** 50% × $800M = **$400M**
+- **Equity invested:** **$400M**
+
+## Exit (Year 5)
+- **EBITDA at exit:** $300M
+- **Exit price:** 300M × 5x = **$1,500M**
+- **Remaining debt:** $400M - $400M paid down = **$0**
+- **Equity value at exit:** $1,500M - $0 = **$1,500M**
+
+## Returns
+
+**MOIC** = Exit Equity / Entry Equity = $1,500M / $400M = **3.75x**
+
+**IRR** = MOIC^(1/n) - 1 = 3.75^(1/5) - 1 ≈ **30.2%**
+
+## Value Creation Sources
+The returns were driven by three levers:
+1. **EBITDA growth:** 200M → 300M (50% growth)
+2. **Multiple expansion:** 4x → 5x
+3. **Debt paydown:** $400M fully repaid (deleveraging)",,
+119,claude-opus-4-6,conceptual,"A private equity group acquires a gadget-maker via LBO. The company sells 12 gadgets in its first year. How many gadgets must it sell in year 5 to reach a 25% IRR? The company starts with EBITDA of 60, is bought at a 9x multiple, and is exited at a 10x multiple after 5 years. The deal uses 25% debt financing. Annual non-gadget revenue is 120, the initial EBITDA margin is 25%, gadget prices rise by $4 in year 5, the final EBITDA margin is 25%, and the firm finishes the period with 350 in cash. Assume a 3x MOIC corresponds to a 25% IRR.",20,"Purchase price = 60 * 9 = 540. With 25% debt, 540*0.25 =135 debt is used and 405 equity is used.  
+Next, I derive the initial gadget price: (non-gadget revenue + gadget revenue) * EBITDA margin = EBITDA, so (120 + gadget revenue) * 0.25 = 60, making gadget revenue = 60/0.25-120 = 120. Hence gadget price = 120/12 = $10.
+To reach a 25% IRR over 5 years, MOIC must be 3x. Meaning equity on exit must be 405*3=1,215. 
+Exit net debt is 135 - 350 = -215 so exit EV is 1,215 - 215 = 1,000. Hence, exit EBITDA is 1,000 / 10x = 100.
+At 25% margin, year 5 revenue is 100 / 0.25 = 400. 
+We know the gadgets are sold for $10+$4 = $14 in year 5 and non-gadget revenue is 120, so (400-120)/14=20 gadgets are sold in year 5. ","# Finding Required Gadget Sales in Year 5 for 25% IRR
+
+## Step 1: Determine the Entry Equity
+
+- **Purchase Price (Enterprise Value):** EBITDA × Entry Multiple = 60 × 9 = **540**
+- **Debt:** 25% × 540 = **135**
+- **Equity Invested:** 540 - 135 = **405**
+
+## Step 2: Determine Required Exit Equity for 25% IRR
+
+A 3x MOIC over 5 years corresponds to ~25% IRR.
+
+- **Required Exit Equity:** 405 × 3 = **1,215**
+
+## Step 3: Determine Required Exit Enterprise Value
+
+At exit:
+- **Exit Equity = Exit EV - Debt + Cash**
+- **1,215 = Exit EV - 135 + 350**
+- **Exit EV = 1,215 + 135 - 350 = 1,000**
+
+## Step 4: Determine Required Year 5 EBITDA
+
+- **Exit EV = Year 5 EBITDA × Exit Multiple**
+- **1,000 = EBITDA₅ × 10**
+- **EBITDA₅ = 100**
+
+## Step 5: Determine Required Year 5 Revenue
+
+With a 25% EBITDA margin:
+- **Revenue₅ = EBITDA₅ / 0.25 = 100 / 0.25 = 400**
+
+## Step 6: Find Gadget Price in Year 5
+
+From Year 1 data:
+- **Year 1 Revenue = 120 (non-gadget) + 12 × P₁ (gadget revenue)**
+- **Year 1 EBITDA = 60, margin = 25% → Year 1 Revenue = 60 / 0.25 = 240**
+- **12 × P₁ = 240 - 120 = 120 → P₁ = 10**
+- **Year 5 gadget price = 10 + 4 = 14**
+
+## Step 7: Determine Required Gadget Sales
+
+- **Year 5 Gadget Revenue = 400 - 120 = 280**
+- **Number of gadgets = 280 / 14 = 20**
+
+## Answer: **20 gadgets**",,
+120,claude-opus-4-6,conceptual,"A financial sponsor acquires a business with EBITDA of $24 and an 10x purchase multiple, financed with a 2:1 debt-to-equity structure. Five years later, the sponsor exits when EBITDA is $40 at the same 10x multiple. Over the holding period, $70 of debt is fully paid down through free cash flow. What are the MOIC and IRR on the sponsor's equity?","3.875x MOICC, 31% IRR","Initial EV = $24 * 10 = $240 
+At 2:1 debt-to-equity ratio, total equity = $240/ (1+2) = $80 and total debt is $160.
+Exit EV = 40 * 10 = 400 
+Debt at exit is 160 - 70 = 90, making exit equity = 400 - 90 = 310.
+MOIC is 310/80=3.875x and IRR is (3.875)^(1/5)-1 =31%","# LBO Returns Calculation
+
+## Entry
+
+- **Purchase Price (EV):** $24 × 10x = **$240**
+- **Debt-to-Equity = 2:1**, so:
+  - Debt = $240 × (2/3) = **$160**
+  - Equity = $240 × (1/3) = **$80**
+
+## Exit (Year 5)
+
+- **Exit EV:** $40 × 10x = **$400**
+- **Remaining Debt:** $160 - $70 = **$90**
+- **Exit Equity Value:** $400 - $90 = **$310**
+
+## Returns
+
+- **MOIC:** $310 / $80 = **3.875x**
+
+- **IRR:** Solve for r where $80 × (1 + r)^5 = $310
+
+  (3.875)^(1/5) - 1 ≈ **31.1%**
+
+## Value Creation Breakdown
+| Source | Amount |
+|---|---|
+| EBITDA Growth | ($40 - $24) × 10 = $160 |
+| Multiple Expansion | $0 (same 10x) |
+| Debt Paydown | $70 |
+| **Total Equity Gain** | **$230** |",,
+127,claude-opus-4-6,conceptual,"Imagine a firm valued at 600M, with 400M in senior secured notes and an additional 300M in junior secured notes. How would each note class be priced based on this valuation?","First lien trades at 100c, second lien trades at 66.7c","The senior notes are fully covered by firm value (600 > 400), so they should be trading at 100 cents to the dollar. The junior secured notes are only covered for 200 / 300. The 200 comes from 600 - 400, or the remaining value after the senior debt is paid off. Consequently, the junior notes will be paid off at 66.7 cents on the dollar","# Pricing of Note Classes Based on Firm Valuation
+
+## Setup
+- **Firm Value:** $600M
+- **Senior Secured Notes:** $400M (face value)
+- **Junior Secured Notes:** $300M (face value)
+- **Total Debt:** $700M → The firm is **undercapitalized** (value < total debt)
+
+## Waterfall Analysis
+
+**Senior Secured Notes ($400M face value):**
+- Senior claims are paid first
+- Firm value of $600M fully covers the $400M senior obligation
+- **Priced at par (100 cents on the dollar) = $400M recovery**
+
+**Junior Secured Notes ($300M face value):**
+- After seniors are paid in full, remaining value = $600M - $400M = **$200M**
+- Junior notes have $300M in claims but only $200M of value remains
+- **Recovery = $200M / $300M = 66.7 cents on the dollar**
+
+## Summary
+
+| Class | Face Value | Recovery | Price (¢/$) |
+|-------|-----------|----------|-------------|
+| Senior Secured | $400M | $400M | **100.0** |
+| Junior Secured | $300M | $200M | **~66.7** |
+
+The key principle here is the **absolute priority rule** — senior creditors must be made whole before any value flows to junior creditors. The $100M shortfall ($700M debt vs. $600M value) is borne entirely by the junior class.",,
+136,claude-opus-4-6,conceptual,A firm acquires a piece of machinery for 250 with cash. Demonstrate how this transaction affects the primary financial statements.,"On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.","On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.","# Effect of Machinery Acquisition ($250 Cash) on Financial Statements
+
+## Balance Sheet
+
+| Item | Effect |
+|------|--------|
+| **Cash** (Current Asset) | **Decreases by $250** |
+| **Machinery/PP&E** (Non-Current Asset) | **Increases by $250** |
+| **Total Assets** | **No net change** |
+
+This is simply an **asset swap** — one asset (cash) is exchanged for another asset (machinery). Liabilities and equity are unaffected.
+
+---
+
+## Income Statement
+
+- **No immediate impact.** The purchase of a capital asset is not expensed at the time of acquisition.
+- **Future periods:** Depreciation expense will be recognized over the machinery's useful life, reducing net income in subsequent periods.
+
+---
+
+## Cash Flow Statement
+
+| Section | Effect |
+|---------|--------|
+| **Operating Activities** | No effect |
+| **Investing Activities** | **Cash outflow of $250** (purchase of PP&E) |
+| **Financing Activities** | No effect |
+| **Net change in cash** | **Decrease of $250** |
+
+---
+
+## Summary
+
+> The transaction is a **capital expenditure** that converts cash into a long-term asset. It has **no effect on profit at the time of purchase**, appears as an **investing outflow** on the cash flow statement, and is a **reclassification within assets** on the balance sheet. The income statement will be affected gradually through **depreciation** in future periods.",,
+5,claude-sonnet-4-6,basic,Compute the unadjusted EBITDA Margin for 2024. ,4.53%,"To calculate unadjusted EBITDA margin, we need to think about the parts of EBITDA margin, which are the unadjusted EBITDA Margin and the revenue for 2024. We can then find the margin by taking unadjusted EBITDA margin and dividing it by revenue.
+
+Step 1: Find Revenue
+We find revenue on the Income Statement to be 254453.
+
+Step 2: Calculate unadj. EBITDA
+To calculate unadjusted EBITDA, we think about how to get to EBITDA, unadj. EBITDA = unadj. EBIT + Depreciation + Amortization.
+
+To get unadjusted EBIT for 2024, we know that EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+On the Cash Flow statement, we find Depreciation + Amortization to be 2,237.
+
+Hence,  EBITDA = 9,285 + 2,237 = 11522
+
+Finally, unadj. EBITDA Margin = unadj. EBITDA / Revenue = 11522 / 254453 = 4.53% ","## EBITDA Margin Calculation (2024)
+
+**EBITDA = Operating Income + Depreciation & Amortization**
+
+- Operating Income: $9,285M
+- D&A: $2,237M
+- **EBITDA = $11,522M**
+
+**EBITDA Margin = EBITDA / Net Sales**
+
+$$\frac{\$11,522}{\$249,625} = \textbf{4.62\%}$$
+
+> Note: Using Net Sales ($249,625M) rather than Total Revenue ($254,453M) as the denominator for the unadjusted margin calculation.",,
+7,claude-sonnet-4-6,basic,What is the Operating Profit Margin in the year ending 2024?,3.65%,"Step 1: Identify the Formula
+
+Operating Margin = Operating Profit / Revenue
+
+Step 2: Locate Operating Profit and Revenue
+
+Operating Profit and Revenue are found in the Income Statement. Checking the Income Statement, I see Operating Income, which is the same as Operating Profit) is $9,285 and Revenue is $254,453
+
+Step 3: Apply the Formula
+
+Operating Margin = $9,285 / $254,453
+Operating Margin = 0.0365 or 3.65%","## Operating Profit Margin 2024
+
+$$\text{Operating Profit Margin} = \frac{\text{Operating Income}}{\text{Total Revenue}} = \frac{9,285}{254,453} = \textbf{3.65\%}$$",,
+9,claude-sonnet-4-6,basic,Calculate Operating Profit for 2024.,"$9,285 (in millions)","Step 1: Identify the Formula
+
+Operating Profit = Revenue - COGS - OpEx
+
+Step 2: Find Line Items
+These line items are found in the Income Statement. Checking the Income Statement, I see an Operating income line item of $9,285, which is the same as Operating Profit.
+
+Operating Profit = $9,285 (in millions)","Based on the Consolidated Statements of Income:
+
+**Operating Income (2024) = $9,285 million**
+
+(Total Revenue of $254,453M minus Merchandise Costs of $222,358M minus SG&A of $22,810M = $9,285M)",,
+22,claude-sonnet-4-6,basic,What is the effective tax rate in 2024?,24.40%,"The Effective Tax Rate is often given in the Tax note of a 10K. Checking Note 8—Taxes, I see the effective tax rate is given as 24.4%","**24.4%**
+
+This is directly stated in the tax reconciliation table, where the total provision for income taxes was $2,373 million on pre-tax income of $9,740 million ($2,373 / $9,740 = 24.4%).",,
+29,claude-sonnet-4-6,assumption,What is the operating cash tax rate in 2024?,24.30%,"To calculate the operating cash tax rate, we need to divide the operating cash tax by adjusted EBIT. 
+
+Task 1: Calculate Operating Cash Tax
+To calculate operating cash taxes, we need to consider non-cash tax payments that might be included in the operating cash tax.
+
+Part 1. Calculate operating taxes: 
+To calculate operating taxes, we need to find the statutory taxes on EBIT and then add / subtract additional operating taxes. 
+
+The first step to do is calculate the statutory taxes on EBIT: 
+To calculate the statutory taxes, we multiply the marginal tax rate by adjusted EBIT. 
+Step 1: Calculating marginal tax rate: 
+The marginal tax rate can be calculated by adding up federal, state, and local taxes. In the tax table, federal taxes are at 21% and state taxes are at 3%. There is no line item for local taxes, so the marginal tax rate is 21 + 3 = 24%
+
+Step 2: Calculating adjusted EBIT: 
+To calculate adjusted EBIT, we should start with unadjusted EBIT. To get unadjusted EBIT for 2024, we use the formula: EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+Looking for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. Did not find any. 
+
+Looking for other interest expenses that need to be added back. We need to add back operating and variable lease interest expense, since they are embedded in SG&A and merchandise costs (unlike finance interest lease expense, which is included in interest expense). To calculate operating lease expense, we can take the weighted average discount rate of the operating lease and multiply it by the previous year end's operating lease liability. The total operating lease liability from the previous year is the current + long-term, so (220 + 2426 = 2646). Then multiply it by the the weighted-average discount rate of this year, which is 2.67%. 2646 * 2.67% = 70.6482. To calculate variable interest expense, I don't see a line item for variable lease liability nor a weighted average discount rate for variable leases. However, I do see a variable lease cost line item, so I will use the ratio of variable lease costs to operating lease costs to estimate the interest expense. This assumes that the discount rate between the two is equal, which is reasonable because both follow similar rules of an operating lease (both have no ownership of the asset after the lease term). We can take the 70.6482 and multiply it by the ratio of variable lease costs to operating lease costs, so 70.6482 * (163/284) = 40.548. Adding up everything together: 9285 + 40.548 + 70.6482 = 9396.1963
+
+Step 3: Multiplying the two
+24% * 9396.196 = $2255.087 (in millions)
+
+The next step is to add / subtract operating taxes:  Looking at the tax reconciliation table, we can see that there are federal taxes, state taxes, foreign taxes, ESOP taxes, and other taxes. Thinking through each tax and whether or not it impacts the operating business. Federal and state impact the domestic operating business, foreign taxes impact the foreign operating business, and an employee stock ownership plan also impacts the operations of the business (paying off employees). Other is not detailed, so we will assume it is not related to the operating business as it could be any changes. We already factored in the statutory taxes (federal and state) to see their impact on the operating business, so what is remaining are the foreign operating business taxes and ESOP taxes which are 109 and -120, respectively. 
+
+Since the table provides the numerical quantities of taxes (in addition to the percentages), we can add them up with the number we got earlier (for statutory taxes on EBIT) to get operating taxes: 2255.087 + 109 - 120 = 2244.087
+
+Part 2.
+Calculate deferred tax expense: We do this by calculating the change in operating deferred tax assets, net of deferred tax liabilities. 
+
+Step 1. Calculating operating DTA, net of DTL in 2024: 
+To calculate operating net DTA/DTL in 2024, we need to figure out which line-items in the deferred tax table should be considered operating vs non-operating and add the operating deferred tax assets and subtract the operating deferred tax liabilities.
+
+Looking through the list of items, foreign tax credit carryforwards are not considering operating assets because they arise from jurisdictional tax rules (cross-border taxation) rather than operational performance or temporary accounting differences. Additionally, the other line item will be classified as non-operating as well because they aren't directly linked to an operational aspect of the company and do not demonstrate any sort of scaling with line items like revenue (which would help prove that it is an operating DTA/DTL)
+
+Net DTA/DTL = Operating DTA - Operating DTL: 96 + 313  +678 + 873 - 494 - 948 - 296 - 652 - 105 = -535
+
+Step 2. Calculating operating DTA, net of DTL in 2023: 
+To calculate operating net DTA/DTL in 2023, we need to figure out which line-items in the deferred tax table should be considered operating vs non-operating and add the operating deferred tax assets and subtract the operating deferred tax liabilities.
+
+Looking through the list of items, foreign tax credit carryforwards are not considering operating assets because they arise from jurisdictional tax rules (cross-border taxation) rather than operational performance or temporary accounting differences. Additionally, the other line item will be classified as non-operating as well because they aren't directly linked to an operational aspect of the company and do not demonstrate any sort of scaling with line items like revenue (which would help prove that it is an operating DTA/DTL). Foreign Branch deferreds are also considered operating because they are tied to the core operations in foreign countries and arise from accounting differences. 
+
+Net DTA/DTL = Operating DTA - Operating DTL: 89 + 309  +678 + 761 - 422 - 867 - 380 - 655 - 87 = -574
+
+Calculating the change from 2023 to 2024, which is the deferred tax expense: -535 - (-574) = +39
+
+Finally, to calculate operating cash tax in 2024, you add the deferred tax expense to the operating tax, so 2244.0871 + 39 = 2283.0871
+
+Task 2: Calculate Adjusted EBIT
+To calculate adjusted EBIT, we should first start with unadjusted EBIT and then make adjustments that make sense. 
+
+The first step is to get unadjusted EBIT for 2024, we know that EBIT = Operating Income. We find Operating Income on the Income Statement to be 9,285. 
+
+The second step is to look for one-time expenses, like write-downs, mark-downs, restructuring and legal fees, etc. We could not find any mentions of those expenses in 2024.
+
+Third, we need to look for other interest expenses or tax expenses that need to be added back if they were included in EBIT.  One common embedded interest expense is operating lease expense from the newer accounting rules. Looking at Note 5 - Leases, we also see variable leases, so we need to add back operating and variable lease interest expense, since they are embedded in SG&A and merchandise costs (unlike finance interest lease expense, which is included in interest expense). 
+
+To calculate operating lease expense, we can take the weighted average discount rate of the operating lease and multiply it by the previous year end's operating lease liability. The total operating lease liability from the previous year is the current + long-term, so (220 + 2426 = 2646). Then multiply it by the the weighted-average discount rate of this year, which is 2.67%. 2646 * 2.67% = 70.6482. To calculate variable interest expense, We don't see a line item for variable lease liability nor a weighted average discount rate for variable leases. However, we do see a variable lease cost line item, so we will use the ratio of variable lease costs to operating lease costs to estimate the interest expense. This assumes that the discount rate between the two is equal, which is reasonable because both follow similar rules of an operating lease (both have no ownership of the asset after the lease term). However, this is still an assumption being made. Consequently, we take the 70.6482 and multiply it by the ratio of variable lease costs to operating lease costs, so 70.6482 * (163/284) = 40.548. 
+
+Adding up everything together (unadjusted EBIT + operating lease interest expense + variable lease interest expense): 9285 + 40.548 + 70.6482 = $9396.1963 (in millions)
+
+Task 3: Calculating operating cash tax rate
+Operating cash tax rate = operating cash tax / adjusted EBIT = 2283.0871 / 9396.193 = 24.3%
+
+","## Operating Cash Tax Rate
+
+The **operating cash tax rate** is calculated as:
+
+$$\text{Operating Cash Tax Rate} = \frac{\text{Cash Taxes Paid}}{\text{EBIT}}$$
+
+**Values from the financial statements:**
+
+- **Cash taxes paid (2024):** $2,319M *(from Supplemental Disclosure of Cash Flow Information)*
+- **EBIT (Operating Income, 2024):** $9,285M
+
+$$\text{Operating Cash Tax Rate} = \frac{2,319}{9,285} = \textbf{24.98\%} \approx \textbf{25.0\%}$$",,
+39,claude-sonnet-4-6,assumption,"Determine Invested Capital including Goodwill for 2023, using 2% of revenue as max potential operating cash.","$26,915 (in millions)","To compute invested capital with goodwill, we need to add all operating assets and subtract all operating liabilities of the company. We can think about this in terms of operating working capital (current) and long-term operating assets minus long-term operating liabilities.
+Task 1: calculate operating working capital for 2023
+To compute Operating Working Capital for 2023, we use the formula: Operating Working Capital = Operating Current Assets - Operating Current Liabilities. 
+
+Step 1: Compute Operating Current Assets
+To compute Operating Current Assets, we use the formula: Operating Current Assets = Current Assets - Non-Operating Current Assets. 
+
+From the Balance Sheet, we find Total Current Assets to be 35,879, which is made up of Cash and cash equivalents, Short-term investments, Receivables, net, Merchandise inventories, and Other current assets. We remove Short-term investments, which is non-operating, and non-operating cash. 
+
+Given Operating Cash isn't provided, we assume Operating Cash to be 2% of 2023 Revenue, or 242,290 * 0.02 = 4845.8. No description of Other current assets is provided so we assume they are operating.
+
+We use the new formula of Operating Current Assets = Operating Cash + Net Receivables + Inventory + Other Current Assets = 4845.8 + 2285 + 16651 + 1709 = 25,490.8. 
+
+Step 2: Compute Operating Current Liabilities
+To compute Operating Current Liabilities, we use the formula: Operating Current Liabilities = Current Liabilities - Non-Operating Current Liabilities. 
+
+From the Balance Sheet we find Current Liabilities to be made up of Accounts payable, Accrued salaries and benefits, Accrued member rewards, Deferred membership fees, Current portion of long-term debt, and Other current liabilities. All of these liabilities are operating other than the current portion of long-term debt. 
+
+So we apply the formula: Operating Current Liabilities = Total Current Liabilities - Current portion of long-term debt = 33,583 - 1,081 = 32,502. 
+
+Alternatively, we could have used: Operating Current Liabilities = Accounts payable + Accrued salaries and benefits + Accrued member rewards + Deferred membership fees + Other current liabilities = 17,483 +  4,278 +  2,150 +  2,337 + 6,254 = 32,502. However, we also need to realize that other current liabilities could be composed of non operating liabilities.
+
+Taking a closer look, other current liabilities also includes operating and finance leases, which in Note 5 are 220 for operating lease liabilities and 129 for finance lease liabilities. So in reality, the operating current liability is 17,483 +  4,278 +  2,150 +  2,337 + (6,254 - 220 - 129) = 32,153 Hence Operating Working Capital = 25,490.8 - 32,153 = -$6,662.2 (in millions).
+
+Task 2: Calculating Long-term operating assets, net of long-term operating liabilities
+To calculate operating portion of long-term assets, net long-term liabilities, we need to take operating long-term assets and subtract operating long-term liabilities. 
+
+Part 1: Calculating Long-Term Operating Assets
+Let's calculate long-term Operating Assets for 2023.
+
+Step 1: Check to the Balance Sheet to find the long-term Operating Assets
+On the Balance Sheet, under Other Assets we see Property and equipment, net, Operating lease right-of-use assets, and Other long-term assets. We know that PP&E, and Operating lease ROU assets are operating. However, Other long-term assets is not granular enough as we do not know what goes into this.
+
+Step 2: Disaggregate Other long-term assets to find unaccounted for other assets
+We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,325) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2,713) * (160 / 309) = 1404.78964. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 491, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 1404.78964 - 994 - 491 = -496.8. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 994 - 491 = 908 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 4: Add all long-term operating assets together
+Net PP&E + Operating Lease ROU Assets +  Variable Lease Assets + Finance Lease Assets  + Goodwill + Other Long Term Operating Current Assets
+26,684 + 2,713 + 1404.78964 + 1,325 + 994 + 908 = $34,028.7896 (in millions) 
+
+Part 2: Calculating Long-Term Operating Liabilities
+Let's calculate long-term Operating Liabilities for 2023. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,303, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 795, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (220 + 2,426) * (160 / 309) = 1,370.097 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,550 - 1,303 - 1,370.097 - 795 = -918.097. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,550 - 1,303  - 795 = -$452 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Part 3: Subtracting the Two
+Net Operating Capital = 34,028.7896 -  452 = $33,577 (in millions)
+
+Task 3: Adding operating short-term and long-term assets, net of liabilities to get to invested capital
+Invested Capital = -6662.2 + 33576.7896 = $26,915 (in millions) 
+
+ 
+","## Invested Capital Including Goodwill (2023)
+
+### Formula:
+**Invested Capital = Total Equity + Total Debt + Operating Leases - Excess Cash**
+
+Where Excess Cash = Total Cash - Operating Cash (2% of Revenue)
+
+---
+
+### Step 1: Equity
+- Total Equity (2023): **$25,058M**
+
+---
+
+### Step 2: Total Debt
+- Current portion of long-term debt: $1,081M
+- Long-term debt, excluding current: $5,377M
+- **Total Debt: $6,458M**
+
+---
+
+### Step 3: Operating Leases (Capital Equivalent)
+- Current operating lease liabilities: $220M
+- Long-term operating lease liabilities: $2,426M
+- **Total Operating Leases: $2,646M**
+
+---
+
+### Step 4: Excess Cash
+- Total Cash + Short-term investments: $13,700M + $1,534M = $15,234M
+- Operating Cash (2% × $242,290M revenue): **$4,846M**
+- **Excess Cash: $15,234M - $4,846M = $10,388M**
+
+---
+
+### Step 5: Invested Capital
+
+| Component | Amount |
+|---|---|
+| Total Equity | $25,058M |
+| Total Debt | $6,458M |
+| Operating Leases | $2,646M |
+| Less: Excess Cash | ($10,388M) |
+| **Invested Capital (incl. Goodwill)** | **$23,774M** |
+
+*(Goodwill of $994M is already embedded in total assets/equity)*",,
+46,claude-sonnet-4-6,assumption,"What is the operating portion of long-term assets, net long-term liabilities in 2024?","$36,083 (in millions)","To calculate operating portion of long-term assets, net long-term liabilities, we need to take operating long-term assets and subtract operating long-term liabilities. 
+
+Part 1: Calculating Long-Term Operating Assets
+Let's calculate long-term Operating Assets for 2024.
+
+Step 1: Check to the Balance Sheet to find the long-term Operating Assets
+On the Balance Sheet, under Other Assets we see Property and equipment, net, Operating lease right-of-use assets, and Other long-term assets. We know that PP&E, and Operating lease ROU assets are operating. However, Other long-term assets is not granular enough as we do not know what goes into this.
+
+Step 2: Disaggregate Other long-term assets to find unaccounted for other assets
+We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,433) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 548, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 1502 - 994 - 548 = -541. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 994 - 548 = 961 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 4: Add all long-term operating assets together
+Net PP&E + Operating Lease ROU Assets +  Variable Lease Assets + Finance Lease Assets  + Goodwill + Other Long Term Operating Current Assets
+29,032 + 2,617 + 1502 + 1,433 + 994 + 961 = $36,539 (in millions) 
+
+Part 2: Calculating Long-Term Operating Liabilities
+Let's calculate long-term Operating Liabilities for 2024. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,351, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 769, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,576 - 1,351 - 1,465.85 - 769 = -1009.85. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,576 - 1,351 - 769 = -$456 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Part 3: Subtracting the Two
+Net Operating Capital = 36,539 -  456 = $36,083 (in millions)
+","I need to find the operating portion of long-term assets net of long-term liabilities in 2024.
+
+## Identifying Operating Long-Term Assets
+
+From the balance sheet, long-term assets:
+- Property and equipment, net: $29,032
+- Operating lease right-of-use assets: $2,617
+- Other long-term assets: $3,936
+
+**Total long-term assets: $35,585**
+
+## Identifying Operating Long-Term Liabilities
+
+From the balance sheet, long-term liabilities:
+- Long-term debt, excluding current portion: $5,794 ← **financing, exclude**
+- Long-term operating lease liabilities: $2,375
+- Other long-term liabilities: $2,576
+
+**Operating long-term liabilities: $2,375 + $2,576 = $4,951**
+
+## Net Operating Long-Term Assets
+
+$$\text{Net Operating Long-Term Assets} = \$35,585 - \$4,951 = \$30,634 \text{ million}$$",,
+48,claude-sonnet-4-6,assumption,"What is the change in operating portion of long-term assets, net long-term liabilities from 2023 to 2024?","$2,506 (in millions)","To calculate the change in the operating portion of long-term assets, net long-term liabilities, we need to calculate it for 2023 and 2024.
+2023 Number Calculation:
+To calculate operating portion of long-term assets, net long-term liabilities, we need to take operating long-term assets and subtract operating long-term liabilities. 
+
+Part 1: Calculating Long-Term Operating Assets
+Let's calculate long-term Operating Assets for 2023.
+
+Step 1: Check to the Balance Sheet to find the long-term Operating Assets
+On the Balance Sheet, under Other Assets we see Property and equipment, net, Operating lease right-of-use assets, and Other long-term assets. We know that PP&E, and Operating lease ROU assets are operating. However, Other long-term assets is not granular enough as we do not know what goes into this.
+
+Step 2: Disaggregate Other long-term assets to find unaccounted for other assets
+We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,325) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2,713) * (160 / 309) = 1404.78964. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 491, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 1404.78964 - 994 - 491 = -496.8. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 994 - 491 = 908 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 4: Add all long-term operating assets together
+Net PP&E + Operating Lease ROU Assets +  Variable Lease Assets + Finance Lease Assets  + Goodwill + Other Long Term Operating Current Assets
+26,684 + 2,713 + 1404.78964 + 1,325 + 994 + 908 = $34,028.7896 (in millions) 
+
+Part 2: Calculating Long-Term Operating Liabilities
+Let's calculate long-tern Operating Liabilities for 2023. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,303, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 795, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (220 + 2,426) * (160 / 309) = 1,370.097 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,550 - 1,303 - 1,370.097 - 795 = -918.097. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,550 - 1,303  - 795 = -$452 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Part 3: Subtracting the Two
+Net Operating Capital = 34,028.7896 -  452 = $33,577 (in millions)
+
+2024 Calculation:
+To calculate operating portion of long-term assets, net long-term liabilities, we need to take operating long-term assets and subtract operating long-term liabilities. 
+
+Part 1: Calculating Long-Term Operating Assets
+Let's calculate long-term Operating Assets for 2024.
+
+Step 1: Check to the Balance Sheet to find the long-term Operating Assets
+On the Balance Sheet, under Other Assets we see Property and equipment, net, Operating lease right-of-use assets, and Other long-term assets. We know that PP&E, and Operating lease ROU assets are operating. However, Other long-term assets is not granular enough as we do not know what goes into this.
+
+Step 2: Disaggregate Other long-term assets to find unaccounted for other assets
+We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,433) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502. We assume that these variable leases are included in other long-term assets
+
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 548, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 1502 - 994 - 548 = -541. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 994 - 548 = 961 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 4: Add all long-term operating assets together
+Net PP&E + Operating Lease ROU Assets +  Variable Lease Assets + Finance Lease Assets  + Goodwill + Other Long Term Operating Current Assets
+29,032 + 2,617 + 1502 + 1,433 + 994 + 961 = $36,539 (in millions) 
+
+Part 2: Calculating Long-Term Operating Liabilities
+Let's calculate long-tern Operating Liabilities for 2024. 
+
+Step 1: Check the Balance Sheet
+On the Balance Sheet I see long-term liabilities is made up of non-current Long-term debt, Long-term operating lease liabilities, and Other long-term liabilities. We know that long-term debt and long-term operating lease liabilities are not operational liabilities. However, Other long-term liabilities is not granular enough as we do not know what goes into this, which are current and which are non-current.
+
+Step 2: Disaggregate Other long-term liabilities to find operating long-term liabilities.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,351, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 769, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,576 - 1,351 - 1,465.85 - 769 = -1009.85. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,576 - 1,351 - 769 = -$456 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Part 3: Subtracting the Two
+Net Operating Capital = 36,539 -  456 = $36,083 (in millions)
+
+Calculating the Change: 36,083 - 33,577 = $2,506 (in millions)  
+","I need to calculate the operating portion of long-term assets minus long-term liabilities for both years, then find the change.
+
+## Operating Long-Term Assets (excluding financial assets)
+
+**2024:**
+- Property and equipment, net: $29,032
+- Operating lease right-of-use assets: $2,617
+- Other long-term assets: $3,936
+- **Total: $35,585**
+
+**2023:**
+- Property and equipment, net: $26,684
+- Operating lease right-of-use assets: $2,713
+- Other long-term assets: $3,718
+- **Total: $33,115**
+
+## Operating Long-Term Liabilities (excluding financial liabilities)
+
+**2024:**
+- Long-term operating lease liabilities: $2,375
+- Other long-term liabilities: $2,576
+- **Total: $4,951**
+
+**2023:**
+- Long-term operating lease liabilities: $2,426
+- Other long-term liabilities: $2,550
+- **Total: $4,976**
+
+## Net Operating Long-Term Assets
+
+**2024:** $35,585 - $4,951 = **$30,634**
+
+**2023:** $33,115 - $4,976 = **$28,139**
+
+## Change
+
+$30,634 - $28,139 = **+$2,495 million increase**",,
+50,claude-sonnet-4-6,assumption,"After separating other long-term assets, net of long-term liabilities to find what portion of that number is unaccounted for, can you measure the change between 2023 and 2024 for that operating metric?",$49 (in millions),"To calculate the change from 2023 to 2024, we need to calculate the metric in 2024 and in 2023:
+
+2024 portion of other long-term assets that's not accounted, net of the portion of other long-term operating liabilities not accounted for:
+To calculate both portion of other long-term assets that's not accounted for in 2024, net of the portion of other long-term operating liabilities not accounted for, we need to figure out the assets side and then the liability side: 
+
+Step 1: We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,433) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = 1502. We assume that these variable leases are included in other long-term assets
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 548, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 1502 - 994 - 548 = -541. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,936 - 1,433 - 994 - 548 = $961 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 2: Disaggregating other long-term liabilities to find other operating long-term liabilities not accounted for.
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,351, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 769, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (179 + 2,375) * (163 / 284) = 1,465.85 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,576 - 1,351 - 1,465.85 - 769 = -1009.85. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,576 - 1,351 - 769 = -$456 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Step 3: Apply formula for Net Non-current Operating Assets
+Non-current Operating Assets, net of Non-current Operating Liabilities, = Non-current Operating Assets - Non-current Operating Liabilities = 961 - 456 = 505 (in millions).
+
+2023 portion of other long-term assets that's not accounted, net of the portion of other long-term operating liabilities not accounted for:
+To calculate both portion of other long-term assets that's not accounted for in 2024, net of the portion of other long-term operating liabilities not accounted for, we need to figure out the assets side and then the liability side: 
+
+Step 1: We try to break out the portion of Other long-term assets, which we know. Given Costco didn't provide commentary on what is in Other long-term assets, we will assume the remaining of the assets which we don't know are operating. We should look for which assets are under other long term assets.
+From Note 5—Leases we know that Costco also has Finance lease assets (of 1,325) as well as Variable lease costs, which lead to Variable lease assets. Variable lease assets aren't provided directly, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2,713) * (160 / 309) = 1404.78964. We assume that these variable leases are included in other long-term assets
+Further, from Note 1—Summary of Significant Accounting Policies, we know Costco has Goodwill of 994, which falls under other long-term assets.
+Further, from Note 8—Taxes, we know Costco has a Deferred Income Tax Asset of 491, which also falls under other long-term assets. Deferred income tax asset is non-operating.
+To find the unaccounted for other assets, we take Other long-term assets - Finance Lease Assets - Variable Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 1404.78964 - 994 - 491 = -496.8. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term assets and instead just wasn't capitalized on the balance sheet .Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term assets - Finance Lease Assets - Goodwill - Deferred Income Tax Asset = 3,718 - 1,325 - 994 - 491 = 908 (in millions) of unaccounted for other long-term assets that we assume to be operating.
+
+Step 2: Disaggregating Other long-term liabilities to find operating other long-term liabilities not accounted for 
+We try to break out the portion of Other long-term liabilities, which we know. Given Costco didn't provide commentary on what is in Other long-term liabilities, we will assume the remaining of the liabilities which we don't know are operating.
+From Note 5—Leases, we know Costco has long-term finance lease liability of 1,303, which is non operating.
+From Note 8—Taxes, we know Costco has deferred income tax liabilities of 795, which is non operating.
+We also see variable lease liability is not accounted for anywhere, so let's assume that these variable leases are included in other long-term assets. Let's estimate Variable Lease Liability in 2024.
+From Note 5—Leases, I also see Costco is reporting a unique lease cost called ""Variable lease costs"". However, there is no corresponding variable lease liab. Hence, I take the ratio of Operating lease costs to Variable lease costs to estimate Variable lease liab., where Variable lease liab. = Operating lease liab. * (Variable lease costs / Operating lease costs) = (220 + 2,426) * (160 / 309) = 1,370.097 (in millions), where Operating lease liab. is the sum of current operating lease liab. and long-term operating lease liability. 
+
+To find the unaccounted for other liabilities, we take Other long-term liabilities - Finance Lease liability - Variable Lease liability - Deferred Income Tax Liability = 2,550 - 1,303 - 1,370.097 - 795 = -918.097. 
+However, this asset cannot be negative. Checking again, we see that Variable Lease Assets (and the corresponding Variable Lease Liability) were never capitalized on the balance sheet. So, we take back the assumption that it should be in other long-term liabilities and instead just wasn't capitalized on the balance sheet. Hence, we shouldn't include them in this calculation.
+Our new formula is Other long-term liabilities - Finance Lease liabilities  - Deferred Income Tax Asset = 2,550 - 1,303  - 795 = -$452 (in millions) of unaccounted for other long-term assets that we assume to be operating. 
+
+Step 3: Apply formula for Net Non-current Operating Assets
+Non-current Operating Assets, net of Non-current Operating Liabilities, = Non-current Operating Assets - Non-current Operating Liabilities = 908 - 452 = 456 (in millions).
+
+2024 - 2023 Portion = 505 -456 = $49 (in millions) ","I need to find the ""unaccounted for"" portion of other long-term assets net of other long-term liabilities.
+
+## Identifying Known Components
+
+**Other Long-Term Assets:**
+- 2024: $3,936 | 2023: $3,718
+
+**Known components within Other Long-Term Assets:**
+- Goodwill: $994 (both years) / $994
+- Finance lease assets: $1,433 / $1,325
+- Deferred tax assets (long-term): $548 / $491
+
+**Other Long-Term Liabilities:**
+- 2024: $2,576 | 2023: $2,550
+
+**Known components within Other Long-Term Liabilities:**
+- Finance lease liabilities (long-term): $1,351 / $1,303
+- Deferred tax liabilities (long-term): $769 / $795
+
+## Net Calculation
+
+**Net Other LT Assets less Other LT Liabilities:**
+- 2024: $3,936 - $2,576 = **$1,360**
+- 2023: $3,718 - $2,550 = **$1,168**
+
+**Known net components:**
+- 2024: ($994 + $1,433 + $548) - ($1,351 + $769) = $2,975 - $2,120 = **$855**
+- 2023: ($994 + $1,325 + $491) - ($1,303 + $795) = $2,810 - $2,098 = **$712**
+
+## Unaccounted Portion:
+- 2024: $1,360 - $855 = **$505**
+- 2023: $1,168 - $712 = **$456**
+
+## Change:
+**$505 - $456 = +$49 million increase from 2023 to 2024**",,
+53,claude-sonnet-4-6,assumption,Estimate Variable Lease Assets in 2024,"$1,502 (in millions)","Let's estimate Variable Lease Assets in 2024.
+
+In Note 5—Leases, we see there is Variable Lease Costs, which doesn't have a reported corresponding Variable Lease Assets, so we estimate Variable Lease Assets by using the ratio of operating lease costs to variable lease costs. Variable lease assets. = Operating lease assets. * (Variable lease costs / Operating lease costs) = (2617) * (163 / 284) = $1,502 (in millions).","## Estimating Variable Lease Assets in 2024
+
+Variable lease costs represent payments that are not fixed and depend on usage or other factors. From the lease disclosure:
+
+**Variable lease costs (2024): $163 million**
+
+These are expensed as incurred and do **not** create a right-of-use asset on the balance sheet, as they are excluded from the lease liability measurement under ASC 842.
+
+Therefore, **there are no ""variable lease assets"" capitalized on the balance sheet** — variable lease costs ($163M in 2024) flow directly through the income statement and are not recognized as assets.",,
+60,claude-sonnet-4-6,assumption,"What is Operating Working Capital for 2024, using 2% of revenue as max potential operating cash?","-$6,844 (in millions)","To compute Operating Working Capital for 2024, we use the formula: Operating Working Capital = Operating Current Assets - Operating Current Liabilities. 
+
+Step 1: Calculate Operating Current Asset
+To compute Operating Current Assets, we need to either subtract out the non-operating current assets from current assets: Operating Current Assets = Current Assets - Non-Operating Current Assets. Or we need to add all operating current assets. 
+
+From the Balance Sheet, we find Total Current Assets to be 34,246, which is made up of Cash and cash equivalents, Short-term investments, Receivables, net, Merchandise inventories, and Other current assets. We remove Short-term investments, which is non-operating, and non-operating cash. Given operating cash isn't provided, we need to calculate cash and cash equivalents as well as 2% of revenue. 
+
+To compute cash and cash equivalents for 2024, we can start by using the formula: cash = cash + cash equivalents, like short-term marketable securities. From the balance sheet, I see a cash and cash equivalents balance of 9,906 and short-term investments balance of 1,238. From Note 1—Summary of Significant Accounting Policies, I confirm that short-term investments are short-term, low-risk investments that can be easily sold and converted to cash. Looking for other short term assets, like other current assets, I do not see any similarities to cash or highly liquid assets. Hence, Cash is 9,906 + 1,238 = $11,144 (in millions)
+Since 5089 < 11144, or operating cash is less than cash or cash equivalents, 5089.06 is the operating cash, which is the minimum of the two numbers.
+
+No description of Other current assets is provided so we assume they are operating. 
+
+We use the new formula of Operating Current Assets = Operating Cash + Net Receivables + Inventory + Other Current Assets = 5089 + 2721 + 18647 + 1734 = $28,191 (in millions)
+
+Step 2: Calculate Operating Current Liabilities
+To compute Operating Current Liabilities, we need to either subtract out the non-operating current liabilities from current liabilities:Operating Current Liabilities = Current Liabilities - Non-Operating Current Liabilities. Or we need to add all current operating liabilities together.
+
+From the Balance Sheet we find Current Liabilities to be made up of Accounts payable, Accrued salaries and benefits, Accrued member rewards, Deferred membership fees, Current portion of long-term debt, and Other current liabilities. All of these liabilities are operating other than the current portion of long-term debt. So we apply the formula: Operating Current Liabilities = Total Current Liabilities - Current portion of long-term debt = 35,464 - 103 = 35361. Alternatively, we could have used: Operating Current Liabilities = Accounts payable + Accrued salaries and benefits + Accrued member rewards + Deferred membership fees + Other current liabilities = 19,421 +  4,794 +  2,435 +  2,501 + 6,210 = 35361. 
+
+However, we also need to realize that other current liabilities could be composed of non operating liabilities. Taking a closer look, other current liabilities also includes operating and finance leases, which in Note 5 are 179 for operating lease liabilities and 147 for finance lease liabilities. Operating and finance lease liabilities are not operating liabilities because they are essentially debt equivalents, so in reality, the operating current liability is 19,421 +  4,794 +  2,435 +  2,501 + (6,210 - 179 - 147) = $35,035 (in millions)
+
+Step 3: Apply Formula
+Operating Working Capital = Operating Current Assets - Operating Current Liabilities
+Operating Working Capital = 28,191 - 35,035 = -$6,844 (in millions)","## Operating Working Capital Calculation (2024)
+
+**Operating Working Capital = Operating Current Assets - Operating Current Liabilities**
+
+### Operating Current Assets:
+| Item | Amount |
+|------|--------|
+| Min(Cash, 2% of Revenue) | Min($9,906, $5,089) = **$5,089** |
+| Receivables, net | $2,721 |
+| Merchandise inventories | $18,647 |
+| Other current assets | $1,734 |
+| **Total Operating CA** | **$28,191** |
+
+*2% of Revenue = 2% × $254,453 = $5,089*
+
+### Operating Current Liabilities:
+| Item | Amount |
+|------|--------|
+| Accounts payable | $19,421 |
+| Accrued salaries and benefits | $4,794 |
+| Accrued member rewards | $2,435 |
+| Deferred membership fees | $2,501 |
+| Other current liabilities | $6,210 |
+| **Total Operating CL** | **$35,361** |
+
+*(Excluding current portion of long-term debt as it is a financing item)*
+
+---
+
+### Operating Working Capital:
+$$28,191 - 35,361 = \textbf{-\$7,170 million}$$
+
+Costco operates with **negative operating working capital of -$7,170M**, reflecting its efficient business model where suppliers are paid after customers pay/membership fees are collected in advance.",,
+67,claude-sonnet-4-6,basic,Calculate ARPU (Average Revenue Per User) for 2024.,"$3,457.24","To calculate ARPU, I can take the Revenue of 2024 and then divide it by the average number of paid customers from 2023 and 2024.
+
+Total revenue is 254453. Average number of paid customers is (76200 + 71000) / 2 = 73600.
+
+ARPU = 254453 (in millions) / 73600 (in thousands) = $3,457 / paid member","## ARPU Calculation for 2024
+
+**Formula:** ARPU = Total Revenue / Total Cardholders
+
+**Data:**
+- Total Revenue (2024): **$254,453 million**
+- Total Cardholders (2024): **136,800 thousand = 136.8 million**
+
+**Calculation:**
+
+$$ARPU = \frac{\$254,453M}{136.8M} = \$1,860.04$$
+
+**ARPU for 2024 ≈ $1,860 per cardholder**
+
+---
+
+*Alternatively, using only Membership Fees:*
+
+$$ARPU_{membership} = \frac{\$4,828M}{136.8M} = \$35.29 \text{ per cardholder}$$
+
+Or using **paid members only** (76.2 million):
+
+$$ARPU = \frac{\$254,453M}{76.2M} = \$3,339.28$$
+
+The most comprehensive measure using **total revenue / total cardholders = ~$1,860 per user**.",,
+82,claude-sonnet-4-6,basic,What was Sales per sq ft in 2024?,"$1,943.87","To calculate Sales per Square Feet I will use the equation Sales per Square Feet = Total Sales / Average Total Square Feet.
+
+From the Income Statement, I see total sales was 254,453 in 2024.
+
+From Item 2—Properties, I see that costco had 130.9 million square feet of operating floor space in 2024. Ideally I'd take the average square feet over the year, however 2023 square was not provided. 
+
+Hence Sales per Square Feet = $254,453 (in millions) / 130.9 sq ft (in millions) = $1,943.87/sq ft.","## Sales per Square Foot in 2024
+
+**Net Sales:** $249,625 million
+
+**Total Operating Floor Space:** 130.9 million square feet
+
+$$\text{Sales per sq ft} = \frac{\$249,625\text{M}}{130.9\text{M sq ft}} = \textbf{\$1,907 per sq ft}$$",,
+83,claude-sonnet-4-6,basic,What was Sales per sq ft cut by geography in 2024?,"US: $2,021.33; Canada: $2,249.94 International: $1,458.27","To calculate Sales per Square Feet by Geo I will use the equation Sales per Square Feet = Total Sales / Average Total Square Feet for each geography.
+
+From Note 11—Segment Reporting, I see 2024 total revenue was 184,143 in the US, 34,874 in Canada, and 35,436 in Other International.
+
+From Item 2—Properties, I see that square feet per geography was 91.1 million in the U.S., 15.5 million in Canada, and 24.3 million in Other International. 
+
+Hence Sales per Square Feet was (184,143 /  91.1) = $2,021.33 in the US, (34,874 / 15.5) = $2,249.94 in Canada, and (35,436 / 24.3) = $1,458.27 in Other International.","## Sales per Square Foot by Geography (2024)
+
+Using **Net Sales** from segment reporting and **square footage** from the Properties section:
+
+| Geography | Net Sales (millions) | Square Footage (millions sq ft) | Sales per Sq Ft |
+|-----------|---------------------|--------------------------------|-----------------|
+| **U.S.** | $182,694* | 91.1 | **$2,005** |
+| **Canada** | $34,328* | 15.5 | **$2,encyclop214** |
+| **Other International** | $32,603* | 24.3 | **$1,342** |
+| **Total** | $249,625 | 130.9 | **$1,907** |
+
+*Note: Net sales figures derived from total revenue less membership fees by segment (approximate, as membership fees aren't broken out by geography in the filing)*
+
+### Using Total Revenue (simpler approach):
+| Geography | Total Revenue | Sq Ft | Revenue per Sq Ft |
+|-----------|--------------|-------|-------------------|
+| U.S. | $184,143M | 91.1M | **$2,021** |
+| Canada | $34,874M | 15.5M | **$2,250** |
+| Other International | $35,436M | 24.3M | **$1,459** |
+| **Total** | **$254,453M** | **130.9M** | **$1,944** |",,
+95,claude-sonnet-4-6,conceptual,"Suppose you buy a $75 Starbucks gift card, then spend the entire balance on drinks. What happens to Starbucks's cash flow at the moment you use that $75 (cash inflow, cash outflow, or no change)?",No change,"Starbucks initially records an unearned revenue liability when the gift card was purchased. This corresponds to a cash inflow. However, when the gift card is spent there is no new cash received by Starbucks (the unearned revenue turns to revenue) so cash is unchanged.","## Answer: **No change** to cash flow at the moment you use the $75.
+
+**Reasoning:**
+- When you **purchase** the gift card, Starbucks receives the **$75 cash inflow** and records it as a liability (deferred revenue).
+- When you **redeem** the gift card, Starbucks recognizes **revenue**, but **no new cash changes hands** — the cash already came in earlier.
+
+So the cash flow impact occurs at purchase, not at redemption.",,
+99,claude-sonnet-4-6,conceptual,"A firm has 200 million of equity, 100 million of debt, and 70 million of cash. The company raises a 30 million term loan to finance a 60 million acquisition. How is its enterprise value affected?",60M increase,"Enterprise value increases by 60 million. Since the acquisition is funded by 30 million in debt and 30 million (assumably in cash), debt goes up by 30 and cash goes down by 30, meaning that EV goes up by 60.","## Enterprise Value Analysis
+
+**Enterprise Value = Equity + Debt - Cash**
+
+### Before Transaction:
+| Component | Value |
+|-----------|-------|
+| Equity | $200M |
+| Debt | $100M |
+| Cash | ($70M) |
+| **EV** | **$230M** |
+
+### Transaction Effects:
+- **+$30M debt** (term loan)
+- **+$30M cash** (loan proceeds received)
+- **-$30M cash** (cash used toward acquisition, combined with $30M loan = $60M total)
+- **+$60M in acquired assets** (drives equity value up by $60M, assuming fair value purchase)
+
+### After Transaction:
+| Component | Value |
+|-----------|-------|
+| Equity | $260M (+$60M from acquired assets) |
+| Debt | $130M (+$30M term loan) |
+| Cash | ($70M) (unchanged net) |
+| **EV** | **$320M** |
+
+> **Note on cash:** The $30M loan proceeds come in as cash, then $60M total goes out for acquisition ($30M loan + $30M existing cash).
+
+---
+
+## Result: EV increases by **$90M**
+
+- **+$60M** from acquired business assets (reflected in equity)
+- **+$30M** from new debt added to the capital structure
+
+The acquisition adds $60M of assets to the firm while consuming $30M of existing cash, and the new debt adds $30M — resulting in a **net EV increase of $90M**.",,
+103,claude-sonnet-4-6,conceptual,"A private equity group acquires a company with 200M of EBITDA at a 4x multiple, financing 50% with debt. In the fifth year, EBITDA has grown to 300M, and the firm exits at a 5x multiple. Across this period, 400M of debt was paid down, with no remaining surplus cash. What are the MOIC and the IRR of this investment?","3x MOIC, 25% IRR","The initial purchase price is 200M * 4x = 800M.
+Equity funding is 50% * 800M = 400M, and same with debt funding.
+At exit, EV is 300M * 5x = 1,500M. Equity value is 1,500M - 400M + 100M = 1,200M.
+MOIC is then 1,200 / 400M = 3x and IRR is 25%.","## Step-by-Step Solution
+
+### Entry
+
+| Item | Calculation | Value |
+|------|-------------|-------|
+| Enterprise Value (Entry) | 200M × 4x | **800M** |
+| Debt | 50% × 800M | **400M** |
+| Equity Invested | 800M − 400M | **400M** |
+
+---
+
+### Exit (Year 5)
+
+| Item | Calculation | Value |
+|------|-------------|-------|
+| Enterprise Value (Exit) | 300M × 5x | **1,500M** |
+| Remaining Debt | 400M − 400M paid down | **0M** |
+| Equity Proceeds | 1,500M − 0M | **1,500M** |
+
+---
+
+### Returns
+
+**MOIC:**
+$$\text{MOIC} = \frac{1{,}500M}{400M} = \textbf{3.75x}$$
+
+**IRR** (solving for r over 5 years):
+$$400M \times (1+r)^5 = 1{,}500M$$
+$$(1+r)^5 = 3.75$$
+$$r = 3.75^{1/5} - 1 = 1.3024 - 1 \approx \textbf{30.2\%}$$
+
+---
+
+### Summary
+
+| Metric | Value |
+|--------|-------|
+| **MOIC** | **3.75x** |
+| **IRR** | **~30%** |",,
+107,claude-sonnet-4-6,conceptual,Suppose a business trades at 3x revenue and 6x EBITDA. What would its EBITDA margin be?,50%,EBITDA margin can be thought of as EBITDA / Sales = (EV / Sales) / (EV/EBITDA) = 3 / 6 = 50%,"## EBITDA Margin Calculation
+
+If the business trades at:
+- **3x Revenue** → Enterprise Value / Revenue = 3
+- **6x EBITDA** → Enterprise Value / EBITDA = 6
+
+Since both multiples reference the same Enterprise Value:
+
+$$\frac{EV}{Revenue} = 3 \quad \text{and} \quad \frac{EV}{EBITDA} = 6$$
+
+$$EBITDA\ Margin = \frac{EBITDA}{Revenue} = \frac{EV/6}{EV/3} = \frac{3}{6} = \boxed{50\%}$$
+
+The EBITDA margin would be **50%**.",,
+128,claude-sonnet-4-6,conceptual,"A business earns $200 in sales per period, with a 25% gross margin. Which option boosts profit most: increasing unit sales by 16%, raising prices by 4%, or cutting overhead by $2?",Price and volume,"Increasing unit sales is impacted by gross margin, so gross profit would increase by 16% * 25% = 4%. Increasing price is not impacted by gross margin as it still costs the same amount to produce the goods, so gross profit would increase by 4%. Cutting overhead by 2 is less than 4% of 200 or 8, so the largest impact to earnings comes from both price and volume","## Analysis
+
+**Baseline:**
+- Sales: $200
+- Gross Margin: 25% → Gross Profit = $50
+- COGS = $150
+
+---
+
+### Option 1: Increase Unit Sales by 16%
+- New Sales: $200 × 1.16 = $232
+- New Gross Profit: $232 × 25% = **$58**
+- Profit increase: **+$8**
+
+---
+
+### Option 2: Raise Prices by 4%
+- New Sales: $200 × 1.04 = $208
+- COGS remains $150
+- New Gross Profit: $208 - $150 = **$58**
+- Profit increase: **+$8**
+
+---
+
+### Option 3: Cut Overhead by $2
+- Gross Profit stays $50
+- Overhead reduction: **+$2**
+- Profit increase: **+$2**
+
+---
+
+## Answer
+
+**Options 1 and 2 tie**, each boosting profit by **$8** — far outperforming the overhead cut (+$2).
+
+> Raising prices is typically preferable as it requires no additional volume or operational scaling.",,
+134,claude-sonnet-4-6,conceptual,"A manufacturing company has an EV/EBITDA multiple of 12x and a P/E ratio of 12x. From this information, how much net debt does this company have? ",EBITDA * 6,"EV = EV/EBITDA * EBITDA. I will assume 50% of EBITDA converts to net income.
+Equity value = P/E * Net Income = P/E * EBITDA * 0.5
+EV = Equity Value + Net Debt = P/E * EBITDA * 0.5 + Net Debt. Rearranging for Net Debt, we have Net Debt = EV - P/E * EBITDA * 0.5 =  EV/EBITDA * EBITDA - P/E * EBITDA * 0.5 = 12x * EBITDA - 12x * EBITDA * 0.5 = 6x EBITDA.
+Hence Net Debt = EBITDA * 6","## Answer: **Zero (No Net Debt)**
+
+When **EV/EBITDA = P/E**, this implies the company has **no net debt (net debt = 0)**.
+
+### Why?
+
+- **EV = Market Cap + Net Debt**
+- **EV/EBITDA = P/E** means → **(Market Cap + Net Debt)/EBITDA = Market Cap/Net Income**
+
+For both multiples to be equal, we need:
+- **Net Debt = 0** (i.e., EV = Market Cap)
+- **EBITDA = Net Income** — which would also require D&A = 0, Interest = 0, and Taxes = 0 (simplifying assumption in this context)
+
+The key takeaway: **equal multiples signal zero net debt**, as the equity value equals enterprise value.",,
+142,claude-sonnet-4-6,conceptual,How are the three statement are affected when a company buys $300 of inventory by issuing new debt?,"There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.","There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.","## Impact of Buying $300 Inventory with New Debt
+
+### Income Statement
+- **No impact** (no revenue recognized, no expense yet — inventory is an asset until sold)
+
+### Balance Sheet
+- **Assets:** Inventory ↑ $300
+- **Liabilities:** Debt ↑ $300
+- **Equity:** No change
+- *(Balance sheet remains balanced)*
+
+### Cash Flow Statement
+- **No impact** (non-cash transaction — no cash exchanged)
+
+> **Key Point:** This is a purely balance sheet transaction with no P&L or cash impact until the inventory is sold or cash is used to repay the debt.",,

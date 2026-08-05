@@ -1,0 +1,467 @@
+row_id,question_type,variant,variant_text,gold,naive_em_accepts,numeric_match_accepts
+0,basic,identity,"$32,095 (in millions)","$32,095 (in millions)",1,1
+0,basic,scale_word,"$32,095 million","$32,095 (in millions)",0,1
+0,basic,scale_shift_bn,$32.095 billion,"$32,095 (in millions)",0,1
+0,basic,suffix,"$32,095M","$32,095 (in millions)",0,1
+0,basic,sentence,"The company's figure for the period was $32,095 million.","$32,095 (in millions)",0,1
+1,basic,identity,"$11,522 (in millions)","$11,522 (in millions)",1,1
+1,basic,scale_word,"$11,522 million","$11,522 (in millions)",0,1
+1,basic,scale_shift_bn,$11.522 billion,"$11,522 (in millions)",0,1
+1,basic,suffix,"$11,522M","$11,522 (in millions)",0,1
+1,basic,sentence,"The company's figure for the period was $11,522 million.","$11,522 (in millions)",0,1
+2,assumption,identity,"$11,969 (in millions)","$11,969 (in millions)",1,1
+2,assumption,scale_word,"$11,969 million","$11,969 (in millions)",0,1
+2,assumption,scale_shift_bn,$11.969 billion,"$11,969 (in millions)",0,1
+2,assumption,suffix,"$11,969M","$11,969 (in millions)",0,1
+2,assumption,sentence,"The company's figure for the period was $11,969 million.","$11,969 (in millions)",0,1
+3,basic,identity,"$9,285 (in millions)","$9,285 (in millions)",1,1
+3,basic,scale_word,"$9,285 million","$9,285 (in millions)",0,1
+3,basic,scale_shift_bn,$9.285 billion,"$9,285 (in millions)",0,1
+3,basic,suffix,"$9,285M","$9,285 (in millions)",0,1
+3,basic,sentence,"The company's figure for the period was $9,285 million.","$9,285 (in millions)",0,1
+4,assumption,identity,"$9,396 (in millions)","$9,396 (in millions)",1,1
+4,assumption,scale_word,"$9,396 million","$9,396 (in millions)",0,1
+4,assumption,scale_shift_bn,$9.396 billion,"$9,396 (in millions)",0,1
+4,assumption,suffix,"$9,396M","$9,396 (in millions)",0,1
+4,assumption,sentence,"The company's figure for the period was $9,396 million.","$9,396 (in millions)",0,1
+5,basic,identity,4.53%,4.53%,1,1
+5,basic,pct_word,4.53 percent,4.53%,0,1
+5,basic,pct_sentence,The figure is approximately 4.53%.,4.53%,0,1
+6,assumption,identity,4.70%,4.70%,1,1
+6,assumption,pct_word,4.7 percent,4.70%,0,1
+6,assumption,pct_sentence,The figure is approximately 4.7%.,4.70%,0,1
+7,basic,identity,3.65%,3.65%,1,1
+7,basic,pct_word,3.65 percent,3.65%,0,1
+7,basic,pct_sentence,The figure is approximately 3.65%.,3.65%,0,1
+9,basic,identity,"$9,285 (in millions)","$9,285 (in millions)",1,1
+9,basic,scale_word,"$9,285 million","$9,285 (in millions)",0,1
+9,basic,scale_shift_bn,$9.285 billion,"$9,285 (in millions)",0,1
+9,basic,suffix,"$9,285M","$9,285 (in millions)",0,1
+9,basic,sentence,"The company's figure for the period was $9,285 million.","$9,285 (in millions)",0,1
+10,basic,identity,56.66x,56.66x,1,1
+10,basic,mult_word,56.66 times,56.66x,0,1
+10,basic,mult_sentence,The ratio is 56.66x.,56.66x,0,1
+11,basic,identity,56.86x,56.86x,1,1
+11,basic,mult_word,56.86 times,56.86x,0,1
+11,basic,mult_sentence,The ratio is 56.86x.,56.86x,0,1
+12,basic,identity,$16.53,$16.53,1,1
+12,basic,no_symbols,16.53,$16.53,0,1
+12,basic,sentence,The answer is 16.53.,$16.53,0,1
+13,assumption,identity,35.44x,35.44x,1,1
+13,assumption,mult_word,35.44 times,35.44x,0,1
+13,assumption,mult_sentence,The ratio is 35.44x.,35.44x,0,1
+14,assumption,identity,"$424,216 (in millions)","$424,216 (in millions)",1,1
+14,assumption,scale_word,"$424,216 million","$424,216 (in millions)",0,1
+14,assumption,scale_shift_bn,$424.216 billion,"$424,216 (in millions)",0,1
+14,assumption,suffix,"$424,216M","$424,216 (in millions)",0,1
+14,assumption,sentence,"The company's figure for the period was $424,216 million.","$424,216 (in millions)",0,1
+15,assumption,identity,"$414,640 (in millions)","$414,640 (in millions)",1,1
+15,assumption,scale_word,"$414,640 million","$414,640 (in millions)",0,1
+15,assumption,scale_shift_bn,$414.64 billion,"$414,640 (in millions)",0,1
+15,assumption,suffix,"$414,640M","$414,640 (in millions)",0,1
+15,assumption,sentence,"The company's figure for the period was $414,640 million.","$414,640 (in millions)",0,1
+16,basic,identity,"$418,856 (in millions)","$418,856 (in millions)",1,1
+16,basic,scale_word,"$418,856 million","$418,856 (in millions)",0,1
+16,basic,scale_shift_bn,$418.856 billion,"$418,856 (in millions)",0,1
+16,basic,suffix,"$418,856M","$418,856 (in millions)",0,1
+16,basic,sentence,"The company's figure for the period was $418,856 million.","$418,856 (in millions)",0,1
+17,basic,identity,9.66%,9.66%,1,1
+17,basic,pct_word,9.66 percent,9.66%,0,1
+17,basic,pct_sentence,The figure is approximately 9.66%.,9.66%,0,1
+18,assumption,identity,9.56%,9.56%,1,1
+18,assumption,pct_word,9.56 percent,9.56%,0,1
+18,assumption,pct_sentence,The figure is approximately 9.56%.,9.56%,0,1
+19,assumption,identity,2.73%,2.73%,1,1
+19,assumption,pct_word,2.73 percent,2.73%,0,1
+19,assumption,pct_sentence,The figure is approximately 2.73%.,2.73%,0,1
+20,assumption,identity,2.65%,2.65%,1,1
+20,assumption,pct_word,2.65 percent,2.65%,0,1
+20,assumption,pct_sentence,The figure is approximately 2.65%.,2.65%,0,1
+21,assumption,identity,97.35%,97.35%,1,1
+21,assumption,pct_word,97.35 percent,97.35%,0,1
+21,assumption,pct_sentence,The figure is approximately 97.35%.,97.35%,0,1
+22,basic,identity,24.40%,24.40%,1,1
+22,basic,pct_word,24.4 percent,24.40%,0,1
+22,basic,pct_sentence,The figure is approximately 24.4%.,24.40%,0,1
+23,basic,identity,24.00%,24.00%,1,1
+23,basic,pct_word,24 percent,24.00%,0,1
+23,basic,pct_sentence,The figure is approximately 24%.,24.00%,0,1
+24,assumption,identity,"$2,255 (in millions)","$2,255 (in millions)",1,1
+24,assumption,scale_word,"$2,255 million","$2,255 (in millions)",0,1
+24,assumption,scale_shift_bn,$2.255 billion,"$2,255 (in millions)",0,1
+24,assumption,suffix,"$2,255M","$2,255 (in millions)",0,1
+24,assumption,sentence,"The company's figure for the period was $2,255 million.","$2,255 (in millions)",0,1
+25,assumption,identity,"$2,244 (in millions)","$2,244 (in millions)",1,1
+25,assumption,scale_word,"$2,244 million","$2,244 (in millions)",0,1
+25,assumption,scale_shift_bn,$2.244 billion,"$2,244 (in millions)",0,1
+25,assumption,suffix,"$2,244M","$2,244 (in millions)",0,1
+25,assumption,sentence,"The company's figure for the period was $2,244 million.","$2,244 (in millions)",0,1
+26,assumption,identity,"$2,283 (in millions)","$2,283 (in millions)",1,1
+26,assumption,scale_word,"$2,283 million","$2,283 (in millions)",0,1
+26,assumption,scale_shift_bn,$2.283 billion,"$2,283 (in millions)",0,1
+26,assumption,suffix,"$2,283M","$2,283 (in millions)",0,1
+26,assumption,sentence,"The company's figure for the period was $2,283 million.","$2,283 (in millions)",0,1
+27,basic,identity,-$535 (in millions),-$535 (in millions),1,1
+27,basic,scale_word,$535 million,-$535 (in millions),0,1
+27,basic,scale_shift_bn,$0.535 billion,-$535 (in millions),0,1
+27,basic,suffix,$535M,-$535 (in millions),0,1
+27,basic,sentence,The company's figure for the period was $535 million.,-$535 (in millions),0,1
+28,basic,identity,-$574 (in millions),-$574 (in millions),1,1
+28,basic,scale_word,$574 million,-$574 (in millions),0,1
+28,basic,scale_shift_bn,$0.574 billion,-$574 (in millions),0,1
+28,basic,suffix,$574M,-$574 (in millions),0,1
+28,basic,sentence,The company's figure for the period was $574 million.,-$574 (in millions),0,1
+29,assumption,identity,24.30%,24.30%,1,1
+29,assumption,pct_word,24.3 percent,24.30%,0,1
+29,assumption,pct_sentence,The figure is approximately 24.3%.,24.30%,0,1
+30,basic,identity,"445,592,000","445,592,000",1,1
+30,basic,no_symbols,445592000,"445,592,000",0,1
+30,basic,sentence,"The answer is 445,592,000.","445,592,000",0,1
+31,assumption,identity,0.77,0.77,1,1
+31,assumption,no_symbols,0.77,0.77,1,1
+31,assumption,sentence,The answer is 0.77.,0.77,0,1
+32,assumption,identity,"$11,415 (in millions)","$11,415 (in millions)",1,1
+32,assumption,scale_word,"$11,415 million","$11,415 (in millions)",0,1
+32,assumption,scale_shift_bn,$11.415 billion,"$11,415 (in millions)",0,1
+32,assumption,suffix,"$11,415M","$11,415 (in millions)",0,1
+32,assumption,sentence,"The company's figure for the period was $11,415 million.","$11,415 (in millions)",0,1
+33,basic,identity,"$11,144 (in millions)","$11,144 (in millions)",1,1
+33,basic,scale_word,"$11,144 million","$11,144 (in millions)",0,1
+33,basic,scale_shift_bn,$11.144 billion,"$11,144 (in millions)",0,1
+33,basic,suffix,"$11,144M","$11,144 (in millions)",0,1
+33,basic,sentence,"The company's figure for the period was $11,144 million.","$11,144 (in millions)",0,1
+34,assumption,identity,$271 (in millions),$271 (in millions),1,1
+34,assumption,scale_word,$271 million,$271 (in millions),0,1
+34,assumption,scale_shift_bn,$0.271 billion,$271 (in millions),0,1
+34,assumption,suffix,$271M,$271 (in millions),0,1
+34,assumption,sentence,The company's figure for the period was $271 million.,$271 (in millions),0,1
+35,basic,identity,"$23,622 (in millions)","$23,622 (in millions)",1,1
+35,basic,scale_word,"$23,622 million","$23,622 (in millions)",0,1
+35,basic,scale_shift_bn,$23.622 billion,"$23,622 (in millions)",0,1
+35,basic,suffix,"$23,622M","$23,622 (in millions)",0,1
+35,basic,sentence,"The company's figure for the period was $23,622 million.","$23,622 (in millions)",0,1
+36,assumption,identity,25.33%,25.33%,1,1
+36,assumption,pct_word,25.33 percent,25.33%,0,1
+36,assumption,pct_sentence,The figure is approximately 25.33%.,25.33%,0,1
+37,assumption,identity,"$29,239 (in millions)","$29,239 (in millions)",1,1
+37,assumption,scale_word,"$29,239 million","$29,239 (in millions)",0,1
+37,assumption,scale_shift_bn,$29.239 billion,"$29,239 (in millions)",0,1
+37,assumption,suffix,"$29,239M","$29,239 (in millions)",0,1
+37,assumption,sentence,"The company's figure for the period was $29,239 million.","$29,239 (in millions)",0,1
+38,assumption,identity,"$28,245 (in millions)","$28,245 (in millions)",1,1
+38,assumption,scale_word,"$28,245 million","$28,245 (in millions)",0,1
+38,assumption,scale_shift_bn,$28.245 billion,"$28,245 (in millions)",0,1
+38,assumption,suffix,"$28,245M","$28,245 (in millions)",0,1
+38,assumption,sentence,"The company's figure for the period was $28,245 million.","$28,245 (in millions)",0,1
+39,assumption,identity,"$26,915 (in millions)","$26,915 (in millions)",1,1
+39,assumption,scale_word,"$26,915 million","$26,915 (in millions)",0,1
+39,assumption,scale_shift_bn,$26.915 billion,"$26,915 (in millions)",0,1
+39,assumption,suffix,"$26,915M","$26,915 (in millions)",0,1
+39,assumption,sentence,"The company's figure for the period was $26,915 million.","$26,915 (in millions)",0,1
+40,assumption,identity,"$28,077 (in millions)","$28,077 (in millions)",1,1
+40,assumption,scale_word,"$28,077 million","$28,077 (in millions)",0,1
+40,assumption,scale_shift_bn,$28.077 billion,"$28,077 (in millions)",0,1
+40,assumption,suffix,"$28,077M","$28,077 (in millions)",0,1
+40,assumption,sentence,"The company's figure for the period was $28,077 million.","$28,077 (in millions)",0,1
+41,assumption,identity,"$36,539 (in millions)","$36,539 (in millions)",1,1
+41,assumption,scale_word,"$36,539 million","$36,539 (in millions)",0,1
+41,assumption,scale_shift_bn,$36.539 billion,"$36,539 (in millions)",0,1
+41,assumption,suffix,"$36,539M","$36,539 (in millions)",0,1
+41,assumption,sentence,"The company's figure for the period was $36,539 million.","$36,539 (in millions)",0,1
+42,assumption,identity,"$34,029 (in millions)","$34,029 (in millions)",1,1
+42,assumption,scale_word,"$34,029 million","$34,029 (in millions)",0,1
+42,assumption,scale_shift_bn,$34.029 billion,"$34,029 (in millions)",0,1
+42,assumption,suffix,"$34,029M","$34,029 (in millions)",0,1
+42,assumption,sentence,"The company's figure for the period was $34,029 million.","$34,029 (in millions)",0,1
+43,assumption,identity,$961 (in millions),$961 (in millions),1,1
+43,assumption,scale_word,$961 million,$961 (in millions),0,1
+43,assumption,scale_shift_bn,$0.961 billion,$961 (in millions),0,1
+43,assumption,suffix,$961M,$961 (in millions),0,1
+43,assumption,sentence,The company's figure for the period was $961 million.,$961 (in millions),0,1
+44,assumption,identity,$456 (in millions),$456 (in millions),1,1
+44,assumption,scale_word,$456 million,$456 (in millions),0,1
+44,assumption,scale_shift_bn,$0.456 billion,$456 (in millions),0,1
+44,assumption,suffix,$456M,$456 (in millions),0,1
+44,assumption,sentence,The company's figure for the period was $456 million.,$456 (in millions),0,1
+45,assumption,identity,$452 (in millions),$452 (in millions),1,1
+45,assumption,scale_word,$452 million,$452 (in millions),0,1
+45,assumption,scale_shift_bn,$0.452 billion,$452 (in millions),0,1
+45,assumption,suffix,$452M,$452 (in millions),0,1
+45,assumption,sentence,The company's figure for the period was $452 million.,$452 (in millions),0,1
+46,assumption,identity,"$36,083 (in millions)","$36,083 (in millions)",1,1
+46,assumption,scale_word,"$36,083 million","$36,083 (in millions)",0,1
+46,assumption,scale_shift_bn,$36.083 billion,"$36,083 (in millions)",0,1
+46,assumption,suffix,"$36,083M","$36,083 (in millions)",0,1
+46,assumption,sentence,"The company's figure for the period was $36,083 million.","$36,083 (in millions)",0,1
+47,assumption,identity,"$33,577 (in millions)","$33,577 (in millions)",1,1
+47,assumption,scale_word,"$33,577 million","$33,577 (in millions)",0,1
+47,assumption,scale_shift_bn,$33.577 billion,"$33,577 (in millions)",0,1
+47,assumption,suffix,"$33,577M","$33,577 (in millions)",0,1
+47,assumption,sentence,"The company's figure for the period was $33,577 million.","$33,577 (in millions)",0,1
+48,assumption,identity,"$2,506 (in millions)","$2,506 (in millions)",1,1
+48,assumption,scale_word,"$2,506 million","$2,506 (in millions)",0,1
+48,assumption,scale_shift_bn,$2.506 billion,"$2,506 (in millions)",0,1
+48,assumption,suffix,"$2,506M","$2,506 (in millions)",0,1
+48,assumption,sentence,"The company's figure for the period was $2,506 million.","$2,506 (in millions)",0,1
+49,assumption,identity,$505 (in millions),$505 (in millions),1,1
+49,assumption,scale_word,$505 million,$505 (in millions),0,1
+49,assumption,scale_shift_bn,$0.505 billion,$505 (in millions),0,1
+49,assumption,suffix,$505M,$505 (in millions),0,1
+49,assumption,sentence,The company's figure for the period was $505 million.,$505 (in millions),0,1
+50,assumption,identity,$49 (in millions),$49 (in millions),1,1
+50,assumption,scale_word,$49 million,$49 (in millions),0,1
+50,assumption,scale_shift_bn,$0.049 billion,$49 (in millions),0,1
+50,assumption,suffix,$49M,$49 (in millions),0,1
+50,assumption,sentence,The company's figure for the period was $49 million.,$49 (in millions),0,1
+51,assumption,identity,"$7,113 (in millions)","$7,113 (in millions)",1,1
+51,assumption,scale_word,"$7,113 million","$7,113 (in millions)",0,1
+51,assumption,scale_shift_bn,$7.113 billion,"$7,113 (in millions)",0,1
+51,assumption,suffix,"$7,113M","$7,113 (in millions)",0,1
+51,assumption,sentence,"The company's figure for the period was $7,113 million.","$7,113 (in millions)",0,1
+52,assumption,identity,"$1,405 (in millions)","$1,405 (in millions)",1,1
+52,assumption,scale_word,"$1,405 million","$1,405 (in millions)",0,1
+52,assumption,scale_shift_bn,$1.405 billion,"$1,405 (in millions)",0,1
+52,assumption,suffix,"$1,405M","$1,405 (in millions)",0,1
+52,assumption,sentence,"The company's figure for the period was $1,405 million.","$1,405 (in millions)",0,1
+53,assumption,identity,"$1,502 (in millions)","$1,502 (in millions)",1,1
+53,assumption,scale_word,"$1,502 million","$1,502 (in millions)",0,1
+53,assumption,scale_shift_bn,$1.502 billion,"$1,502 (in millions)",0,1
+53,assumption,suffix,"$1,502M","$1,502 (in millions)",0,1
+53,assumption,sentence,"The company's figure for the period was $1,502 million.","$1,502 (in millions)",0,1
+54,assumption,identity,$97 (in millions),$97 (in millions),1,1
+54,assumption,scale_word,$97 million,$97 (in millions),0,1
+54,assumption,scale_shift_bn,$0.097 billion,$97 (in millions),0,1
+54,assumption,suffix,$97M,$97 (in millions),0,1
+54,assumption,sentence,The company's figure for the period was $97 million.,$97 (in millions),0,1
+55,assumption,identity,"$1,466 (in millions)","$1,466 (in millions)",1,1
+55,assumption,scale_word,"$1,466 million","$1,466 (in millions)",0,1
+55,assumption,scale_shift_bn,$1.466 billion,"$1,466 (in millions)",0,1
+55,assumption,suffix,"$1,466M","$1,466 (in millions)",0,1
+55,assumption,sentence,"The company's figure for the period was $1,466 million.","$1,466 (in millions)",0,1
+56,basic,identity,"$5,089 (in millions)","$5,089 (in millions)",1,1
+56,basic,scale_word,"$5,089 million","$5,089 (in millions)",0,1
+56,basic,scale_shift_bn,$5.089 billion,"$5,089 (in millions)",0,1
+56,basic,suffix,"$5,089M","$5,089 (in millions)",0,1
+56,basic,sentence,"The company's figure for the period was $5,089 million.","$5,089 (in millions)",0,1
+57,basic,identity,"$6,055 (in millions)","$6,055 (in millions)",1,1
+57,basic,scale_word,"$6,055 million","$6,055 (in millions)",0,1
+57,basic,scale_shift_bn,$6.055 billion,"$6,055 (in millions)",0,1
+57,basic,suffix,"$6,055M","$6,055 (in millions)",0,1
+57,basic,sentence,"The company's figure for the period was $6,055 million.","$6,055 (in millions)",0,1
+58,assumption,identity,"$28,191 (in millions)","$28,191 (in millions)",1,1
+58,assumption,scale_word,"$28,191 million","$28,191 (in millions)",0,1
+58,assumption,scale_shift_bn,$28.191 billion,"$28,191 (in millions)",0,1
+58,assumption,suffix,"$28,191M","$28,191 (in millions)",0,1
+58,assumption,sentence,"The company's figure for the period was $28,191 million.","$28,191 (in millions)",0,1
+59,assumption,identity,"$35,035 (in millions)","$35,035 (in millions)",1,1
+59,assumption,scale_word,"$35,035 million","$35,035 (in millions)",0,1
+59,assumption,scale_shift_bn,$35.035 billion,"$35,035 (in millions)",0,1
+59,assumption,suffix,"$35,035M","$35,035 (in millions)",0,1
+59,assumption,sentence,"The company's figure for the period was $35,035 million.","$35,035 (in millions)",0,1
+60,assumption,identity,"-$6,844 (in millions)","-$6,844 (in millions)",1,1
+60,assumption,scale_word,"$6,844 million","-$6,844 (in millions)",0,1
+60,assumption,scale_shift_bn,$6.844 billion,"-$6,844 (in millions)",0,1
+60,assumption,suffix,"$6,844M","-$6,844 (in millions)",0,1
+60,assumption,sentence,"The company's figure for the period was $6,844 million.","-$6,844 (in millions)",0,1
+61,assumption,identity,$280 (in millions),$280 (in millions),1,1
+61,assumption,scale_word,$280 million,$280 (in millions),0,1
+61,assumption,scale_shift_bn,$0.28 billion,$280 (in millions),0,1
+61,assumption,suffix,$280M,$280 (in millions),0,1
+61,assumption,sentence,The company's figure for the period was $280 million.,$280 (in millions),0,1
+62,assumption,identity,33.53x,33.53x,1,1
+62,assumption,mult_word,33.53 times,33.53x,0,1
+62,assumption,mult_sentence,The ratio is 33.53x.,33.53x,0,1
+63,assumption,identity,42.72x,42.72x,1,1
+63,assumption,mult_word,42.72 times,42.72x,0,1
+63,assumption,mult_sentence,The ratio is 42.72x.,42.72x,0,1
+64,assumption,identity,11.31%,11.31%,1,1
+64,assumption,pct_word,11.31 percent,11.31%,0,1
+64,assumption,pct_sentence,The figure is approximately 11.31%.,11.31%,0,1
+65,basic,identity,30.27%,30.27%,1,1
+65,basic,pct_word,30.27 percent,30.27%,0,1
+65,basic,pct_sentence,The figure is approximately 30.27%.,30.27%,0,1
+66,basic,identity,90.50%,90.50%,1,1
+66,basic,pct_word,90.5 percent,90.50%,0,1
+66,basic,pct_sentence,The figure is approximately 90.5%.,90.50%,0,1
+67,basic,identity,"$3,457.24","$3,457.24",1,1
+67,basic,no_symbols,3457.24,"$3,457.24",0,1
+67,basic,sentence,"The answer is 3,457.24.","$3,457.24",0,1
+68,basic,identity,US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store,US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store,1,1
+68,basic,no_symbols,299.91,US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store,0,1
+68,basic,sentence,The answer is 299.91.,US: $299.91 per store; Canada: $322.91 per store; International: $210.93 per store,0,1
+69,basic,identity,5%,5%,1,1
+69,basic,pct_word,5 percent,5%,0,1
+69,basic,pct_sentence,The figure is approximately 5%.,5%,0,1
+70,basic,identity,"6,745","6,745",1,1
+70,basic,no_symbols,6745,"6,745",0,1
+70,basic,sentence,"The answer is 6,745.","6,745",0,1
+71,basic,identity,"11,945","11,945",1,1
+71,basic,no_symbols,11945,"11,945",0,1
+71,basic,sentence,"The answer is 11,945.","11,945",0,1
+72,basic,identity,"-$6,662 (in millions)","-$6,662 (in millions)",1,1
+72,basic,scale_word,"$6,662 million","-$6,662 (in millions)",0,1
+72,basic,scale_shift_bn,$6.662 billion,"-$6,662 (in millions)",0,1
+72,basic,suffix,"$6,662M","-$6,662 (in millions)",0,1
+72,basic,sentence,"The company's figure for the period was $6,662 million.","-$6,662 (in millions)",0,1
+73,basic,identity,-$182 (in millions),-$182 (in millions),1,1
+73,basic,scale_word,$182 million,-$182 (in millions),0,1
+73,basic,scale_shift_bn,$0.182 billion,-$182 (in millions),0,1
+73,basic,suffix,$182M,-$182 (in millions),0,1
+73,basic,sentence,The company's figure for the period was $182 million.,-$182 (in millions),0,1
+74,assumption,identity,"$4,664 (in millions)","$4,664 (in millions)",1,1
+74,assumption,scale_word,"$4,664 million","$4,664 (in millions)",0,1
+74,assumption,scale_shift_bn,$4.664 billion,"$4,664 (in millions)",0,1
+74,assumption,suffix,"$4,664M","$4,664 (in millions)",0,1
+74,assumption,sentence,"The company's figure for the period was $4,664 million.","$4,664 (in millions)",0,1
+75,basic,identity,"$5,921 (in millions)","$5,921 (in millions)",1,1
+75,basic,scale_word,"$5,921 million","$5,921 (in millions)",0,1
+75,basic,scale_shift_bn,$5.921 billion,"$5,921 (in millions)",0,1
+75,basic,suffix,"$5,921M","$5,921 (in millions)",0,1
+75,basic,sentence,"The company's figure for the period was $5,921 million.","$5,921 (in millions)",0,1
+76,basic,identity,3.59x,3.59x,1,1
+76,basic,mult_word,3.59 times,3.59x,0,1
+76,basic,mult_sentence,The ratio is 3.59x.,3.59x,0,1
+77,basic,identity,30.29x,30.29x,1,1
+77,basic,mult_word,30.29 times,30.29x,0,1
+77,basic,mult_sentence,The ratio is 30.29x.,30.29x,0,1
+78,basic,identity,12.6x,12.6x,1,1
+78,basic,mult_word,12.6 times,12.6x,0,1
+78,basic,mult_sentence,The ratio is 12.6x.,12.6x,0,1
+79,assumption,identity,1.67x,1.67x,1,1
+79,assumption,mult_word,1.67 times,1.67x,0,1
+79,assumption,mult_sentence,The ratio is 1.67x.,1.67x,0,1
+80,basic,identity,3.67x,3.67x,1,1
+80,basic,mult_word,3.67 times,3.67x,0,1
+80,basic,mult_sentence,The ratio is 3.67x.,3.67x,0,1
+81,basic,identity,$285.90,$285.90,1,1
+81,basic,no_symbols,285.9,$285.90,0,1
+81,basic,sentence,The answer is 285.9.,$285.90,0,1
+82,basic,identity,"$1,943.87","$1,943.87",1,1
+82,basic,no_symbols,1943.87,"$1,943.87",0,1
+82,basic,sentence,"The answer is 1,943.87.","$1,943.87",0,1
+83,basic,identity,"US: $2,021.33; Canada: $2,249.94 International: $1,458.27","US: $2,021.33; Canada: $2,249.94 International: $1,458.27",1,1
+83,basic,no_symbols,2021.33,"US: $2,021.33; Canada: $2,249.94 International: $1,458.27",0,1
+83,basic,sentence,"The answer is 2,021.33.","US: $2,021.33; Canada: $2,249.94 International: $1,458.27",0,1
+84,conceptual,identity,2%,2%,1,1
+84,conceptual,pct_word,2 percent,2%,0,1
+84,conceptual,pct_sentence,The figure is approximately 2%.,2%,0,1
+85,conceptual,identity,$106.48,$106.48,1,1
+85,conceptual,no_symbols,106.48,$106.48,0,1
+85,conceptual,sentence,The answer is 106.48.,$106.48,0,1
+86,conceptual,identity,$41.06,$41.06,1,1
+86,conceptual,no_symbols,41.06,$41.06,0,1
+86,conceptual,sentence,The answer is 41.06.,$41.06,0,1
+93,conceptual,identity,15%,15%,1,1
+93,conceptual,pct_word,15 percent,15%,0,1
+93,conceptual,pct_sentence,The figure is approximately 15%.,15%,0,1
+94,conceptual,identity,Cash inflow of $75,Cash inflow of $75,1,1
+94,conceptual,no_symbols,75,Cash inflow of $75,0,1
+94,conceptual,sentence,The answer is 75.,Cash inflow of $75,0,1
+98,conceptual,identity,10.56%,10.56%,1,1
+98,conceptual,pct_word,10.56 percent,10.56%,0,1
+98,conceptual,pct_sentence,The figure is approximately 10.56%.,10.56%,0,1
+99,conceptual,identity,60M increase,60M increase,1,1
+99,conceptual,no_symbols,60,60M increase,0,1
+99,conceptual,sentence,The answer is 60.,60M increase,0,1
+100,conceptual,identity,30M increase,30M increase,1,1
+100,conceptual,no_symbols,30,30M increase,0,1
+100,conceptual,sentence,The answer is 30.,30M increase,0,1
+103,conceptual,identity,"3x MOIC, 25% IRR","3x MOIC, 25% IRR",1,1
+103,conceptual,pct_word,3 percent,"3x MOIC, 25% IRR",0,1
+103,conceptual,pct_sentence,The figure is approximately 3%.,"3x MOIC, 25% IRR",0,1
+104,conceptual,identity,$120M,$120M,1,1
+104,conceptual,no_symbols,120,$120M,0,1
+104,conceptual,sentence,The answer is 120.,$120M,0,1
+105,conceptual,identity,$2.80.,$2.80.,1,1
+105,conceptual,no_symbols,2.8,$2.80.,0,1
+105,conceptual,sentence,The answer is 2.8.,$2.80.,0,1
+107,conceptual,identity,50%,50%,1,1
+107,conceptual,pct_word,50 percent,50%,0,1
+107,conceptual,pct_sentence,The figure is approximately 50%.,50%,0,1
+109,conceptual,identity,$310,$310,1,1
+109,conceptual,no_symbols,310,$310,0,1
+109,conceptual,sentence,The answer is 310.,$310,0,1
+110,conceptual,identity,$11.5 million increase,$11.5 million increase,1,1
+110,conceptual,scale_word,$11.5 million,$11.5 million increase,0,1
+110,conceptual,scale_shift_bn,$0.0115 billion,$11.5 million increase,0,1
+110,conceptual,suffix,$11.5M,$11.5 million increase,0,1
+110,conceptual,sentence,The company's figure for the period was $11.5 million.,$11.5 million increase,0,1
+111,conceptual,identity,"2x MOIC, 15% IRR","2x MOIC, 15% IRR",1,1
+111,conceptual,pct_word,2 percent,"2x MOIC, 15% IRR",0,1
+111,conceptual,pct_sentence,The figure is approximately 2%.,"2x MOIC, 15% IRR",0,1
+112,conceptual,identity,$457.50,$457.50,1,1
+112,conceptual,no_symbols,457.5,$457.50,0,1
+112,conceptual,sentence,The answer is 457.5.,$457.50,0,1
+113,conceptual,identity,$400,$400,1,1
+113,conceptual,no_symbols,400,$400,0,1
+113,conceptual,sentence,The answer is 400.,$400,0,1
+114,conceptual,identity,83% of par,83% of par,1,1
+114,conceptual,pct_word,83 percent,83% of par,0,1
+114,conceptual,pct_sentence,The figure is approximately 83%.,83% of par,0,1
+116,conceptual,identity,"1.3x MOIC, 6% IRR, 11.25% LFCF yield","1.3x MOIC, 6% IRR, 11.25% LFCF yield",1,1
+116,conceptual,pct_word,1.3 percent,"1.3x MOIC, 6% IRR, 11.25% LFCF yield",0,1
+116,conceptual,pct_sentence,The figure is approximately 1.3%.,"1.3x MOIC, 6% IRR, 11.25% LFCF yield",0,1
+117,conceptual,identity,"MOIC: 1.33x, IRR: 6%","MOIC: 1.33x, IRR: 6%",1,1
+117,conceptual,pct_word,1.33 percent,"MOIC: 1.33x, IRR: 6%",0,1
+117,conceptual,pct_sentence,The figure is approximately 1.33%.,"MOIC: 1.33x, IRR: 6%",0,1
+118,conceptual,identity,$17,$17,1,1
+118,conceptual,no_symbols,17,$17,0,1
+118,conceptual,sentence,The answer is 17.,$17,0,1
+119,conceptual,identity,20,20,1,1
+119,conceptual,no_symbols,20,20,1,1
+119,conceptual,sentence,The answer is 20.,20,0,1
+120,conceptual,identity,"3.875x MOICC, 31% IRR","3.875x MOICC, 31% IRR",1,1
+120,conceptual,pct_word,3.88 percent,"3.875x MOICC, 31% IRR",0,1
+120,conceptual,pct_sentence,The figure is approximately 3.88%.,"3.875x MOICC, 31% IRR",0,1
+121,conceptual,identity,$57.60,$57.60,1,1
+121,conceptual,no_symbols,57.6,$57.60,0,1
+121,conceptual,sentence,The answer is 57.6.,$57.60,0,1
+124,conceptual,identity,60c,60c,1,1
+124,conceptual,no_symbols,60,60c,0,1
+124,conceptual,sentence,The answer is 60.,60c,0,1
+125,conceptual,identity,15%,15%,1,1
+125,conceptual,pct_word,15 percent,15%,0,1
+125,conceptual,pct_sentence,The figure is approximately 15%.,15%,0,1
+126,conceptual,identity,"Unknown unless deal is 100%, where deal would be accretive","Unknown unless deal is 100%, where deal would be accretive",1,1
+126,conceptual,pct_word,100 percent,"Unknown unless deal is 100%, where deal would be accretive",0,1
+126,conceptual,pct_sentence,The figure is approximately 100%.,"Unknown unless deal is 100%, where deal would be accretive",0,1
+127,conceptual,identity,"First lien trades at 100c, second lien trades at 66.7c","First lien trades at 100c, second lien trades at 66.7c",1,1
+127,conceptual,no_symbols,100,"First lien trades at 100c, second lien trades at 66.7c",0,1
+127,conceptual,sentence,The answer is 100.,"First lien trades at 100c, second lien trades at 66.7c",0,1
+134,conceptual,identity,EBITDA * 6,EBITDA * 6,1,1
+134,conceptual,no_symbols,6,EBITDA * 6,0,1
+134,conceptual,sentence,The answer is 6.,EBITDA * 6,0,1
+136,conceptual,identity,"On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.","On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.",1,1
+136,conceptual,no_symbols,250,"On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.",0,1
+136,conceptual,sentence,The answer is 250.,"On the income statement, nothing changes. On the cash flow statement, there is an outflow of 250 under cash flow for investing for purchasing PP&E. On the balance sheet, cash goes down by 250 and PP&E goes up by 250, which balances.",0,1
+137,conceptual,identity,"On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.","On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.",1,1
+137,conceptual,no_symbols,100,"On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.",0,1
+137,conceptual,sentence,The answer is 100.,"On the income statement, pre-tax income goes down by 100, and net income is down by 80. On the cash flow statement, net income is down by 80, but you add back 100 because it was a non-cash expense, so cash is up by 20. On the balance sheet, cash is up by 20, some sort of PP&E or asset is down by 100, which means assets are down by 80. Since net income, which is in shareholders equity is down by 80, the balance sheet balances.",0,1
+138,conceptual,identity,"On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.","On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.",1,1
+138,conceptual,no_symbols,60,"On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.",0,1
+138,conceptual,sentence,The answer is 60.,"On the income statement, there is a gain of 60, increasing net income by 60 * (1-0.2) = $48. On the cash flow statement, net income is up by 48 in the operating activities. Gain on sales is a non-cash expense, reducing cash flow from operations by $60, leaving cash flow from operations down by $12. In the investing activities, proceeds from asset sales increase by $120, leaving cash overall up $120 -$12 = $108. 
+On the balance sheet, cash is up by $108, and PP&E is down by $60, leaving assets up $48. Shareholders equity is increased by $48 as well due to the increase in net income.",0,1
+139,conceptual,identity,"On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.","On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.",1,1
+139,conceptual,no_symbols,15,"On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.",0,1
+139,conceptual,sentence,The answer is 15.,"On the income statement, nothing happens. On the cash flow statement, cash is down by 15 in CFO for purchasing inventory. On the balance sheet, cash is down by 15 and inventory is up by 15, balancing the balance sheet.",0,1
+140,conceptual,identity,"On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.","On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.",1,1
+140,conceptual,pct_word,200 percent,"On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.",0,1
+140,conceptual,pct_sentence,The figure is approximately 200%.,"On the income statement, pre-tax income is up by 200. With a tax rate of 35% net income is up by 130. On the cash flow statement, net income is up by 130, but 100 needs to be subtracted since it was non-cash revenue (increase in accounts receivable), so CFO is up by 30. There are no changes in CFF or CFI, so cash is up by 30. On the balance sheet cash is up by 30, accounts receivable is up by 100 and shareholders equity is up by 130 from net income or retained earnings.",0,1
+142,conceptual,identity,"There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.","There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.",1,1
+142,conceptual,no_symbols,300,"There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.",0,1
+142,conceptual,sentence,The answer is 300.,"There is no immediate impact on the income statement since revenue has yet to be recognized at this point. On the Cash flow statement, cash flow from operations is down by $300 for the increase in inventory. The issuance of debt reduces cash flow from financing by $300 leaving net cash unchanged. On the balance sheet, inventory increases assets by $300 and debt increases the liabilities by $300.",0,1
+143,conceptual,identity,"On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.","On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.",1,1
+143,conceptual,no_symbols,100,"On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.",0,1
+143,conceptual,sentence,The answer is 100.,"On the income statement, pre-tax income is down by 100, net income is down by 88 (100 * (1 - 0.12)). On the cash flow statement, net income is down by 88 and 100 is added back since depreciation is a non-cash expense. Cash is up by 12. On the balance sheet, cash is up by 12, PP&E is down by 100, so assets are down by 88. This matches with liabilities + equities, as retained earnings is down by 88, which is a part of shareholders equity,.",0,1
+144,conceptual,identity,"On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.","On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.",1,1
+144,conceptual,pct_word,20 percent,"On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.",0,1
+144,conceptual,pct_sentence,The figure is approximately 20%.,"On the income statement, pre-tax income is down by 20 (200 * 10%). With a 35% tax rate, net income is down by 20 * (0.65) = 13. On the cash flow statement, net income is down by 13. However, since PIK is a non-cash expense it is added back, so cash is up by 7, which is -13 + 20. On the balance sheet, cash is up by 7. On the liabilities side, debt is up by 20, from the interest accruing to the principal. Retained earnings is down by 13, so liabilities + equity is up by 7 (20 - 13), balancing with assets.",0,1
+145,conceptual,identity,"On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.","On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.",1,1
+145,conceptual,no_symbols,25,"On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.",0,1
+145,conceptual,sentence,The answer is 25.,"On the income statement, a gain on sale increases net income by $25 * (1-0.25) = $18.75. On the cash flow statement, net income in CFO is increased by $18.75, however we subtract the non-cash $25 gain on sale, leaving CFO down by $6.25. Sale of asset increases cash flow from investing by $75, resulting in a net cash increase of $68.75. On the balance sheet, cash increases by $68.75 and PPE is decreased by $50, leaving assets up by $18.75. Shareholders equity is increased by $18.75 from the increase in net income.",0,1
+146,conceptual,identity,"In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.","In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.",1,1
+146,conceptual,pct_word,600 percent,"In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.",0,1
+146,conceptual,pct_sentence,The figure is approximately 600%.,"In the income statement, revenue is up 600, subtract 300 for COGS, 150 for Opex, so EBIT is 600 -300 -150 = 150. Interest expense is 300 * .12 = 36. Pre-tax income is 150 - 36 = 114. Post-tax income is 114 * 0.9 or 102.6. On the cash flow statement net income is up 102.6 and you add back 300 since inventory went down (and was a non-cash expense), 12% of principal is paid back or .12 * 300 = 36, so cash is up by 102.6 + 300 - 36 = 366.6. On the balance sheet, cash is up by 366.6, inventory is down by 300. On the liabilities side, debt is down by 36 and retained earnings is up by 102.6. 366.6 - 300 = 66.6. Liabilities +Equity = -36 + 102.6 = 66.6. Balance sheet balances.",0,1

@@ -1,0 +1,64 @@
+# P3 — How Claude Fails at Finance-Practitioner Work
+
+**Evidence base.** 444 graded responses (148 FinanceQA items × Haiku 4.5 / Sonnet 4.6 / Opus 4.6, thinking off, paper-exact prompt), each judged by the P2 improved grader with a failure category, plus a 63-pair human adjudication pass. Every number traces to `p2/results/grades.csv`; row IDs below index `p2/data/items.jsonl`. Category counts are adjudicator-assigned (Opus 5) and spot-verified by the human pass; where a grader verdict was human-overturned we cite the human verdict.
+
+Four modes. The first is the important one: it is the largest, the only one that does **not** shrink as model tier rises, and the one the eval's headline number is really about.
+
+---
+
+## Mode 1 — Assumption abdication: "if the filing doesn't state it, it doesn't exist"
+
+**One sentence.** When the task requires constructing an estimate the document deliberately doesn't provide, Claude answers with the closest *disclosed* figure — or declares the quantity nonexistent — instead of making the standard analyst assumption.
+
+**Mechanism.** These items are built so the correct answer requires an adjustment or construction step (capitalize variable leases, add back operating-lease cost to EBITDA, split "other long-term assets" into known and unknown parts). Claude treats the filing plus formal accounting standards as the boundary of the answerable: it retrieves competently, then either stops at the unadjusted figure or cites GAAP to argue the requested quantity has no value. This looks like a *disposition* limit, not a knowledge limit — the models can recite the adjustment conventions when asked directly (their conceptual scores are 78–88%), but under a concrete task they do not volunteer the analyst's move of estimating what isn't printed. It is the one mode that scale does not touch: `missing_assumption` failures on the 46 assumption items are 24 (Haiku), 28 (Sonnet), 28 (Opus 4.6) — flat-to-worse as capability rises, while every other subset improves.
+
+**Examples.**
+- **Row 6** (Haiku, assumption): *"Compute the adjusted EBITDA Margin for 2024."* Gold 4.70% (requires lease-cost adjustment). Output: computes plain EBITDA/revenue = **4.53%** — a correct calculation of the thing it wasn't asked for; the "adjusted" step is silently dropped.
+- **Row 53** (all three tiers, assumption): *"Estimate Variable Lease Assets in 2024."* Gold $1,502M (capitalize variable-lease cost like the fixed-lease ROU assets). All three models answer **$0**, with Opus giving the most fluent version: "variable payments are not included in the present value calculation … under ASC 842." Technically true GAAP; a refusal of the estimation task actually posed. All three tiers fail identically.
+- **Row 24** (Haiku, assumption): *"What are the statutory / marginal taxes on adjusted EBIT?"* Gold **$2,255M** — a dollar figure. Output discusses 21% vs 24.4% rates at length and never produces any dollar amount: the two construction steps (build adjusted EBIT, apply the rate) are both abdicated.
+
+---
+
+## Mode 2 — Silent convention substitution
+
+**One sentence.** Claude executes the calculation completely and correctly — under a different defensible definitional convention than the one intended, without flagging that a choice existed.
+
+**Mechanism.** Finance metrics have convention families (revenue vs. net sales; cash vs. cash-plus-short-term-investments; federal-only vs. combined marginal tax; funded debt vs. debt-plus-lease-equivalents). Claude picks one member — often the most literal reading of the statement line item — and never surfaces the fork, even when the gold convention is the analyst-standard one. This is distinct from Mode 1: there the analytical work is *not done*; here it is done fully, on the wrong base. It is why 55% of all judged-incorrect responses (114/208) carry the adjudicator's defensible-alternative flag. On the human-labeled subset, Opus 4.6 lost four basic items to a single such choice.
+*Boundary note:* Row 53 above could be read as Mode 2 (ASC 842 is a convention). We place it in Mode 1 because the question says "estimate" — the model declines the construction, not just the convention. Cases where the work is complete land here.
+
+**Examples.**
+- **Rows 5, 80, 82** (Opus, basic): EBITDA margin, asset turnover, and sales-per-sq-ft all computed on **net sales ($249,625M)** where gold uses **total revenue ($254,453M)** — three "wrong" answers (4.62% vs 4.53%, 3.57x vs 3.67x, $1,907 vs $1,944) from one unflagged denominator choice. Sonnet on row 5 even *annotates* the choice ("Note: Using Net Sales rather than Total Revenue") — visible fork, still the non-gold branch.
+- **Row 33** (Haiku, basic): *"How much cash and cash equivalents did Costco have at year end 2024?"* Gold $11,144M (the analyst convention: cash + short-term investments, per the gold CoT). Output: **$9,906M** — the literal balance-sheet line. The error then propagates to every downstream item built on excess cash (row 57: $4,817 vs gold $6,055).
+- **Row 23** (Haiku, basic): *"What is the marginal tax rate in 2024?"* Gold 24.00% (21% federal + 3% state, per the filing's tax table). Output leads with **21.0%** federal-only — and even lists the 3.0% state line in its own breakdown without adding it in.
+
+---
+
+## Mode 3 — Structural slips in multi-step deal math
+
+**One sentence.** In LBO/M&A mini-models, Claude sets one structural assumption wrong early — debt paydown, share count, a price ladder — executes the rest flawlessly, and reports a confidently wrong headline metric.
+
+**Mechanism.** These conceptual items require holding a 4–8 step deal structure in working memory. The arithmetic within steps is essentially always right; the failure is one mis-set structural term whose error compounds through MOIC/IRR. Unlike Mode 1 this improves sharply with tier (conceptual accuracy 78.1% → 82.8% → 87.5%; on row 119 Haiku fails while Sonnet and Opus solve it) — it behaves like a capability limit that scaling and thinking budgets plausibly address, which is why P4 does *not* target it.
+
+**Examples.**
+- **Row 119** (Haiku, conceptual): gadget-LBO problem, gold **20 gadgets**. Haiku mis-derives the year-1 gadget price ($2.50 instead of $10 — it inverts the revenue split) and lands on **43**; Opus 4.6 walks the identical ladder correctly to 20.
+- **Row 103** (Sonnet and Opus, conceptual): LBO with 200M→300M EBITDA, gold **3x MOIC, 25% IRR**. Both models assume the $400M entry debt is *fully repaid* by exit and report **3.75x / 30.2%** — one structural assumption (paydown) flips the answer; everything downstream is internally consistent.
+- **Row 111** (Haiku, conceptual): five-year hold, gold **2x MOIC, 15% IRR**. Haiku builds the whole model but mis-sets exit debt, reporting **1.71x / 11.6%**.
+
+---
+
+## Mode 4 — Statement-mechanics pattern-matching
+
+**One sentence.** On three-statement-flow questions, Claude reaches for a memorized rule ("financing doesn't change EV", "non-cash transaction") and applies it to a case where it doesn't govern, producing directionally wrong flows.
+
+**Mechanism.** Accounting-mechanics questions have well-known catechism answers, and the models appear to match on surface pattern rather than trace the actual transaction. The tell is that the recited principle is *correct in general* and misapplied *here*: an acquisition funded by cash+debt does change EV (an operating asset was added); inventory bought with debt does hit the cash-flow statement under the gold's presentation (CFO −300, financing +300). Partially tier-sensitive (Opus gets row 99 right; Haiku and Sonnet don't). Distinct from Mode 3: no multi-step compounding — the error is a single qualitative direction call at step one. We are moderately confident this is separate from Mode 2 (a presentation-convention defense exists for row 142, and we say so), less confident it is separate for every item; where the human pass hesitated we noted it in `human_labels.csv`.
+
+**Examples.**
+- **Row 99** (Haiku and Sonnet, conceptual; human-verified failures): firm buys a $60M business with $30M new debt + $30M cash. Gold: **EV +60M**. Haiku: "Enterprise Value is **unaffected** … the financing method doesn't affect EV" — the right rule for a *refinancing*, misapplied to an *acquisition*. Sonnet double-counts to **+90M**. (These two graded "correct" via the Stage-1 false-accept documented in P2 — the human labels govern here.)
+- **Row 142** (Sonnet, conceptual): $300 inventory bought by issuing debt. Gold: CFO −300, financing +300, net cash 0. Output: "**No impact** (non-cash transaction)" — collapses the two offsetting flows into a rule about barter-like transactions.
+- **Row 137** (Haiku, conceptual): $100 write-down at 20% tax. Gold: net income −80, **cash +20** (add-back exceeds NI hit). Output concludes "net cash impact **−$80**" — sign-flips the cash consequence its own line items imply.
+
+---
+
+## What the taxonomy says as a whole
+
+Modes 3 and 4 shrink as tier rises — ordinary capability growth is already addressing them. Modes 1 and 2 do not: they are about *which figure an analyst would construct or choose*, not about computation, and together they account for the assumption-question cliff (17.4% even for Opus 4.6) plus most of the "defensible alternative" mass. That makes Mode 1 the highest-leverage target (P4), and it makes multi-reference gold labels + assumption-explicit rubrics the top design requirement for extending the eval (P5).

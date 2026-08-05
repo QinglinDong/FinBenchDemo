@@ -1,0 +1,4 @@
+.env
+__pycache__/
+benchmarks/finqa/train.json
+.DS_Store

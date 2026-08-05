@@ -1,0 +1,64 @@
+row_id,model,question_type,human_verdict,human_note
+6,claude-haiku-4-5,assumption,incorrect,4.53% unadjusted; gold 4.70% requires lease adjustment
+9,claude-haiku-4-5,basic,correct,
+10,claude-haiku-4-5,basic,correct,56.7x vs 56.66x
+14,claude-haiku-4-5,assumption,incorrect,"EV 417,255 vs 424,216 (1.6% off)"
+18,claude-haiku-4-5,assumption,correct,9.59% vs 9.56% within 0.5%
+23,claude-haiku-4-5,basic,incorrect,final answer 21% federal-only; gold 24% = fed+state
+24,claude-haiku-4-5,assumption,incorrect,"gave rates only, no dollar figure; gold $2,255M"
+33,claude-haiku-4-5,basic,incorrect,"9,906 cash-only; gold 11,144 incl ST investments"
+43,claude-haiku-4-5,assumption,incorrect,"2,394 vs 961"
+51,claude-haiku-4-5,assumption,correct,"7,110-7,135 range; 7,110 within 0.5% of 7,113"
+57,claude-haiku-4-5,basic,incorrect,"4,817 vs 6,055; cash base excl ST investments"
+58,claude-haiku-4-5,assumption,incorrect,"29,429 vs 28,191 (4.4%)"
+67,claude-haiku-4-5,basic,incorrect,"1,859/3,338 offered; gold 3,457.24"
+69,claude-haiku-4-5,basic,correct,5%
+87,claude-haiku-4-5,conceptual,correct,Company X
+88,claude-haiku-4-5,conceptual,correct,Company X / higher unlevered return
+89,claude-haiku-4-5,conceptual,correct,Accretive
+99,claude-haiku-4-5,conceptual,incorrect,said EV unaffected; gold 60M increase
+111,claude-haiku-4-5,conceptual,incorrect,1.71x/11.6% vs 2x/15%
+119,claude-haiku-4-5,conceptual,incorrect,43 gadgets vs 20
+137,claude-haiku-4-5,conceptual,incorrect,claims net cash -80; gold has cash +20 via addback
+5,claude-opus-4-6,basic,incorrect,4.62% on net sales; gold 4.53% on total revenue
+6,claude-opus-4-6,assumption,incorrect,"4.94% (SBC addback, net sales); gold 4.70%"
+10,claude-opus-4-6,basic,correct,56.66x exact
+20,claude-opus-4-6,assumption,incorrect,1.40% funded debt only; gold 2.65% incl lease equivalents
+21,claude-opus-4-6,assumption,incorrect,98.60% vs 97.35% (1.3% rel)
+27,claude-opus-4-6,basic,incorrect,-221 vs -535
+37,claude-opus-4-6,assumption,incorrect,"23,464 vs 29,239"
+45,claude-opus-4-6,assumption,incorrect,"2,426 vs 452"
+53,claude-opus-4-6,assumption,incorrect,"says $0 (GAAP-true) but gold estimates 1,502 by capitalization"
+54,claude-opus-4-6,assumption,incorrect,$0 vs 97
+69,claude-opus-4-6,basic,correct,5%
+80,claude-opus-4-6,basic,incorrect,3.57x on net sales; gold 3.67x
+81,claude-opus-4-6,basic,incorrect,280.5 vs 285.90 (net sales)
+82,claude-opus-4-6,basic,incorrect,"1,907 vs 1,943.87 (net sales)"
+95,claude-opus-4-6,conceptual,correct,no change
+99,claude-opus-4-6,conceptual,correct,+60M
+103,claude-opus-4-6,conceptual,incorrect,3.75x/30.2% vs 3x/25%
+119,claude-opus-4-6,conceptual,correct,20 gadgets
+120,claude-opus-4-6,conceptual,correct,3.875x / 31.1%
+127,claude-opus-4-6,conceptual,correct,100c / 66.7c
+136,claude-opus-4-6,conceptual,correct,matches gold on all three statements
+5,claude-sonnet-4-6,basic,incorrect,4.62% on net sales; gold 4.53%
+7,claude-sonnet-4-6,basic,correct,3.65%
+9,claude-sonnet-4-6,basic,correct,"9,285"
+22,claude-sonnet-4-6,basic,correct,24.4%
+29,claude-sonnet-4-6,assumption,incorrect,24.98% vs 24.30% (2.8% rel)
+39,claude-sonnet-4-6,assumption,incorrect,"23,774 vs 26,915"
+46,claude-sonnet-4-6,assumption,incorrect,"30,634 vs 36,083"
+48,claude-sonnet-4-6,assumption,correct,"2,495 vs 2,506 within 0.5%"
+50,claude-sonnet-4-6,assumption,correct,+49 matches
+53,claude-sonnet-4-6,assumption,incorrect,"says none capitalized; gold 1,502"
+60,claude-sonnet-4-6,assumption,incorrect,"-7,170 vs -6,844 (4.8%)"
+67,claude-sonnet-4-6,basic,incorrect,"final ~1,860; gold 3,457.24"
+82,claude-sonnet-4-6,basic,incorrect,"1,907 vs 1,943.87"
+83,claude-sonnet-4-6,basic,correct,"2,021/2,250/1,459 all within tolerance"
+95,claude-sonnet-4-6,conceptual,correct,no change
+99,claude-sonnet-4-6,conceptual,incorrect,90M vs 60M
+103,claude-sonnet-4-6,conceptual,incorrect,3.75x/30.2% vs 3x/25%
+107,claude-sonnet-4-6,conceptual,correct,50%
+128,claude-sonnet-4-6,conceptual,correct,options 1 and 2 tie at +8 = gold 'price and volume'
+134,claude-sonnet-4-6,conceptual,incorrect,net debt 0 vs gold 6x EBITDA
+142,claude-sonnet-4-6,conceptual,incorrect,CFS 'no impact' vs gold CFO -300 / financing +300

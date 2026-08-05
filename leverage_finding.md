@@ -1,0 +1,39 @@
+# P4 — Leverage: Fixing Assumption Abdication (Mode 1)
+
+## The mode, and why this one
+
+**Mode 1 (assumption abdication)**: when a task requires constructing an estimate the source document deliberately doesn't provide, Claude answers with the closest disclosed figure or declares the quantity nonexistent, instead of making the standard analyst assumption (`failure_modes.md`).
+
+Three reasons it is the right target. First, it is the largest failure mass on the discriminative part of the eval: it accounts for 80 of the 121 incorrect assumption-item responses, and the assumption subset is where FinanceQA actually separates models. Second — the finding that motivates this document — **it is flat across model tiers** (24/28/28 missing-assumption failures for Haiku→Sonnet→Opus 4.6, while every other mode shrinks). Ordinary capability scaling is not fixing it, so waiting is not a plan. Third, the mechanism is specific and looks trainable: the models demonstrably *have* the convention knowledge (78–88% on conceptual questions about these same conventions) but do not *deploy* it unprompted on concrete tasks. That is a disposition gap, and disposition is what post-training shapes.
+
+## The intervention, in three stages
+
+**Stage 0 — measure the prompt-recoverable fraction (scaffolding probe; days, ~$30 API).** Re-run the 46 assumption items with a one-paragraph analyst-persona system prompt: *"You are a buy-side analyst hand-spreading this company. When a required input is not disclosed, construct it using standard analyst conventions, state the assumption you made, and still produce a number."* The gap between baseline (17.4% for Opus 4.6) and prompted performance is the share of the mode that is elicitation, not capability. This number gates everything below: if prompting recovers most of it, the fix ships as product-level prompting guidance and the training investment shrinks accordingly. (Not yet run — held for budget approval; the runner change is three lines on the P2 harness.)
+
+**Stage 1 — SFT on worked hand-spreading traces (vendor + light compute).** 3–5k traces of the form *(filing excerpt, construction-requiring task, chain of thought that explicitly names the fork — "operating cash is not disclosed; standard convention is min(2% of revenue, cash)" — assumption stated, number produced)*, spanning ≥100 issuers across sectors and filing qualities so the disposition generalizes beyond clean mega-cap filings. Generation recipe: Claude drafts traces from real filings, SMEs correct and sign off (the P5 vendor pipeline produces exactly this shape of artifact; the two efforts share tooling and QA).
+
+**Stage 2 — RLVR on programmatically generated construction tasks (the mechanism-implied repair).** The deep fix is a reward that makes *constructing the estimate* the winning move. Build a task generator over XBRL-tagged filings: sample (issuer, period, target metric, convention chain), compute the gold **deterministically** from structured data — the same recipe that makes TaxCalcBench gradeable, applied to analyst metrics — and reward with the P2 Stage-1 numeric grader (scale/format-invariant, 0.5% tolerance). Crucially, the reward must be two-sided: score constructing a defensible estimate *and* penalize fabricating one on trap instances where the data genuinely cannot support construction (see measurement). Tens of thousands of verifiable episodes are generatable at near-zero marginal labeling cost because the golds come from XBRL, not annotators.
+
+**Pipeline stage:** Stage 0 is product/prompting; Stages 1–2 live in post-training (SFT + RL with verifiable rewards). Nothing here touches pretraining.
+
+## Cost, roughly
+
+| item | estimate |
+|---|---|
+| Stage 0 probe | 2 engineer-days; <$50 API |
+| Stage 1 data | 3–5k traces × ~20 min SME review ≈ 1,000–1,700 SME-hours ≈ **$80–170k** vendor spend (at $80–100/hr blended), plus 2–4 weeks of one research engineer |
+| Stage 2 environment | 2–3 engineer-months to build the XBRL task generator + trap-instance sampler; grader is already written (P2). RLVR compute: one standard post-training run's marginal cost — small against any frontier training budget |
+| Total to a trainable signal | **≈ $150–300k + one quarter of one team's partial attention** |
+
+## How we'd know it worked
+
+Layered, because the P2 eval alone is 46 items on one company and Stage-2 training data would contaminate anything XBRL-derived that isn't held out by construction.
+
+1. **On the P2 instrument (necessary, not sufficient):** assumption-subset score under the improved grader moves from ~17% toward the basic-subset level (~50%), with the `missing_assumption` category — not just the total — shrinking. Run pre-registered: same 46 items, same grader, same prompt.
+2. **On fresh items (the real test of the capability):** the P5 vendor delivers ~200 new assumption-heavy items on *different issuers*; hold them fully out of all training. This is the primary endpoint, because it breaks both the single-company confound and any training contamination.
+3. **On the capability the mode is really about (transfer):** PRBench-Finance's rubric criteria are tagged by category, including **Handling Uncertainty** (93 criteria in the finance split) — per-criterion hit rate there measures assumption-making in open-ended advice, a different format from short-answer QA. Secondary transfer: BigFinanceBench's public subset, whose rubrics explicitly award stated assumptions.
+4. **The overcorrection guard (must move ≤ nothing):** the dual failure of "always construct" is fabrication. Maintain a trap set — construction-style prompts where the data genuinely cannot support an estimate and refusal/qualification is correct (FailSafeQA-style perturbations plus Stage-2 trap instances) — and require the false-construction rate not to rise. A fix that converts assumption abdication into confident fabrication is worse than the disease; this metric is the reason the RL reward is two-sided.
+
+## What we don't know how to fix
+
+Mode 1 has a hard core this plan may not reach: tasks where the "standard convention" is genuinely contested across desks (the 51% defensible-alternative rate on assumption items is partly *label* ambiguity, not model failure). No training scheme fixes disagreement among professionals; the honest handling is eval-side — multi-reference golds and convention-stated-and-executed-correctly rubrics (P5) — not model-side. We flag this openly rather than promising a number it can't move.
