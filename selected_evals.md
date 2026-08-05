@@ -60,9 +60,9 @@ Five more properties are legitimate quality criteria for finance evals. **None o
 
 ## Benchmark Landscape
 
-One row per surveyed eval, sorted by year. Columns are grouped: **eval properties** (Eval → Grader type), then the **six selection criteria C1–C6** numbered to match the criteria table, then the verdict. All values use the controlled vocabularies defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); the **Why to skip** column lists the binding criteria that ruled each eval out (C1–C6 from the criteria table; B7–B11 from Beyond criteria) — the evidence sits in that row's own criteria cells.
+One row per surveyed eval, sorted by year. Columns are grouped: **eval properties** (Eval → Grader type), then the **six selection criteria C1–C6** numbered to match the criteria table, then the verdict. All values use the controlled vocabularies defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); the **Ruled out by** column lists the binding criteria (C1–C6) — the evidence sits in that row's own criteria cells; two evals are ruled out on practical grounds stated in words. **Candidate?** marks what survives the screen; the actual deep-dive selection is made in "The two evals we take forward" below, not here.
 
-| # | Eval | Year | Domain | Task | Input format | Size | Authorship | Grader type | C1 Task validity | C2 Gold quality | C3 Grader quality | C4 Headroom | C5 Public | C6 Freshness | Taken forward | Why to skip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| # | Eval | Year | Domain | Task | Input format | Size | Authorship | Grader type | C1 Task validity | C2 Gold quality | C3 Grader quality | C4 Headroom | C5 Public | C6 Freshness | Candidate? | Ruled out by |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | FinQA | 2021 | D1 Research & analysis | T1 disclosure QA | table+text excerpt | 8,281 | experts | deterministic | med | noisy (91/8,281 re-verified) | high (deterministic) | low (saturating) | yes | low (answers public since 2021) | no | C1, C2, C6 |
 | 2 | TAT-QA | 2021 | D1 Research & analysis | T1 disclosure QA | table+text excerpt | 16,552 q | crowdsourced | deterministic | low | crowd | high (deterministic) | unknown | yes | low (public since 2021) | no | C1 |
@@ -71,19 +71,19 @@ One row per surveyed eval, sorted by year. Columns are grouped: **eval propertie
 | 5 | FinanceBench | 2023 | D1 Research & analysis | T2 filing QA (open-book, 40 issuers) | full filing | 10,231 (150 public) | experts | human | med | clean (evidence-linked) | low (manual, unpublished) | high (81% wrong, one RAG config) | partial (150/10,231) | med (2023; bulk private) | no | C3, C5 |
 | 6 | DocFinQA | 2024 | D1 Research & analysis | T2 filing QA (long-context) | full filing (~123k words) | 7,437 | derived | deterministic | med | inherited (FinQA) | high (deterministic) | unknown | yes | low (inherits FinQA) | no | C2 |
 | 7 | SpreadsheetBench v1 | 2024 | D2 Modeling | T1 formula edits | xlsx workbook | 912 q | forum-scraped | deterministic | med | clean (execution-checkable) | high (deterministic) | unknown | yes | med (2024 forum items) | no | C1 |
-| 8 | **FinanceQA** | **2025** | D1 Research & analysis | T5 hand-spreading (1 issuer: Costco) | table+text excerpt (or none) | 148 | experts | human | **high** | ambiguous (P2: 55% defensible-alt) | low (**no grader code**) | med (o3 54.1%) | yes (Apache-2.0, answers incl.) | low (answers+CoT public 2025-01; eval set = public set) | **yes** | — taken (P2 target) |
+| 8 | **FinanceQA** | **2025** | D1 Research & analysis | T5 hand-spreading (1 issuer: Costco) | table+text excerpt (or none) | 148 | experts | human | **high** | ambiguous (P2: 55% defensible-alt) | low (**no grader code**) | med (o3 54.1%) | yes (Apache-2.0, answers incl.) | low (answers+CoT public 2025-01; eval set = public set) | **yes** | — |
 | 9 | FinanceReasoning / FinChain / Fino1 | 2025 | D12 Academic & exams | T2 numeric reasoning | text problems | 2,238 / synthetic | researchers, synthetic | deterministic | low | clean (credibility-checked) | high (deterministic) | low (89.1%) | yes | med (2025) | no | C1 |
 | 10 | FinSearchComp | 2025 | D1 Research & analysis | T3 agentic search (global + Greater China) | tool harness | 635 q | experts | mixed | med | clean (expert-checked) | unknown (mixed) | unknown | yes | high (time-sensitive by design) | no | C1 |
-| 11 | **PRBench-Finance** | **2025** | D3 Advisory | T1 financial advice (13 topics) | conversational prompts (1–10 turns) | 600 (+300 hard) | experts | rubric+judge | **high** | validated (93.9% expert-justified) | med (judge κ=0.603) | high (≈0.55) | yes (CC-BY-4.0 + MIT harness) | med (2025-11 release) | **yes** | — taken |
+| 11 | **PRBench-Finance** | **2025** | D3 Advisory | T1 financial advice (13 topics) | conversational prompts (1–10 turns) | 600 (+300 hard) | experts | rubric+judge | **high** | validated (93.9% expert-justified) | med (judge κ=0.603) | high (≈0.55) | yes (CC-BY-4.0 + MIT harness) | med (2025-11 release) | **yes** | — |
 | 12 | PRBench-Legal | 2025 | D3 Advisory | T2 legal advice | conversational prompts | 500 | experts | rubric+judge | high | validated | med (judge κ) | high (0.37 hard) | yes | med (2025-11) | no | wrong domain |
 | 13 | RuleArena | 2025 | D4 Tax & compliance | T3 rule-following (tax is 1 of 3) | rules + scenario text | 816 problems | researchers | deterministic | low | clean (rule-derived) | high (deterministic) | unknown | yes | med (2025) | no | C1 |
 | 14 | TaxCalcBench v1/v2 | 2025/26 | D4 Tax & compliance | T1 return preparation (federal + state) | structured JSON / PDF forms | 51 + 50 returns | vendor-internal | deterministic | high | clean (engine-derived XML) | high (deterministic, line-by-line) | high (<⅓ strict) | yes (MIT) | high (annual tax-year refresh) | no | nothing to fix (C3 already solved) |
 | 15 | Vals Finance Agent v1/v2 | 2025/26 | D1 Research & analysis | T3 agentic filing research (9 categories) | tool harness (EDGAR + web) | 537 (v1) / 927 (v2) | experts | judge-vs-gold | high | private (unverifiable) | unknown (v2 jury, no public κ) | med (58.6%, v2 board 2026-08) | partial (harness MIT; items private) | high (held-out split, refreshed) | no | C5 |
 | 16 | BigFinanceBench | 2026 | D1 Research & analysis | T3 open-ended research | tool harness | 928 (50 public) | experts | rubric+judge | high | clean (expert rubrics, 36,241 pts) | unknown (no public κ) | med (58.8%) | partial (50/928) | high (2026 + canary) | no | C5 |
-| 17 | BlueFin | 2026 | D2 Modeling | T3 spreadsheet build/modify agent | xlsx workbook | 131 tasks | researchers | rubric+judge | high | clean (expert rubrics) | med (judge α=0.826) | high (<50%) | yes | high (2026) | no | B9 |
+| 17 | BlueFin | 2026 | D2 Modeling | T3 spreadsheet build/modify agent | xlsx workbook | 131 tasks | researchers | rubric+judge | high | clean (expert rubrics) | med (judge α=0.826) | high (<50%) | yes | high (2026) | no | small & scaffold-bound |
 | 18 | FinRetrieval | 2026 | D1 Research & analysis | T4 data retrieval (global issuers) | tool harness (MCP) | 500 q | vendor-internal | deterministic | med | clean (structured fields) | high (deterministic) | low (90.8% w/ vendor MCP) | yes (MIT) | high (2026) | no | C1, C4 |
 | 19 | Rivet TaxBench | 2026 | D4 Tax & compliance | T2 professional tax workflows | conversational prompts | 500+ prompts | vendor-internal | deterministic | high | private (CPA-validated) | unknown (vendor-run) | high (<50% pass^5) | **no** | high (private, refreshed) | no | C5 |
-| 20 | SpreadsheetBench 2 | 2026 | D2 Modeling | T2 workflow modeling (avg 11.8 sheets) | xlsx workbook (multi-sheet) | 321 tasks | experts | deterministic | high | clean (expert workbooks) | high (deterministic, via scaffold) | unknown | yes | high (2026) | no | B11 |
+| 20 | SpreadsheetBench 2 | 2026 | D2 Modeling | T2 workflow modeling (avg 11.8 sheets) | xlsx workbook (multi-sheet) | 321 tasks | experts | deterministic | high | clean (expert workbooks) | high (deterministic, via scaffold) | unknown | yes | high (2026) | no | run cost (agent env) |
 | 21 | τ³-Banking (τ-Knowledge) | 2026 | D11 Banking ops | T1 retail customer support (698-doc KB) | KB + tools (698 docs), dialogue | 97 tasks | researchers | deterministic | high | clean (DB-state targets) | high (deterministic, pass^k) | high (25.5% pass¹, paper) | yes (CC-BY-4.0) | high (2026) | no | C1 |
 
 ### Cross-cutting instruments that don't fit a cluster
@@ -91,9 +91,30 @@ One row per surveyed eval, sorted by year. Columns are grouped: **eval propertie
 - **[FailSafeQA](https://arxiv.org/abs/2502.06329)** (2025) — perturbation-robustness probe (misspelled/incomplete/OCR-degraded finance queries): measures *reliability under messy input*, a dimension every cluster above ignores.
 - **Consistency measurement** — pass^k is reported by Rivet's private TaxBench (pass^5) and, publicly, by the τ-bench family including τ³-Banking (pass^k, k≤4). No *analyst-workflow* eval measures whether a model gives the same answer five times, despite TaxCalcBench's documented run-to-run inconsistency — still a hole for the clusters this survey centers on.
 
-## Use cases with no public benchmark coverage
+## Hierarchy Coverage
 
-The same hierarchy (`D× T×` codes above), continued into the branches no public benchmark reaches. The pattern behind the gaps: the work products are long-form and internal, the data is confidential, expert grading is expensive — and firms that hold the data increasingly monetize evals as product marketing (Rivet, Daloopa, Vals) rather than release them.
+Counting the 21 surveyed evals against the Finance Task Hierarchy makes the skew visible: half of all public benchmarking sits in one domain, and six domains have none at all.
+
+| Domain | Public evals | |
+|---|---|---|
+| D1 Research & analysis | 10 | ██████████ |
+| D2 Modeling (Excel) | 3 | ███ |
+| D3 Advisory | 2 | ██ |
+| D4 Tax & compliance | 3 | ███ |
+| D5 Deals (IB) | 0 | – |
+| D6 Buy-side IM | 0 | – |
+| D7 Corporate finance | 0 | – |
+| D8 Audit & controls | 0 | – |
+| D9 Insurance | 0 | – |
+| D10 Credit & fixed income | 0 | – |
+| D11 Banking ops | 1 | █ |
+| D12 Academic & exams | 2 | ██ |
+
+Counts weight every eval equally. The right next step would be to weight each domain by its economic stake — practitioner headcount × hours on the task × what a capable model would save — so that a zero in, say, audit (D8) can be compared against a zero in insurance (D9) on expected benefit rather than on gut feel. **We skip that estimation for now**; it is the first thing we'd add with more time (see Conclusion).
+
+### Uncovered branches in detail
+
+The `†` branches of the hierarchy, with what the work product actually is and the nearest public approximation. The pattern behind the gaps: the work products are long-form and internal, the data is confidential, expert grading is expensive — and firms that hold the data increasingly monetize evals as product marketing (Rivet, Daloopa, Vals) rather than release them.
 
 | Code | Domain › task | Work product | Closest public coverage |
 |---|---|---|---|
@@ -105,6 +126,8 @@ The same hierarchy (`D× T×` codes above), continued into the branches no publi
 | D9 T1 | Insurance › underwriting & actuarial | Reserving, pricing, experience studies | none |
 | D10 T1 | Credit & fixed income › covenant & bond analytics | Compliance calcs, downside cases, bond math beyond exams | thin — Vals CorpFin (commercial leaderboard only) |
 | D4 T4 | Tax & compliance › regulatory-filing workflows | Filing prep, marketing-material compliance review, monitoring | RuleArena (#13), tangentially |
+
+Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for analyst work: answer consistency (pass^k), calibrated refusal under missing data (FailSafeQA aside), multi-turn correction handling, and cost-normalized scoring.
 
 Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for analyst work: answer consistency (pass^k), calibrated refusal under missing data (FailSafeQA aside), multi-turn correction handling, and cost-normalized scoring.
 
@@ -131,6 +154,12 @@ We sample two for deep study in P2–P4. Criteria for the *sample* (not a qualit
 ### Why these two together, and the closest alternatives
 
 FinanceQA's measurement risk is *format confounds and grading noise* on verifiable answers; PRBench's is *judge validity and rubric gaming* on open-ended ones. Both are practitioner-authored, unsaturated (≈54% / ≈55%), and fully downloadable. The closest alternatives for the slot were **TaxCalcBench** (the only fully deterministic grader with real headroom — passed over because its grader, the thing we'd want to improve elsewhere, is already its best feature, and tax prep sits farther from the analyst workflows we probe) and **SpreadsheetBench 2** (closest to IB modeling reality — passed over because it needs a multi-turn agent scaffold plus an Excel execution environment, out of scope for a 24-hour budget, and improvements would target the scaffold as much as the eval).
+
+## Conclusion: limits and next steps
+
+**Limits of this survey.** (1) Facts are a single verification pass dated 2026-08-04; leaderboards and repos drift. (2) The six criteria are an unweighted screening rubric, not a certification — B7–B11 (construct isolation, coverage, statistical power, consistency, cost) were recognized but unused. (3) C-ratings are our judgment calls from primary artifacts, not community consensus; for private evals (Rivet, Vals v2) they lean on vendor-reported numbers. (4) The coverage histogram counts evals, not economic value — the per-domain benefit estimate (time-saving × headcount) that would turn coverage gaps into a priority order is deliberately skipped. (5) The hierarchy itself is one defensible cut of finance work; other cuts (by regulation, by asset class) would redraw the domain boundaries.
+
+**Next steps.** (1) Follow the criteria: two candidates survive the screen (FinanceQA, PRBench-Finance); the deep-dive selection and its rationale are in the section above, and the P2 critique-improve-measure work executes on it. (2) Add the per-domain benefit estimation to rank the six empty domains for eval construction. (3) Re-run the verification pass before relying on any number here after ~Q4 2026. (4) The P5 vendor brief is the concrete instrument for closing the highest-priority gap once ranked.
 
 ## Sources
 
