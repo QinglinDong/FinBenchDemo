@@ -10,8 +10,11 @@
 2. [Benchmark criteria](#benchmark-criteria) · [Non-criteria](#non-criteria)
 3. [Benchmark Landscape](#benchmark-landscape) — [Axes](#axes-of-comparison) · [Cross-cutting instruments](#cross-cutting-instruments-that-dont-fit-a-cluster) · [Hierarchy Coverage](#hierarchy-coverage) · [Uncovered branches](#uncovered-branches-in-detail)
 4. [Deep Dive 1: FinanceQA](#deep-dive-1-financeqa-afterquery-2025)
-5. [Deep Dive 2: PRBench-Finance](#deep-dive-2-prbench-finance-scale-ai-2025) · [The down-select](#the-down-select-why-these-two-of-the-five-candidates)
-6. [Conclusion: limits and next steps](#conclusion-limits-and-next-steps) · [Sources](#sources)
+5. [Deep Dive 2: PRBench-Finance](#deep-dive-2-prbench-finance-scale-ai-2025)
+6. [Deep Dive 3: TaxCalcBench](#deep-dive-3-taxcalcbench-column-tax-202526)
+7. [Deep Dive 4: SpreadsheetBench 2](#deep-dive-4-spreadsheetbench-2-ruc-2026)
+8. [Deep Dive 5: BlueFin](#deep-dive-5-bluefin-2026)
+9. [The down-select](#the-down-select-why-these-two-of-the-five-candidates) · [Conclusion](#conclusion-limits-and-next-steps) · [Sources](#sources)
 
 ## Finance Task Hierarchy
 
@@ -157,6 +160,30 @@ Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for a
 **(b) Why this one gets the deep-dive slot.** It is the only public instrument for the *advice* half of finance work — where the deliverable is a recommendation with caveats, process, and regulatory hooks — and the only rubric-judged finance eval whose full data and harness are open enough to study the grader itself. Its documented weaknesses are productive ones: κ = 0.603 is moderate for an instrument whose entire score is judge-produced; the Hard subset is defined post hoc by which items the paper's 20 models failed, so its meaning drifts as models improve; and per-criterion independent judging of up to 30 criteria invites verbosity-reward gaming. BigFinanceBench shares the philosophy but exposes only 50 items.
 
 **(c) What it actually measures, in one sentence.** PRBench-Finance is a good measurement of whether a model's open-ended professional answer *covers what a domain expert would insist it cover* — coverage of expert-salient points as scored by a mid-tier LLM judge, which is related to, but not identical with, giving correct advice.
+
+## Deep Dive 3: TaxCalcBench (Column Tax, 2025/26)
+
+**(a) What it is.** TaxCalcBench ([arXiv:2507.16126](https://arxiv.org/abs/2507.16126), Column Tax — a tax-software vendor — July 2025) asks a model to prepare a complete US individual tax return. v1: 51 realistic test cases for tax year 2024, structured JSON taxpayer inputs (W-2 wages, interest, dependents, credits) in, a full Form 1040 out, graded **fully deterministically** — line-by-line comparison against the correct return XML produced by Column Tax's production tax engine, in strict (every evaluated field exact) and lenient variants. v2 (June 2026, a repo release with no paper) moves to tax year 2025, 50 cases, realistic PDF inputs (W-2s, 1099s) and adds state returns. MIT-licensed with the complete grader shipped — the only candidate whose grading needs no judge and no reimplementation. Headroom is real: SOTA models complete fewer than ⅓ of returns strictly correctly (Gemini 2.5 Pro 32.4%, later GPT-5 41.7%), with documented failure modes (wrong tax tables, arithmetic slips, eligibility misjudgments) and documented run-to-run inconsistency.
+
+**(b) Why it survives the screen.** Nothing rules it out: practitioner-real task (C1 high), engine-derived golds (C2 clean), the best grader in the survey (C3), unsaturated (C4), fully public (C5), and the survey's only annually-refreshed item set (C6 — new tax year each cycle, the strongest freshness story on the board).
+
+**(c) What it actually measures, in one sentence.** TaxCalcBench is a good measurement of whether a model can execute a long chain of interdependent, codified rules to an exact-dollar standard — procedural execution rather than analyst judgment — and, run repeatedly, of how unstable that execution still is.
+
+## Deep Dive 4: SpreadsheetBench 2 (RUC, 2026)
+
+**(a) What it is.** SpreadsheetBench 2 ([arXiv:2606.29955](https://arxiv.org/abs/2606.29955), Renmin University KBReasoning group, June 2026) is 321 workflow-level spreadsheet tasks built by domain experts from authentic business data including financial reports and corporate filings — averaging 11.8 worksheets and 593.5 cell modifications per instance, across three categories: financial modeling / template completion, debugging, and visualization. Input is a real multi-sheet xlsx workbook plus an instruction, executed through a multi-turn agent scaffold; grading is deterministic cell-level comparison against expert-built target workbooks. The paper also benchmarks commercial products (including Claude for Excel), making it the closest public instrument to how spreadsheet work is actually shipped.
+
+**(b) Why it survives the screen.** The only candidate measuring D2 T2 workflow-level modeling — the nearest public thing to investment-banking model-building — with expert-authored items (C1 high, C2 clean), deterministic grading (C3 high), and a 2026 release (C6 high). What kept it out of the P2 slot is cost, not quality: running it requires an Excel execution environment plus an agent scaffold, and improvements would target the scaffold as much as the eval.
+
+**(c) What it actually measures, in one sentence.** SpreadsheetBench 2 is a good measurement of whether an agent can carry a specification through hundreds of coordinated cell edits in a real multi-sheet workbook — the engineering execution of financial models, with the agent scaffold's quality unavoidably folded into the score.
+
+## Deep Dive 5: BlueFin (2026)
+
+**(a) What it is.** BlueFin ([arXiv:2605.30907](https://arxiv.org/abs/2605.30907), May 2026; CMU-affiliated authors, no single owning institution stated) evaluates LLM agents on financial spreadsheets across 131 tasks — building models from scratch, modifying existing models, and comprehension, weighted toward modification — against 3,225 granular expert rubric criteria. Grading is by LM judge, and unusually for this landscape the judge is validated: Krippendorff α = 0.826 and macro-F1 = 0.839 against expert consensus, the best-documented judge validation in the survey. Best frontier models score under 50%.
+
+**(b) Why it survives the screen.** No C1–C6 code rules it out: financial-modeling task validity, expert rubrics, a *validated* judge, real headroom, public release in 2026. It lost the P2 slot on practical grounds — at 131 items it is the smallest candidate (single-model scores carry wide intervals), it is the youngest with no track record, and like SpreadsheetBench 2 it is bound to an agent scaffold.
+
+**(c) What it actually measures, in one sentence.** BlueFin is a good measurement of whether a model's spreadsheet work satisfies expert-written per-task criteria — rubric-graded modeling quality with the survey's best-validated judge, at an n too small to rank models tightly.
 
 ### The down-select: why these two of the five candidates
 
