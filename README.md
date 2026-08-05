@@ -6,11 +6,11 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 
 | file | part | contents |
 |---|---|---|
-| `selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, five deep dives, and the two-eval down-select for P2 |
-| `claude_run_eval_improvement.md` | P2 | Critique of FinanceQA (unpublished grader, format confound, ambiguous gold labels, contamination, single-document base), the improvement — a published two-stage grader — and the validity measurements (format-invariance probe, grader-vs-human agreement, tier separation) |
-| `failure_modes.md` | P3 | Named taxonomy of how Claude fails on finance-practitioner tasks, with item-level evidence from the P2 runs |
-| `leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude: intervention, pipeline stage, cost, and the measurement that confirms it worked |
-| `vendor_brief.md` | P5 | One-page commissioning brief to extend the improved eval to ~200 items via a vendor |
+| `P1.selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, five deep dives, and the P2 target selection |
+| `P2.claude_run_eval_improvement.md` | P2 | Critique of FinanceQA (unpublished grader, format confound, ambiguous gold labels, contamination, single-document base), the improvement — a published two-stage grader — and the validity measurements (format-invariance probe, grader-vs-human agreement, tier separation) |
+| `P3.failure_modes.md` | P3 | Named taxonomy of how Claude fails on finance-practitioner tasks, with item-level evidence from the P2 runs |
+| `P4.leverage_finding.md` | P4 | How Anthropic could use one failure mode to improve Claude: intervention, pipeline stage, cost, and the measurement that confirms it worked |
+| `P5.vendor_brief.md` | P5 | One-page commissioning brief to extend the improved eval to ~200 items via a vendor |
 | `p2/` | P2 code | Runner, graders, probes, analysis, the full dataset, and all result files |
 
 ## Run the P2 improvement in one command
@@ -19,7 +19,7 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 cd p2 && ANTHROPIC_API_KEY=<your-key> ./run_all.sh
 ```
 
-Details, per-step breakdown, and expected outputs: bottom section of `claude_run_eval_improvement.md`. The dataset (`benchmarks/financeqa/test.csv`, Apache-2.0) is checked in; a from-scratch rerun costs under $15 and is idempotent/resumable.
+Details, per-step breakdown, and expected outputs: bottom section of `P2.claude_run_eval_improvement.md`. The dataset (`benchmarks/financeqa/test.csv`, Apache-2.0) is checked in; a from-scratch rerun costs under $15 and is idempotent/resumable.
 
 ## `benchmarks/` — the surveyed evals, verbatim
 
