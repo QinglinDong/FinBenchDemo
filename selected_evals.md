@@ -42,9 +42,9 @@ Six more properties are legitimate quality criteria for finance evals. **None of
 
 ## Benchmark Landscape
 
-One row per surveyed eval, sorted by year. Columns 8–12 are the five selection criteria: **Task validity** is rated `high`/`med`/`low` (high = a practitioner would recognize the item as their job); **Gold-label quality**, **Grader**, **Headroom**, and **Repro & contamination** carry the evidence directly. Vocabularies for `Authorship` and `Grader` are defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); cut reasons: the rejected list below.
+One row per surveyed eval, sorted by year. Columns are grouped: first the **eval properties** (Eval, Year, Scenario, Input format, Size, Authorship), then the **five selection criteria as C1–C5**, numbered to match the criteria table above — C1 Task validity is rated `high`/`med`/`low` (high = a practitioner would recognize the item as their job); C2–C5 carry the evidence directly. Vocabularies for `Authorship` and `Grader` are defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); cut reasons: the rejected list below.
 
-| # | Eval | Year | Scenario | Input format | Size | Authorship | Task validity | Gold-label quality | Grader | Headroom (best score) | Repro & contamination | Taken forward |
+| # | Eval | Year | Scenario | Input format | Size | Authorship | C1 Task validity | C2 Gold-label quality | C3 Grader | C4 Headroom (best score) | C5 Repro & contamination | Taken forward |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | FinQA | 2021 | Disclosure QA, S&P 500 earnings reports | table+text excerpt | 8,281 | experts | med | noisy — only 91/8,281 survived re-verification | deterministic | saturating | answers public since 2021 | no |
 | 2 | TAT-QA | 2021 | Disclosure QA, report snippets | table+text excerpt | 16,552 q | crowdsourced | low | crowd labels | deterministic | — | public since 2021 | no |
