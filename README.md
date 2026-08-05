@@ -5,9 +5,9 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 ## Contents
 
 - [What's in each file](#whats-in-each-file)
-- [Run the P2 improvement in one command](#run-the-p2-improvement-in-one-command)
+- [Run the P2 improvements in one command](#run-the-p2-improvements-in-one-command)
 - [`benchmarks/` — the surveyed evals, verbatim](#benchmarks--the-surveyed-evals-verbatim)
-- [One thing we chose not to do, and why](#one-thing-we-chose-not-to-do-and-why)
+- [What we chose not to do, and why](#what-we-chose-not-to-do-and-why)
 
 ## What's in each file
 
@@ -28,7 +28,7 @@ Files carry `P1.`–`P5.` ordering prefixes; they are the assignment's `selected
 cd p2 && ANTHROPIC_API_KEY=<your-key> ./run_all.sh
 ```
 
-Runs both benchmarks (FinanceQA grader, then the PRBench probe and 3-tier sweep). Per-step breakdowns: sections A4 and B4 of `P2.claude_run_eval_improvement.md`. All datasets are checked in under `benchmarks/`; a from-scratch rerun costs roughly $55 total and is idempotent/resumable.
+Runs both benchmarks (FinanceQA grader, then the PRBench probe and 3-tier sweep). Per-step breakdowns: sections A4 and B4 of `P2.claude_run_eval_improvement.md`. All datasets are checked in under `benchmarks/`; a from-scratch rerun costs roughly $50 total and is idempotent/resumable.
 
 ## `benchmarks/` — the surveyed evals, verbatim
 
