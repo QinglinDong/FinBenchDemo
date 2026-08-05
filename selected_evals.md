@@ -6,62 +6,60 @@
 
 ## Benchmark selection criteria
 
-An eval is a measurement instrument, and instrument quality is relative to a question. Ours is the practitioner question: *does this benchmark measure work a finance professional actually does, in a way we can trust and reproduce?* We screened every candidate against seven criteria:
+An eval is a measurement instrument, and instrument quality is relative to a question. Ours is the practitioner question: *does this benchmark measure work a finance professional actually does, in a way we can trust and reproduce?* We screened every candidate against five criteria:
 
 | # | Criterion | The question it asks | Failure looks like | Example from this survey |
 |---|---|---|---|---|
 | 1 | Task validity | Do items resemble work a practitioner actually does? | Exam recall, crowdsourced lookup | CFA mocks (saturated credential recall); TAT-QA (crowdsourced) |
-| 2 | Construct isolation | Does the score measure the model — or the scaffold around it? | Tool-stack / retrieval confound | FinanceBench's 81%-wrong headline (RAG system + model jointly); Vals FA tool stack |
-| 3 | Gold-label quality | Are golds unambiguous, noise-checked, and convention-complete? | Single gold where professionals legitimately disagree | FinQA (Aiera could verify only 91 items); FinanceQA (our P2: 55% of "wrong" answers used a defensible alternative convention) |
-| 4 | Grader trustworthiness | Is the grading mechanism published, and how far is it from human judgment? | Unpublished manual process; judge agreement unknown | FinanceQA (no grader code ever shipped); PRBench (judge κ = 0.603) |
-| 5 | Headroom & discrimination | Does it still separate frontier tiers? | Ceiling effects; flat tier ladders | CFA at 97.6%; our naive-EM baseline scoring every tier 0 = 0 = 0 |
-| 6 | Coverage & representativeness | How much of the scenario space does the item sample span? | Single issuer / single document / single filing style | FinanceQA (all 84 tactical items from one Costco 10-K) |
-| 7 | Reproducibility & contamination | Public data + runnable harness? How long has the answer key been public? Is the eval set the public set? | Private items; dead repos; answers on HF for a year | FinanceBench (150 of 10,231 public); FinanceQA (answers + CoT public since 2025-01, public set = eval set) |
+| 2 | Gold-label quality | Are golds unambiguous, noise-checked, and convention-complete? | Single gold where professionals legitimately disagree | FinQA (Aiera could re-verify only 91 items); FinanceQA (our P2: 55% of "wrong" answers used a defensible alternative convention) |
+| 3 | Grader trustworthiness | Is the grading mechanism published, and how far is it from human judgment? | Unpublished manual process; judge agreement unknown | FinanceQA (no grader code ever shipped); PRBench (judge κ = 0.603) |
+| 4 | Headroom & discrimination | Does it still separate frontier tiers? | Ceiling effects; flat tier ladders | CFA at 97.6%; our naive-EM baseline scoring every tier 0 = 0 = 0 |
+| 5 | Reproducibility & contamination | Public data + runnable harness? How long has the answer key been public? Is the eval set the public set? | Private items; dead repos; answers on HF for a year | FinanceBench (150 of 10,231 public); FinanceQA (answers + CoT public since 2025-01, public set = eval set) |
 
-No public finance eval passes all seven; the landscape table flags what each one trades away. For *selection* (which eval rewards deep study), a candidate needed high marks on 1 and 7 and *fixable* failures on the middle rows — a flaw you can measure and repair is an asset for P2, not a defect.
+No public finance eval passes all five; the landscape table carries these criteria as columns so the trade-offs are visible per row. For *selection* (which eval rewards deep study), a candidate needed high marks on 1 and 5 and *fixable* failures on the middle rows — a flaw you can measure and repair is an asset for P2, not a defect.
 
 ### Are these criteria good enough? A self-review
 
-Honest answer: the list started as five, and reviewing our own rejection one-liners exposed two criteria we were *using* but hadn't named — **construct isolation** (it did the work of rejecting FinanceBench and Vals FA) and **coverage** (it is FinanceQA's biggest liability and appears in our own P2 caveats). Both are now rows 2 and 6; the lesson stands that stated criteria should be audited against revealed choices.
+Two candidate criteria were considered and deliberately excluded. **Construct isolation** (does the score measure the model or the scaffold?) was dropped because agentic harnesses are increasingly part of the capability being measured — practitioner work *is* tool-assisted, and penalizing the scaffold would down-rank exactly the evals that probe the agentic frontier (Vals FA, FinSearchComp, τ³). The residual requirement folds into criterion 5: the harness must be published so the scaffold is held fixed across models. **Coverage / representativeness** (how much of the scenario space the items span) was excluded because this is a *quality* screen — coverage is a scale property, and buying more of it is precisely what the P5 extension is for; it survives as a descriptive `Scenario` column, not a gate.
 
-Four things are still knowingly absent. (a) **Statistical power**: item counts bound what a score can mean — FinanceQA's assumption subset is n=46, so single-model scores carry roughly ±10pp of binomial noise at 95%; none of our criteria screens for n. (b) **Run-to-run consistency**: a model's score on one pass is not its score (Rivet's pass@1→pass^5 collapse; τ³'s pass^k); no criterion demands it. (c) **Maintenance cadence**: whether anyone refreshes items or the repo is dead — predicts contamination trajectory, not just current state. (d) **Cost-to-run**. We accept these gaps because this is a *selection* rubric, not a certification rubric: (a) and (b) are properties our P2/P5 work is designed to fix in the selected eval, and screening on them would have emptied the candidate pool — no public analyst-workflow eval today passes either.
+Four things are still knowingly absent. (a) **Statistical power**: item counts bound what a score can mean — FinanceQA's assumption subset is n=46, so single-model scores carry roughly ±10pp of binomial noise at 95%; no criterion screens for n. (b) **Run-to-run consistency**: a model's score on one pass is not its score (Rivet's pass@1→pass^5 collapse; τ³'s pass^k); no criterion demands it. (c) **Maintenance cadence**: whether anyone refreshes items — predicts contamination trajectory, not just current state. (d) **Cost-to-run**. We accept these gaps because this is a selection rubric, not a certification rubric: (a) and (b) are properties our P2/P5 work is designed to fix in the selected eval, and screening on them would have emptied the candidate pool.
 
 ## Axes of comparison
 
-- **Practitioner task type** — the job simulated: disclosure QA, analyst hand-spreading, open-ended advice, procedural rule-following, spreadsheet modeling, agentic retrieval, exam knowledge.
-- **Item authorship** — practitioner-authored, crowdsourced, forum-scraped, or synthetic. Predicts whether "correct" means what a professional means by it.
-- **Grader type** — deterministic exact/program match, line-by-line structured comparison, human binary judgment, or rubric + LLM judge. Each has a characteristic failure mode: format confounds, label noise, irreproducibility, judge bias.
+- **Scenario** — the practitioner setting simulated: disclosure QA, analyst hand-spreading, professional advice, tax preparation, spreadsheet modeling, agentic research, customer support, credential exams.
+- **Input format** — what the model receives: table+text excerpts, full filings, xlsx workbooks, structured JSON/PDF forms, conversational prompts, tool/retrieval harnesses, MCQ.
+- **Item authorship** — `experts` / `crowdsourced` / `derived` / `forum-scraped` / `researchers` / `synthetic` / `vendor-internal` / `exam-vendor`. Predicts whether "correct" means what a professional means by it.
+- **Grader type** — `deterministic` / `rubric+judge` / `human` / `judge-vs-gold` / `mixed`. Each has a characteristic failure mode: format confounds, judge bias, irreproducibility.
 - **Difficulty headroom** — best current frontier score; below ~60% still separates models, above ~95% is a regression test.
-- **Contamination exposure** — how long gold answers have been downloadable, and whether the eval set equals the public set.
-- **Reproducibility cost** — cheap public harness vs. private data, manual grading, or an agentic tool stack that confounds model with scaffold.
+- **Reproducibility & contamination** — public data + published harness (so agentic scaffolds are held fixed), and how long the answer key has been downloadable.
 
-## The landscape in one table
+## Benchmark Landscape
 
-Rows are every eval surveyed; columns are the comparison axes. Two columns use controlled vocabularies so the table sorts cleanly — **Authorship**: `experts` (practitioner/SME-written), `crowdsourced`, `derived` (built from another dataset), `forum-scraped`, `researchers`, `synthetic` (template-generated), `vendor-internal`, `exam-vendor`; **Grader**: `deterministic` (exact/program/field/cell match), `rubric+judge` (expert rubric scored by an LLM), `human` (manual, unpublished process), `judge-vs-gold` (LLM judge against a gold answer), `mixed`. Full per-eval facts and the raw data are in [`benchmarks/`](benchmarks/README.md); reasons for each cut are in the rejected list below.
+One row per surveyed eval, sorted by year. Columns 8–12 are the five selection criteria: **Task validity** is rated `high`/`med`/`low` (high = a practitioner would recognize the item as their job); **Gold-label quality**, **Grader**, **Headroom**, and **Repro & contamination** carry the evidence directly. Vocabularies for `Authorship` and `Grader` are defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); cut reasons: the rejected list below.
 
-| # | Eval | Year | Task type | Scenario coverage | Size | Authorship | Grader | Best frontier score | Fully public? | Taken forward |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | FinQA | 2021 | Disclosure numeric QA | S&P 500 earnings reports, FY1999–2019 | 8,281 | experts | deterministic | saturating; labels noisy | yes (+ answers since 2021) | no |
-| 2 | TAT-QA | 2021 | Hybrid table+text QA | 2,757 report snippets, mixed issuers | 16,552 q | crowdsourced | deterministic | — | yes | no |
-| 3 | ConvFinQA | 2022 | Disclosure QA, multi-turn | Same corpus, simulated dialogues | 14,115 q | derived | deterministic | — | yes | no |
-| 4 | CFA mock suites | 2023–25 | Credential exams | CFA Levels I–III mock questions | 980 q (latest) | exam-vendor | deterministic (MCQ) | **97.6% — saturated** | mixed | no |
-| 5 | FinanceBench | 2023 | Open-book filing QA | US public filings (10-K/10-Q/8-K), 40 companies | 10,231 (150 public) | experts | human | 81% wrong-or-refused (GPT-4T+RAG) | no | no |
-| 6 | DocFinQA | 2024 | Long-context numeric QA | Full filings (~123k words/item) | 7,437 | derived | deterministic | — | yes | no |
-| 7 | SpreadsheetBench v1 | 2024 | Excel formula edits | Atomic single-cell/formula tasks | 912 q | forum-scraped | deterministic | — | yes | no |
-| 8 | **FinanceQA** | **2025** | Analyst hand-spreading | **1 issuer** (Costco FY2024 10-K) + context-free concept qs | 148 | experts | human (**no grader code**) | o3 54.1% | yes (answers incl.) | **yes — P2 target** |
-| 9 | FinanceReasoning / FinChain / Fino1 | 2025 | Academic reasoning chains | Numeric finance problems / 58 synthetic topics | 2,238 / synthetic / suite | researchers, synthetic | deterministic | 89.1% | yes | no |
-| 10 | FinSearchComp | 2025 | Agentic financial search | Time-sensitive + historical search, global + Greater China | 635 q | experts | mixed | — | yes | no |
-| 11 | **PRBench-Finance** | **2025** | Open-ended professional advice | 13 practitioner topics: corp fin, cross-border tax, risk, markets, wealth | 600 (+300 hard) | experts | rubric+judge (κ=0.603) | ≈0.55 | yes | **yes** |
-| 12 | PRBench-Legal | 2025 | Professional advice | Legal practice (contrast domain) | 500 | experts | rubric+judge | 0.37 (hard) | yes | no (wrong domain) |
-| 13 | RuleArena | 2025 | Rule-following | Tax as 1 of 3 generic rule scenarios | 816 problems | researchers | deterministic | — | yes | no |
-| 14 | TaxCalcBench v1/v2 | 2025/26 | Tax-return preparation | US individual returns, TY24 federal + TY25 states, PDF inputs | 51 + 50 returns | vendor-internal | deterministic (line-by-line) | <⅓ strict correct | yes | near-miss |
-| 15 | Vals Finance Agent v1/v2 | 2025/26 | Agentic filing research | Recent SEC filings, 9 task categories, tool stack; v2 is a 927-q rebuild, dataset non-public | 537 (v1) / 927 (v2) | experts | judge-vs-gold (v2: jury) | 58.6% (Opus 5, v2 board 2026-08) | partially (harness MIT; v2 items private) | no |
-| 16 | BigFinanceBench | 2026 | Open-ended research tasks | Financial-research questions across issuers | 928 (50 public) | experts | rubric+judge | 58.8% | no | no |
-| 17 | BlueFin | 2026 | Financial spreadsheet agent | Build/modify/comprehend financial workbooks | 131 tasks | researchers | rubric+judge (α=0.826) | <50% | yes | no |
-| 18 | FinRetrieval | 2026 | Agentic data retrieval | Single-number lookups, 6 statement categories, global issuers | 500 q | vendor-internal | deterministic | 90.8% w/ vendor MCP | yes | no |
-| 19 | Rivet TaxBench | 2026 | Professional tax work | 250+ real client scenarios, CPA-validated | 500+ prompts | vendor-internal | deterministic (pass@1 & pass^5) | <50% pass^5 everywhere | **no** | no |
-| 20 | SpreadsheetBench 2 | 2026 | Workflow-level modeling | Real filings → multi-sheet models (avg 11.8 sheets) | 321 tasks | experts | deterministic (via agent scaffold) | — | yes | near-miss |
-| 21 | τ³-Banking (τ-Knowledge) | 2026 | Agentic banking customer service | Retail-banking support over a 698-doc knowledge base; tools discovered from prose (dispute → freeze card → provisional credit chains) | 97 tasks | researchers | deterministic (DB-state; pass^k) | 25.5% pass¹ (paper, Mar 2026) | yes (CC-BY-4.0, tau2-bench dev/tau3 branch) | no |
+| # | Eval | Year | Scenario | Input format | Size | Authorship | Task validity | Gold-label quality | Grader | Headroom (best score) | Repro & contamination | Taken forward |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | FinQA | 2021 | Disclosure QA, S&P 500 earnings reports | table+text excerpt | 8,281 | experts | med | noisy — only 91/8,281 survived re-verification | deterministic | saturating | answers public since 2021 | no |
+| 2 | TAT-QA | 2021 | Disclosure QA, report snippets | table+text excerpt | 16,552 q | crowdsourced | low | crowd labels | deterministic | — | public since 2021 | no |
+| 3 | ConvFinQA | 2022 | Disclosure QA, multi-turn | table+text excerpt, dialogue | 14,115 q | derived | med | inherits FinQA noise | deterministic | — | public since 2022 | no |
+| 4 | CFA mock suites | 2023–25 | Credential exam prep, Levels I–III | MCQ + essay | 980 q | exam-vendor | low | clean answer key | deterministic (MCQ) | **97.6% — saturated** | mixed availability | no |
+| 5 | FinanceBench | 2023 | Open-book QA, US filings (40 issuers) | full filing, open-book | 10,231 (150 public) | experts | med | evidence-linked triplets | human | 81% wrong-or-refused (one RAG config) | 150/10,231 public; manual grading | no |
+| 6 | DocFinQA | 2024 | Long-context QA, full filings | full filing (~123k words) | 7,437 | derived | med | inherits FinQA labels | deterministic | — | public | no |
+| 7 | SpreadsheetBench v1 | 2024 | Atomic Excel formula edits | xlsx workbook | 912 q | forum-scraped | med | execution-checkable | deterministic | — | public | no |
+| 8 | **FinanceQA** | **2025** | Analyst hand-spreading, 1 issuer (Costco 10-K) | filing excerpt (or none) | 148 | experts | **high** | single gold; conventions ambiguous (P2: 55% defensible-alt) | human (**no grader code**) | o3 54.1% | answers+CoT public since 2025-01; eval set = public set | **yes — P2 target** |
+| 9 | FinanceReasoning / FinChain / Fino1 | 2025 | Academic numeric reasoning | text problems | 2,238 / synthetic | researchers, synthetic | low | credibility-checked / template-derived | deterministic | 89.1% | public | no |
+| 10 | FinSearchComp | 2025 | Open-domain financial search, global + Greater China | open web + tools | 635 q | experts | med | expert-checked, time-sensitive | mixed | — | public | no |
+| 11 | **PRBench-Finance** | **2025** | Professional advice, 13 practitioner topics | conversational prompts (1–10 turns) | 600 (+300 hard) | experts | **high** | expert rubrics (93.9% justified) | rubric+judge (κ=0.603) | ≈0.55 | fully public (CC-BY-4.0 + MIT harness) | **yes** |
+| 12 | PRBench-Legal | 2025 | Professional legal advice | conversational prompts | 500 | experts | high | expert rubrics | rubric+judge | 0.37 (hard) | fully public | no (wrong domain) |
+| 13 | RuleArena | 2025 | Rule-following (tax is 1 of 3 scenarios) | rules + scenario text | 816 problems | researchers | low | rule-derived | deterministic | — | public | no |
+| 14 | TaxCalcBench v1/v2 | 2025/26 | US individual tax returns, federal + state | structured JSON / PDF forms | 51 + 50 returns | vendor-internal | high | engine-derived XML golds | deterministic (line-by-line) | <⅓ strict correct | public (MIT) | near-miss |
+| 15 | Vals Finance Agent v1/v2 | 2025/26 | Agentic filing research, 9 task categories | tool harness: EDGAR + web search | 537 (v1) / 927 (v2) | experts | high | expert golds, private | judge-vs-gold (v2: jury) | 58.6% (Opus 5, v2 board 2026-08) | harness MIT; v2 items private | no |
+| 16 | BigFinanceBench | 2026 | Open-ended financial research | research question + tools | 928 (50 public) | experts | high | point-weighted rubrics (36,241 pts) | rubric+judge | 58.8% | 50/928 public | no |
+| 17 | BlueFin | 2026 | Financial spreadsheet build/modify/comprehend | xlsx workbook (agent) | 131 tasks | researchers | high | rubrics validated vs experts (α=0.826) | rubric+judge | <50% | public | no |
+| 18 | FinRetrieval | 2026 | Single-number financial data lookup, global issuers | retrieval tools / MCP | 500 q | vendor-internal | med | structured field golds | deterministic | 90.8% w/ vendor MCP | public (MIT) | no |
+| 19 | Rivet TaxBench | 2026 | Professional tax workflows, real client scenarios | client scenario prompts | 500+ prompts | vendor-internal | high | CPA-validated, private | deterministic (pass@1 & pass^5) | <50% pass^5 everywhere | **not public** | no |
+| 20 | SpreadsheetBench 2 | 2026 | Workflow-level financial modeling (avg 11.8 sheets) | multi-sheet xlsx (agent) | 321 tasks | experts | high | expert-annotated workbooks | deterministic (via agent scaffold) | — | public | no |
+| 21 | τ³-Banking (τ-Knowledge) | 2026 | Retail-banking customer support | KB corpus (698 docs) + tools, dialogue | 97 tasks | researchers | high | DB-state targets | deterministic (DB-state; pass^k) | 25.5% pass¹ (paper, Mar 2026) | public (CC-BY-4.0) | no |
 
 ### Cross-cutting instruments that don't fit a cluster
 
@@ -113,7 +111,7 @@ Fuller context for every entry is in the cluster tables above; this is the expli
 |---|---|
 | FinQA / ConvFinQA | Answers public since 2021–22 (contaminated), label noise evidenced by Aiera's 91-item verified subset, and they measure table arithmetic, not analyst judgment. |
 | TAT-QA | Crowdsourced questions, not practitioner work. |
-| FinanceBench | Only 150/10,231 items public; the headline measures a retrieval system + model jointly; manual grading isn't reproducible. |
+| FinanceBench | Only 150/10,231 items public and grading was manual; the headline number is tied to one retrieval configuration, so it isn't reproducible as shipped. |
 | DocFinQA | Long-context stressor that inherits FinQA's labels and adds a needle-finding confound. |
 | FinRetrieval | Narrow (single-number retrieval) and partly a vendor demo for Daloopa's MCP. |
 | TaxCalcBench | Closest call on the deterministic-grader axis — but its grader is already its best feature, and tax prep sits farther from the analyst workflows we probe. |
@@ -123,7 +121,7 @@ Fuller context for every entry is in the cluster tables above; this is the expli
 | BlueFin | Young, small, agent-scaffold-dependent, no clear owning institution. |
 | CFA mock suites | Saturated (97.6% on L1); exams measure credential recall, not work product. |
 | FinanceReasoning / FinChain / Fino1 | Academic reasoning-chain benchmarks; FinChain is synthetic; low task validity. |
-| Vals Finance Agent v1/v2 | Practitioner-authored but confounds model with a web-search/EDGAR tool stack; v2's 927 items are not publicly downloadable. |
+| Vals Finance Agent v1/v2 | Well-built agent eval, but v2's 927 items are not publicly downloadable and scores live on a commercial leaderboard — nothing to re-grade or improve from outside. |
 | τ³-Banking (τ-Knowledge) | Excellent instrument design (deterministic DB-state grading, pass^k, open CC-BY-4.0) — but it measures banking *customer service* conversations, not analyst work; the design ideas feed our P5 brief, the task domain doesn't fit. |
 | BigFinanceBench | Strongest rejected candidate — rubric-grades the derivation — but only 50 of 928 items are public, so its grader can't be studied from outside. |
 | FinSearchComp | Measures search execution more than financial reasoning. |
