@@ -36,4 +36,4 @@ Raw official data for the four deep-dived evals plus the BlueFin public sample k
 
 ## What we chose not to do, and why
 
-Five deliberate omissions with reasons — cross-family judge validation first: see `not_done.md`.
+One deliberate omission, chosen because it is the deepest methodological caveat in the repo — every LLM verdict here is Claude judging Claude: see `not_done.md`. Smaller scope choices are documented inline where they arose (P1 Limits, P2 scope notes and TBD cells).
