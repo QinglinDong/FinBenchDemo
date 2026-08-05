@@ -6,12 +6,31 @@
 
 ## Contents
 
-- [Benchmark criteria](#benchmark-criteria) · [Non-criteria](#non-criteria)
-- [Axes of comparison](#axes-of-comparison) · [Finance Task Hierarchy](#finance-task-hierarchy)
-- [Benchmark Landscape](#benchmark-landscape) · [Cross-cutting instruments](#cross-cutting-instruments-that-dont-fit-a-cluster)
-- [Hierarchy Coverage](#hierarchy-coverage) · [Uncovered branches in detail](#uncovered-branches-in-detail)
-- [The two evals we take forward](#the-two-evals-we-take-forward): [FinanceQA](#financeqa-afterquery-2025) · [PRBench-Finance](#prbench-finance-scale-ai-2025) · [Why these two](#why-these-two-together-and-the-closest-alternatives)
-- [Conclusion: limits and next steps](#conclusion-limits-and-next-steps) · [Sources](#sources)
+1. [Finance Task Hierarchy](#finance-task-hierarchy)
+2. [Benchmark criteria](#benchmark-criteria) · [Non-criteria](#non-criteria)
+3. [Benchmark Landscape](#benchmark-landscape) — [Axes](#axes-of-comparison) · [Cross-cutting instruments](#cross-cutting-instruments-that-dont-fit-a-cluster) · [Hierarchy Coverage](#hierarchy-coverage) · [Uncovered branches](#uncovered-branches-in-detail)
+4. [Deep Dive 1: FinanceQA](#deep-dive-1-financeqa-afterquery-2025)
+5. [Deep Dive 2: PRBench-Finance](#deep-dive-2-prbench-finance-scale-ai-2025) · [The down-select](#the-down-select-why-these-two-of-the-five-candidates)
+6. [Conclusion: limits and next steps](#conclusion-limits-and-next-steps) · [Sources](#sources)
+
+## Finance Task Hierarchy
+
+`†` = no public benchmark coverage (detailed in the gap table below).
+
+| Code | Domain | Tasks |
+|---|---|---|
+| D1 | Research & analysis | T1 disclosure QA · T2 filing QA · T3 agentic research & search · T4 data retrieval · T5 hand-spreading |
+| D2 | Modeling (Excel) | T1 formula edits · T2 workflow modeling · T3 build/modify agent |
+| D3 | Advisory | T1 financial advice |
+| D4 | Tax & compliance | T1 return preparation · T2 professional tax workflows · T3 rule-following · T4 regulatory-filing workflows † |
+| D5 | Deals (IB) | T1 deal-document drafting † |
+| D6 | Buy-side investment management | T1 investment memo † · T2 PE / LBO review † |
+| D7 | Corporate finance | T1 FP&A † |
+| D8 | Audit & controls | T1 SOX walkthroughs & tie-outs † |
+| D9 | Insurance | T1 underwriting & actuarial † |
+| D10 | Credit & fixed income | T1 covenant & bond analytics † |
+| D11 | Banking ops | T1 retail customer support |
+| D12 | Academic & exams | T1 exam prep · T2 numeric reasoning |
 
 ## Benchmark criteria
 
@@ -42,36 +61,18 @@ Five more properties are legitimate quality criteria for finance evals. **None o
 | B10 | Run-to-run consistency | Is the score stable across repeated runs? | pass@1 ≫ pass^k collapse | Rivet TaxBench drops 40–50pp from pass@1 to pass^5; only the τ-bench family reports pass^k publicly |
 | B11 | Cost-to-run | What does one full evaluation cost? | Too expensive to iterate on | Vals FA v1 at ≈$3.79/query |
 
-## Axes of comparison
+## Benchmark Landscape
 
-- **Domain / Task (`D×` / `T×`)** — a coded two-level hierarchy of finance work, defined in the Finance Task Hierarchy table below; landscape rows and coverage gaps use the same codes.
+One row per surveyed eval, sorted by year. Columns are grouped: **eval properties** (Eval → Grader type), then the **six selection criteria C1–C6** numbered to match the criteria table, then the verdict. All values use the controlled vocabularies defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); the **Ruled out by** column lists the binding criteria (C1–C6) — the evidence sits in that row's own criteria cells, and good criterion values are **bolded**. **Candidate?** is derived mechanically: `yes` iff no C1–C6 code rules the row out. The deep-dive selection among candidates is made in the Deep Dive sections below, not here.
+
+### Axes of comparison
+
+- **Domain / Task (`D×` / `T×`)** — a coded two-level hierarchy of finance work, defined in the Finance Task Hierarchy table above; landscape rows and coverage gaps use the same codes.
 - **Input format** — what the model receives: `table+text excerpt` / `full filing` / `xlsx workbook` / `structured JSON` / `PDF forms` / `conversational prompts` / `tool harness` / `KB + tools` / `MCQ + essay` / `text problems`.
 - **Item authorship** — `experts` / `crowdsourced` / `derived` / `forum-scraped` / `researchers` / `synthetic` / `vendor-internal` / `exam-vendor`.
 - **Grader type** (a property, not a quality judgment) — `deterministic` / `rubric+judge` / `judge-vs-gold` / `human` / `mixed`.
 - **Criteria ratings** — C1 `high/med/low`; C2 `clean/validated/noisy/inherited/ambiguous/crowd/private`; C3 `high/med/low/unknown` (deterministic ⇒ high; judge rated by published agreement; unpublished ⇒ low/unknown); C4 remaining headroom `none/low/med/high/unknown` with best score; C5 `yes/partial/no`; C6 `high/med/low` freshness with the exposure evidence.
 
-### Finance Task Hierarchy
-
-`†` = no public benchmark coverage (detailed in the gap table below).
-
-| Code | Domain | Tasks |
-|---|---|---|
-| D1 | Research & analysis | T1 disclosure QA · T2 filing QA · T3 agentic research & search · T4 data retrieval · T5 hand-spreading |
-| D2 | Modeling (Excel) | T1 formula edits · T2 workflow modeling · T3 build/modify agent |
-| D3 | Advisory | T1 financial advice |
-| D4 | Tax & compliance | T1 return preparation · T2 professional tax workflows · T3 rule-following · T4 regulatory-filing workflows † |
-| D5 | Deals (IB) | T1 deal-document drafting † |
-| D6 | Buy-side investment management | T1 investment memo † · T2 PE / LBO review † |
-| D7 | Corporate finance | T1 FP&A † |
-| D8 | Audit & controls | T1 SOX walkthroughs & tie-outs † |
-| D9 | Insurance | T1 underwriting & actuarial † |
-| D10 | Credit & fixed income | T1 covenant & bond analytics † |
-| D11 | Banking ops | T1 retail customer support |
-| D12 | Academic & exams | T1 exam prep · T2 numeric reasoning |
-
-## Benchmark Landscape
-
-One row per surveyed eval, sorted by year. Columns are grouped: **eval properties** (Eval → Grader type), then the **six selection criteria C1–C6** numbered to match the criteria table, then the verdict. All values use the controlled vocabularies defined in the axes above. Full per-eval facts and raw data: [`benchmarks/`](benchmarks/README.md); the **Ruled out by** column lists the binding criteria (C1–C6) — the evidence sits in that row's own criteria cells, and good criterion values are **bolded**. **Candidate?** is derived mechanically: `yes` iff no C1–C6 code rules the row out. The deep-dive selection among candidates is made in "The two evals we take forward" below, not here.
 
 | # | Eval | Year | Domain | Task | Input format | Size | Authorship | Grader type | C1 Task validity | C2 Gold quality | C3 Grader quality | C4 Headroom | C5 Public | C6 Freshness | Ruled out by | Candidate? |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -101,7 +102,7 @@ One row per surveyed eval, sorted by year. Columns are grouped: **eval propertie
 - **[FailSafeQA](https://arxiv.org/abs/2502.06329)** (2025) — perturbation-robustness probe (misspelled/incomplete/OCR-degraded finance queries): measures *reliability under messy input*, a dimension every cluster above ignores.
 - **Consistency measurement** — pass^k is reported by Rivet's private TaxBench (pass^5) and, publicly, by the τ-bench family including τ³-Banking (pass^k, k≤4). No *analyst-workflow* eval measures whether a model gives the same answer five times, despite TaxCalcBench's documented run-to-run inconsistency — still a hole for the clusters this survey centers on.
 
-## Hierarchy Coverage
+### Hierarchy Coverage
 
 Counting the 20 surveyed evals against the Finance Task Hierarchy makes the skew visible: half of all public benchmarking sits in one domain, and six domains have none at all.
 
@@ -141,11 +142,7 @@ Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for a
 
 Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for analyst work: answer consistency (pass^k), calibrated refusal under missing data (FailSafeQA aside), multi-turn correction handling, and cost-normalized scoring.
 
-## The two evals we take forward
-
-We sample two for deep study in P2–P4. Criteria for the *sample* (not a quality ranking): fully public data, tractable to run within budget, unsaturated, practitioner-authored — and flawed in ways that are measurable and fixable, because P2 is about improving an instrument. The pair deliberately brackets the two grading regimes in the landscape: verifiable short answers (FinanceQA) vs. rubric-judged open responses (PRBench), so whatever we learn about one grader style has a contrast case.
-
-### FinanceQA (AfterQuery, 2025)
+## Deep Dive 1: FinanceQA (AfterQuery, 2025)
 
 **(a) What it is.** FinanceQA ([arXiv:2501.18062](https://arxiv.org/abs/2501.18062), Jan 2025) is a 148-item benchmark of the questions a junior analyst gets asked when hand-spreading a company: 84 *tactical* questions computed from a real 10-K — 38 *basic* (derivable from the provided excerpt) and 46 *assumption-based* (context deliberately incomplete; the model must make the standard analyst assumption, e.g. adding back operating-lease costs for adjusted EBITDA) — plus 64 *conceptual* questions with no context (accounting and valuation logic). Every tactical item comes from one document: Costco's FY2024 10-K. Items were written without LLM assistance by annotators with hedge fund / PE / IB experience. Paper grading is **human, binary, exact-match** ("no partial points"); no grader code was ever published — the GitHub repo holds a README and a PDF. Data: [`AfterQuery/FinanceQA`](https://huggingface.co/datasets/AfterQuery/FinanceQA) on HF, Apache-2.0, gold answers and chain-of-thought rationales fully public. Headline: o1 scored 48.7%; **every release-time model scored under 5% on assumption questions** (best: 2/46). Current leaderboard top: o3 at 54.1%.
 
@@ -153,7 +150,7 @@ We sample two for deep study in P2–P4. Criteria for the *sample* (not a qualit
 
 **(c) What it actually measures, in one sentence.** FinanceQA is a good measurement of whether a model makes the standard analyst assumptions when the context is deliberately incomplete — but only for one company's 10-K, and only up to the noise of an unpublished exact-match grading process.
 
-### PRBench-Finance (Scale AI, 2025)
+## Deep Dive 2: PRBench-Finance (Scale AI, 2025)
 
 **(a) What it is.** PRBench ([arXiv:2511.11562](https://arxiv.org/abs/2511.11562), Nov 2025; ACL 2026) evaluates open-ended professional reasoning against expert rubrics. The finance split: 600 conversations (plus a 300-item `finance_hard` strict subset) across 13 practitioner topics — Corporate Finance (93) and cross-border tax structuring (85) largest — authored by 182 professionals *across finance and legal combined* (per-domain counts unpublished; Scale's leaderboard phrasing suggests finance-only, which the paper doesn't support). Items are workplace-register prompts with real stakes recorded in an `economic_pathway` field (e.g. a CCAR credit-loss model underestimating tail losses by 15–20%, submission due in six weeks). Rubrics: we measured 7–30 criteria per item, mean 16.4, 9,865 finance criteria (paper and GitHub claim 19,356 across both domains; the released files contain 18,692), each weighted −10…+10 including *negative* criteria for actively harmful advice ("recommends cutting maintenance capex first": −7). Grading: an o4-mini judge scores each criterion independently; weighted, clipped to [0,1]. Validation: experts endorse criteria 93.9% of the time; judge–expert Cohen's κ = 0.603, macro-F1 = 0.802 (the often-quoted "80.2% agreement" is the F1, not raw agreement). Fully public: [`ScaleAI/PRBench`](https://huggingface.co/datasets/ScaleAI/PRBench) (CC-BY-4.0) + MIT harness ([scaleapi/PRBench](https://github.com/scaleapi/PRBench)). Paper-time finance best ≈0.51; live leaderboard ≈0.55.
 
@@ -161,15 +158,19 @@ We sample two for deep study in P2–P4. Criteria for the *sample* (not a qualit
 
 **(c) What it actually measures, in one sentence.** PRBench-Finance is a good measurement of whether a model's open-ended professional answer *covers what a domain expert would insist it cover* — coverage of expert-salient points as scored by a mid-tier LLM judge, which is related to, but not identical with, giving correct advice.
 
-### Why these two together, and the closest alternatives
+### The down-select: why these two of the five candidates
+
+We sample two for deep study in P2–P4. Criteria for the *sample* (not a quality ranking): fully public data, tractable to run within budget, unsaturated, practitioner-authored — and flawed in ways that are measurable and fixable, because P2 is about improving an instrument. The pair deliberately brackets the two grading regimes in the landscape: verifiable short answers (FinanceQA) vs. rubric-judged open responses (PRBench), so whatever we learn about one grader style has a contrast case.
 
 FinanceQA's measurement risk is *format confounds and grading noise* on verifiable answers; PRBench's is *judge validity and rubric gaming* on open-ended ones. Both are practitioner-authored, unsaturated (≈54% / ≈55%), and fully downloadable. Five candidates survive the criteria screen; the closest alternatives for the deep-dive slot were **TaxCalcBench** (the only fully deterministic grader with real headroom — passed over because its grader, the thing we'd want to improve elsewhere, is already its best feature, and tax prep sits farther from the analyst workflows we probe) and **SpreadsheetBench 2** (closest to IB modeling reality — passed over because it needs a multi-turn agent scaffold plus an Excel execution environment, out of scope for a 24-hour budget, and improvements would target the scaffold as much as the eval). **BlueFin**, the fifth surviving candidate, is the youngest and smallest (131 items) and equally scaffold-bound.
+
+
 
 ## Conclusion: limits and next steps
 
 **Limits of this survey.** (1) Facts are a single verification pass dated 2026-08-04; leaderboards and repos drift. (2) The six criteria are an unweighted screening rubric, not a certification — B7–B11 (construct isolation, coverage, statistical power, consistency, cost) were recognized but unused. (3) C-ratings are our judgment calls from primary artifacts, not community consensus; for private evals (Rivet, Vals v2) they lean on vendor-reported numbers. (4) The coverage histogram counts evals, not economic value — the per-domain benefit estimate (time-saving × headcount) that would turn coverage gaps into a priority order is deliberately skipped. (5) The Finance Task Hierarchy is one defensible cut and is **not MECE**: it mixes cutting axes (D1–D8 by function, D9/D11 by industry, D12 by item provenance), has overlapping leaves (hand-spreading D1 T5 is arguably modeling — we file it under D1 because the deliverable is a figure, not a workbook), and omits branches the assignment itself names (portfolio management, quantitative research). We accept this deliberately: the tree is a pragmatic classifier for observed evals and gaps with stated boundary rulings, not a claim about the full space.
 
-**Next steps.** (1) Follow the criteria: five candidates survive the screen (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); the down-select to two, and its practical rationale, is in "The two evals we take forward", and the P2 critique-improve-measure work executes on it. (2) Add the per-domain benefit estimation to rank the six empty domains for eval construction. (3) Re-run the verification pass before relying on any number here after ~Q4 2026. (4) The P5 vendor brief is the concrete instrument for closing the highest-priority gap once ranked.
+**Next steps.** (1) Follow the criteria: five candidates survive the screen (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); the down-select to two, and its practical rationale, is in the Deep Dive sections, and the P2 critique-improve-measure work executes on it. (2) Add the per-domain benefit estimation to rank the six empty domains for eval construction. (3) Re-run the verification pass before relying on any number here after ~Q4 2026. (4) The P5 vendor brief is the concrete instrument for closing the highest-priority gap once ranked.
 
 ## Sources
 
