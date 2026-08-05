@@ -7,7 +7,7 @@
 1. **Understand the domain.** We organize finance-practitioner work into a twelve-domain task hierarchy (D1–D12, each domain split into tasks) — the coordinate system everything else in this repo uses.
 2. **Survey what exists.** Twenty public finance evals, each verified against its primary artifact and placed on the hierarchy.
 3. **Filter with explicit criteria.** We propose six benchmark-quality criteria (C1 task validity … C6 freshness), state what we deliberately did *not* screen on, and apply the filter row by row in the landscape table — the verdict column is derived mechanically from the criteria, not hand-picked. Counting the surviving map against the hierarchy also shows where measurement is thin: half of all public benchmarking sits in one domain (research & analysis), and six domains — deals, buy-side IM, corporate finance, audit, insurance, credit — have no public coverage at all.
-4. **Deep-dive the survivors.** Five evals pass the filter (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); each gets a full description, the case for it, and one sharp sentence on what it actually measures. A final down-select — on practical grounds, not quality — sends FinanceQA and PRBench-Finance into the P2 critique-improve-measure work.
+4. **Deep-dive the survivors.** Five evals pass the filter (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); each gets a full description, the case for it, and one sharp sentence on what it actually measures. All five are P1's selection; the Conclusion's *P2 Target Selection* explains — on practical grounds, not quality — why the P2 critique-improve-measure work executes on FinanceQA, with PRBench-Finance as the grading-regime contrast.
 
 ## Contents
 
@@ -19,7 +19,7 @@
 6. [Deep Dive 3: TaxCalcBench](#deep-dive-3-taxcalcbench-column-tax-202526)
 7. [Deep Dive 4: SpreadsheetBench 2](#deep-dive-4-spreadsheetbench-2-ruc-2026)
 8. [Deep Dive 5: BlueFin](#deep-dive-5-bluefin-2026)
-9. [The down-select](#the-down-select-why-these-two-of-the-five-candidates) · [Conclusion](#conclusion-limits-and-next-steps) · [Sources](#sources)
+9. [Conclusion](#conclusion) — [P2 Target Selection](#p2-target-selection) · [Limits](#limits) · [Next Steps](#next-steps) · [Sources](#sources)
 
 ## Finance Task Hierarchy
 
@@ -190,19 +190,19 @@ Cross-cutting measurement dimensions (not tasks) also remain unbenchmarked for a
 
 **(c) What it actually measures, in one sentence.** BlueFin is a good measurement of whether a model's spreadsheet work satisfies expert-written per-task criteria — rubric-graded modeling quality with the survey's best-validated judge, at an n too small to rank models tightly.
 
-### The down-select: why these two of the five candidates
+## Conclusion
 
-We sample two for deep study in P2–P4. Criteria for the *sample* (not a quality ranking): fully public data, tractable to run within budget, unsaturated, practitioner-authored — and flawed in ways that are measurable and fixable, because P2 is about improving an instrument. The pair deliberately brackets the two grading regimes in the landscape: verifiable short answers (FinanceQA) vs. rubric-judged open responses (PRBench), so whatever we learn about one grader style has a contrast case.
+### P2 Target Selection
 
-FinanceQA's measurement risk is *format confounds and grading noise* on verifiable answers; PRBench's is *judge validity and rubric gaming* on open-ended ones. Both are practitioner-authored, unsaturated (≈54% / ≈55%), and fully downloadable. Five candidates survive the criteria screen; the closest alternatives for the deep-dive slot were **TaxCalcBench** (the only fully deterministic grader with real headroom — passed over because its grader, the thing we'd want to improve elsewhere, is already its best feature, and tax prep sits farther from the analyst workflows we probe) and **SpreadsheetBench 2** (closest to IB modeling reality — passed over because it needs a multi-turn agent scaffold plus an Excel execution environment, out of scope for a 24-hour budget, and improvements would target the scaffold as much as the eval). **BlueFin**, the fifth surviving candidate, is the youngest and smallest (131 items) and equally scaffold-bound.
+P1 selects all five deep-dived evals — the filter, not taste, decided that. The P2 critique-improve-measure budget then executes on **FinanceQA**, with **PRBench-Finance** as the standing contrast case, for practical reasons rather than quality ones: the pair brackets the two grading regimes in the landscape (verifiable short answers vs. rubric-judged open responses, so whatever P2 learns about one grader style has a counterpart), both are fully downloadable and cheap to run inside the timebox, and FinanceQA's flaws are precisely the measurable-and-fixable kind P2 needs (an unpublished grader, a format confound, ambiguous golds). The other three stay on the bench for stated, non-quality reasons: **TaxCalcBench**'s deterministic grader is already its best feature — a grader-improvement project has nothing to fix; **SpreadsheetBench 2** and **BlueFin** require an Excel execution environment plus an agent scaffold, where improvement effort would flow into the scaffold rather than the instrument.
 
+### Limits
 
+(1) Facts are a single verification pass dated 2026-08-04; leaderboards and repos drift. (2) The six criteria are an unweighted screening rubric, not a certification — B7–B11 (construct isolation, coverage, statistical power, consistency, cost) were recognized but unused. (3) C-ratings are our judgment calls from primary artifacts, not community consensus; for private evals (Rivet, Vals v2) they lean on vendor-reported numbers. (4) The coverage histogram counts evals, not economic value — the per-domain benefit estimate (time-saving × headcount) that would turn coverage gaps into a priority order is deliberately skipped. (5) The Finance Task Hierarchy is one defensible cut and is **not MECE**: it mixes cutting axes (D1–D8 by function, D9/D11 by industry, D12 by item provenance), has overlapping leaves (hand-spreading D1 T5 is arguably modeling — we file it under D1 because the deliverable is a figure, not a workbook), and omits branches the assignment itself names (portfolio management, quantitative research). We accept this deliberately: the tree is a pragmatic classifier for observed evals and gaps with stated boundary rulings, not a claim about the full space.
 
-## Conclusion: limits and next steps
+### Next Steps
 
-**Limits of this survey.** (1) Facts are a single verification pass dated 2026-08-04; leaderboards and repos drift. (2) The six criteria are an unweighted screening rubric, not a certification — B7–B11 (construct isolation, coverage, statistical power, consistency, cost) were recognized but unused. (3) C-ratings are our judgment calls from primary artifacts, not community consensus; for private evals (Rivet, Vals v2) they lean on vendor-reported numbers. (4) The coverage histogram counts evals, not economic value — the per-domain benefit estimate (time-saving × headcount) that would turn coverage gaps into a priority order is deliberately skipped. (5) The Finance Task Hierarchy is one defensible cut and is **not MECE**: it mixes cutting axes (D1–D8 by function, D9/D11 by industry, D12 by item provenance), has overlapping leaves (hand-spreading D1 T5 is arguably modeling — we file it under D1 because the deliverable is a figure, not a workbook), and omits branches the assignment itself names (portfolio management, quantitative research). We accept this deliberately: the tree is a pragmatic classifier for observed evals and gaps with stated boundary rulings, not a claim about the full space.
-
-**Next steps.** (1) Follow the criteria: five candidates survive the screen (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); the down-select to two, and its practical rationale, is in the Deep Dive sections, and the P2 critique-improve-measure work executes on it. (2) Add the per-domain benefit estimation to rank the six empty domains for eval construction. (3) Re-run the verification pass before relying on any number here after ~Q4 2026. (4) The P5 vendor brief is the concrete instrument for closing the highest-priority gap once ranked.
+(1) Execute P2 on the target chosen in P2 Target Selection above; the other four deep-dived evals remain live candidates for later critique-improve-measure cycles. (2) Add the per-domain benefit estimation to rank the six empty domains for eval construction. (3) Re-run the verification pass before relying on any number here after ~Q4 2026. (4) The P5 vendor brief is the concrete instrument for closing the highest-priority gap once ranked.
 
 ## Sources
 
