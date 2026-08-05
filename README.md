@@ -34,6 +34,6 @@ Runs both benchmarks (FinanceQA grader, then the PRBench probe). Per-step breakd
 
 Raw official data for the four deep-dived evals plus the BlueFin public sample kept as demotion evidence (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin), downloaded unmodified so every P1 claim traces to a primary artifact. Catalog with counts and licenses: `benchmarks/README.md`.
 
-## One thing we chose not to do, and why
+## What we chose not to do, and why
 
-See `not_done.md`.
+Six deliberate omissions with reasons — cross-family judge validation first: see `not_done.md`.
