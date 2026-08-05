@@ -26,7 +26,7 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 cd p2 && ANTHROPIC_API_KEY=<your-key> ./run_all.sh
 ```
 
-Runs both benchmarks (FinanceQA grader, then the PRBench probe). Per-step breakdowns: sections A4 and B4 of `P2.claude_run_eval_improvement.md`. All datasets are checked in under `benchmarks/`; a from-scratch rerun costs under $25 total and is idempotent/resumable.
+Runs both benchmarks (FinanceQA grader, then the PRBench probe). Per-step breakdowns: sections A4 and B4 of `P2.claude_run_eval_improvement.md`. All datasets are checked in under `benchmarks/`; a from-scratch rerun costs roughly $30 total and is idempotent/resumable.
 
 ## `benchmarks/` — the surveyed evals, verbatim
 
