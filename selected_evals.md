@@ -1,8 +1,13 @@
-# P1 — The Finance Benchmark Landscape, and Two Evals Sampled for Deep Study
+# P1 — Finance Benchmarks: Landscape, Filter, and Five Deep Dives
 
-*The landscape map below was compiled across two survey passes (one in a parallel Claude session, one here); every load-bearing fact was re-verified on 2026-08-04 against primary sources — papers, HuggingFace dataset APIs, downloaded parquet files, and live leaderboards. Where a verified fact contradicts a source's own claim, we say so.*
+*Every load-bearing fact below was verified on 2026-08-04 against primary artifacts — papers, HuggingFace dataset APIs, downloaded parquet files, live leaderboards — and the raw data of eight surveyed evals is mirrored unmodified in [`benchmarks/`](benchmarks/README.md). Where a verified fact contradicts a source's own claim, we say so.*
 
-**How to read this file.** The bulk of it is a map: what public finance evals exist, organized by the practitioner work they simulate. At the end we pick **two** — FinanceQA and PRBench-Finance — to take forward into P2–P4. That choice is a *sampling* decision (which instruments are most productive to study and improve inside a 24-hour budget), not a ranking; most evals here are good measurements of *something*, and the per-eval notes try to say what.
+**What this file does, in four moves.**
+
+1. **Understand the domain.** We organize finance-practitioner work into a twelve-domain task hierarchy (D1–D12, each domain split into tasks) — the coordinate system everything else in this repo uses.
+2. **Survey what exists.** Twenty public finance evals, each verified against its primary artifact and placed on the hierarchy.
+3. **Filter with explicit criteria.** We propose six benchmark-quality criteria (C1 task validity … C6 freshness), state what we deliberately did *not* screen on, and apply the filter row by row in the landscape table — the verdict column is derived mechanically from the criteria, not hand-picked. Counting the surviving map against the hierarchy also shows where measurement is thin: half of all public benchmarking sits in one domain (research & analysis), and six domains — deals, buy-side IM, corporate finance, audit, insurance, credit — have no public coverage at all.
+4. **Deep-dive the survivors.** Five evals pass the filter (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin); each gets a full description, the case for it, and one sharp sentence on what it actually measures. A final down-select — on practical grounds, not quality — sends FinanceQA and PRBench-Finance into the P2 critique-improve-measure work.
 
 ## Contents
 
