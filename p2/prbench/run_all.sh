@@ -12,6 +12,7 @@ python3 prepare_items.py       # ../../benchmarks/prbench/finance.parquet -> dat
 python3 generate_responses.py  # claude-sonnet-4-6 answers each item once -> data/responses.jsonl
 python3 run_probe.py       # 15 items x {original,padded} x {replica,hardened} judged per criterion (cached, resumable)
 python3 analyze.py         # -> results/summary.md
+python3 probe_plots.py     # -> results/plots/ (rubric anatomy + padding deltas, no API)
 
 # B sweep: 200 items (100 standard + 100 hard) x 3 tiers, batched judging (~$22)
 python3 sweep_prepare.py   # -> data/sweep_items.jsonl (seed 42)
