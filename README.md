@@ -30,7 +30,7 @@ Details, per-step breakdown, and expected outputs: bottom section of `P2.claude_
 
 ## `benchmarks/` — the surveyed evals, verbatim
 
-Raw official data for eight of the P1 evals (FinanceQA, PRBench, FinQA, finqa-verified, FinanceBench open sample, TaxCalcBench, FinRetrieval, BigFinanceBench subset), downloaded unmodified so every P1 claim traces to a primary artifact. Catalog with counts and licenses: `benchmarks/README.md`.
+Raw official data for the five deep-dived evals (FinanceQA, PRBench-Finance, TaxCalcBench, SpreadsheetBench 2, BlueFin public sample), downloaded unmodified so every P1 claim traces to a primary artifact. Catalog with counts and licenses: `benchmarks/README.md`.
 
 ## One thing we chose not to do, and why
 
