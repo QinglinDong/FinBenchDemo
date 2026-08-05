@@ -11,6 +11,8 @@ A survey, critique, runnable improvement, and failure analysis of public finance
 
 ## What's in each file
 
+Files carry `P1.`–`P5.` ordering prefixes; they are the assignment's `selected_evals.md`, `claude_run_eval_improvement.md`, `failure_modes.md`, `leverage_finding.md`, and `vendor_brief.md` respectively.
+
 | file | part | contents |
 |---|---|---|
 | `P1.selected_evals.md` | P1 | Finance task hierarchy (D1–D12), six-criteria benchmark filter (C1–C6), 20-eval landscape with per-row criteria scoring and coverage histogram, four deep dives, and the P2 target selection |
